@@ -28,7 +28,7 @@ Na imagem seguinte, você pode ver como os dados que estão na parte esquerda po
 
 Neste projeto você **construirá uma _página web_ para visualizar um _conjunto (set) de dados_** que se adeque às necessidades de seu usuário.
 
-Como entregável final terá uma página web que permita **visualizar dados, filtrá-los, ordená-los e fazer algum cálculo agregado**. Por cálculo agregado nos referimos aos diversos cálculos que podem ser feitos com os dados para mostrar a informação mais relevante para os usuários (médias, valores máximos e mínimos, etc).
+Como entregável final, terá uma página web que permita **visualizar dados, filtrá-los, ordená-los e fazer algum cálculo agregado**. Por cálculo agregado, nos referimos aos diversos cálculos que podem ser feitos com os dados para mostrar a informação mais relevante para os usuários (médias, valores máximos e mínimos, etc).
 
 Para este projeto trazemos uma série de dados de _temáticas diferentes_ para que você explore e decida com qual delas deseja trabalhar. Escolhemos especificamente estes conjuntos de dados porque cremos que se adequem bem a esta etapa de sua aprendizagem.
 
@@ -36,16 +36,16 @@ Uma vez que você defina sua área de interesse, busque entender quem é seu usu
 
 Este são os dados que propomos:
 
-- [Pokémon](src/data/pokemon/pokemon.json): Neste conjunto você encontrará uma lista com os 251 Pokémon da região de Kanto e Johto, com suas respectivas estatísticas utilizadas no jogo [Pokémon GO](http://pokemongolive.com).
+- [Pokémon](src/data/pokemon/pokemon.json): Neste conjunto você encontrará uma lista com os 251 Pokémons da região de Kanto e Johto, com suas respectivas estatísticas utilizadas no jogo [Pokémon GO](http://pokemongolive.com).
 
-  - [Pesquisa com jogadores de Pokémon Go](src/data/pokemon/README.pt-BR.md)
+  - [Pesquisa com jogadores de Pokémon Go](src/data/pokemon/README.md)
 
 - [League of Legends - Challenger leaderboard](src/data/lol/lol.json): Este conjunto mostra a lista de jogadores de uma liga do jogo League of Legends (LoL).
 
-  - [Pesquisa com jogadores de LoL](src/data/lol/README.pt-BR.md)
+  - [Pesquisa com jogadores de LoL](src/data/lol/README.md)
 
 - [Rick and Morty](src/data/rickandmorty/rickandmorty.json). Lista de personagens da série Rick & Morty. Você pode revisar a documentação da API neste [link](https://rickandmortyapi.com).
-  - [Pesquisa com seguidores de Rick and Morty](src/data/rickandmorty/README.pt-BR.md)
+  - [Pesquisa com seguidores de Rick and Morty](src/data/rickandmorty/README.md)
 
 ## 3. Objetivos de aprendizagem
 
@@ -109,7 +109,7 @@ Documente brevemente seu trabalho no arquivo `README.md` de seu repositório, co
 
 ### Histórias de usuário
 
-Uma vez que entenda a necessidade dos usuários, escreva as [Historias de Usuário](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio) que representem tudo que o usuário precisa fazer/ver. As **histórias de usuário** devem ser o resultado de seu processo de investigação/pesquisa de seus usuários.
+Uma vez que entenda a necessidade dos usuários, escreva as [Histórias de Usuário](https://pt.wikipedia.org/wiki/Hist%C3%B3ria_de_usu%C3%A1rio) que representem tudo que o usuário precisa fazer/ver. As **histórias de usuário** devem ser o resultado de seu processo de investigação/pesquisa de seus usuários.
 
 Não esqueça de incluir a definição de pronto (_definition of done_) e os critérios de aceitação para cada uma.
 
@@ -255,9 +255,9 @@ Antes de começar a escrever o código, você deve definir seu produto com base 
 
 Quando estiver pronta para codar, sugerimos começar desta forma:
 
-1. Uma das integrantes da dupla deve fazer um 🍴 [fork](https://help.github.com/articles/fork-a-repo/) do repositório de sua turma (a equipe de formação fornecer o link) e irá adicionar a outra integrante da dupla como [colaboradora](https://docs.github.com/pt/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) do repositório.
+1. Uma das integrantes da dupla deve fazer um 🍴 [fork](https://docs.github.com/pt/github/getting-started-with-github/quickstart/fork-a-repo) do repositório de sua turma (a equipe de formação fornecer o link) e irá adicionar a outra integrante da dupla como [colaboradora do repositório](https://docs.github.com/pt/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 
-2. Ambas farão o ⬇️ [clone](https://docs.github.com/pt/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) o repositório _forkado_ para seu computador (cópia local).
+2. Ambas farão o ⬇️ [clone](https://docs.github.com/pt/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) do repositório _forkado_ para seu computador (cópia local).
 
 3. Instale as dependências do projeto com o comando `npm install`, assumindo que já tenha instalado o [Node.js](https://nodejs.org/) (que inclui [npm](https://docs.npmjs.com/)).
 
