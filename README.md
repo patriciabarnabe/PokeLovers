@@ -47,10 +47,11 @@ Este são os dados que propomos:
 - [Rick and Morty](src/data/rickandmorty/rickandmorty.json). Lista de personagens da série Rick & Morty. Você pode revisar a documentação da API neste [link](https://rickandmortyapi.com).
   - [Pesquisa com seguidores de Rick and Morty](src/data/rickandmorty/README.md)
 
-* [Jogos Olímpicos do Rio de Janeiro](src/data/atletas/atletas.json).
-   Este conjunto nos fornece a lista de atletas que conquistaram medalhas nas
-   Olimpíadas do Rio de Janeiro.
-  - [Pesquisa com stakeholders dos Jogos Olímpicos do Rio de Janeiro](src/data/atletas/README.md)
+* [Jogos Olímpicos do Rio de Janeiro](src/data/athletes/athletes.json).
+  Este conjunto nos fornece a lista de atletas que conquistaram medalhas nas
+  Olimpíadas do Rio de Janeiro.
+
+  - [Pesquisa com stakeholders dos Jogos Olímpicos do Rio de Janeiro](src/data/athletes/README.md)
 
 * [Studio Ghibli](src/data/ghibli/ghibli.json).
   Lista de animações e personagens do [Studio Ghibli](https://ghiblicollection.com/).
