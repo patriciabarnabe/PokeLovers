@@ -61,6 +61,11 @@ const functions = {
           return descEgg
         }
       }
+  },
+
+  computeStats: function (data, firstAttribute, secondAttribute ) {
+    let average = data.reduce((a,c) =>  a+c[firstAttribute][secondAttribute]/data.length, 0)
+    return average
   }
 }
   

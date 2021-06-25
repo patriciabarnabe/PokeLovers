@@ -1,3 +1,4 @@
+
 //SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
 import functions from './data.js';
 
@@ -151,28 +152,29 @@ listPokemons(pokemon)
 let functionGenerationResult = "";
 let generationButton = "";
 
-document.getElementById("first-generation-button").addEventListener("click", function (event) {
+//3.a) Criação da função geral dos botões (primeira e segunda geração):
+function generationButtonsFunction (generationInput) {
+document.getElementById(generationInput).addEventListener("click", function (event) {
     event.preventDefault()
     generationButton = event.target.value;
     functionGenerationResult = functions.filterData(pokemon, ["generation"],["num"], generationButton);
     listPokemonsByGeneration(functionGenerationResult)
     filterNames()
   })
+}
   
-document.getElementById("second-generation-button").addEventListener("click", function (event) {
-    event.preventDefault()
-    generationButton = event.target.value;
-    functionGenerationResult = functions.filterData(pokemon, ["generation"],["num"], generationButton);
-    listPokemonsByGeneration(functionGenerationResult)
-    filterNames()
-  })
-  
+//3.b) Criação de um array com o nome dos botões:
+const pokemonGenerations = ["first-generation-button","second-generation-button"] 
+
+//3.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
+pokemonGenerations.map(generationButtonsFunction)
+
+//4. Função para printar TODAS as gerações.
 document.getElementById("all-generations-button").addEventListener("click", function (event) {
     event.preventDefault()
     listPokemonsByGeneration(pokemon)
     filterNames()
   })
-
 
 // SEÇÃO: FILTRAGEM DO TIPO:
 //1. Criação de listas de pokemons:
@@ -203,203 +205,35 @@ let functionTypeResult2 = "";
 let functionTypeResultMerged = "";
 let typeButton = "";
 
-//a) BUG
-document.getElementById("bug-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
+//3.a) Criação da função geral dos botões:
+function typeButtonsFunction (typeInput) {
+  document.getElementById(typeInput).addEventListener("click", function (event) {
+    event.preventDefault()
+    typeButton = event.target.value;
+    functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
+    functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
+    functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
+    listPokemonsByType(functionTypeResultMerged)
+    filterNames()
+  })
+}
 
-//b) DARK
-document.getElementById("dark-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
+//3.b) Criação de um array com o nome dos botões:
+let pokemonTypes = ["bug", "dark", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost",
+"grass", "ground","ice", "normal", "poison", "psychic", "rock", "water", "steel"]
 
-//c) DRAGON
-document.getElementById("dragon-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
+//3.b.I) Adição do sufixo "-type-button"
+for (let i=0; i<pokemonTypes.length; i++) {
+  pokemonTypes[i] = pokemonTypes[i] + "-type-button"
+}
 
-//d) ELETRIC
-document.getElementById("electric-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
+//3.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
+pokemonTypes.map(typeButtonsFunction)
 
-//e) FAIRY
-document.getElementById("fairy-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
+// let average = pokemon.reduce((a,c) =>  a+c["stats"]["base-attack"]/251,0)
+// console.log(average)
+// console.log(pokemon)
 
-//e) FIGHTING
-document.getElementById("fighting-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
+//console.log(functions.computeStats(pokemon, "stats", "base-attack"))
 
-//f) FIRE
-document.getElementById("fire-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//g) FLYING
-document.getElementById("flying-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//h) GHOST
-document.getElementById("ghost-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//i) GRASS
-document.getElementById("grass-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//j) GROUND
-document.getElementById("ground-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//k) ICE
-document.getElementById("ice-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//L) ICE
-document.getElementById("normal-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//m) POISON
-document.getElementById("poison-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//n) PSYCHIC
-document.getElementById("psychic-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//o) STONE
-document.getElementById("rock-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//p) STEEL
-document.getElementById("steel-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-
-//q) water
-document.getElementById("water-type-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-  functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
-  functionTypeResultMerged = Object.assign(functionTypeResult1, functionTypeResult2)
-  listPokemonsByType(functionTypeResultMerged)
-  filterNames()
-})
-//let average = pokemon.reduce((a,c) =>  a+c["stats"]["base-attack"]/251,0)
-//console.log(average)
 console.log(pokemon)
