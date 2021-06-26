@@ -1,5 +1,63 @@
+#home-background {
+    background-image: url(images/HomeBG.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0% 35%;
+    font-family:'Montserrat', sans-serif;
+    
+}
 
-* {
+.pokemon-logo-figure {
+    text-align: center;
+}
+
+#pokemon-logo-img{
+    margin-top:4%;
+    max-width:60%;
+    width:auto;
+    height:auto;
+}
+
+#pokeball-button {
+    margin-left:47%;
+    margin-top:-2%;
+    max-width:6%;
+    width:auto;
+    height:auto;
+}
+
+#pokeball-button-text-hoover {
+    text-align:center;
+    visibility:hidden;
+    color:#004d80;
+    background:white;
+    font-weight: 500;
+    display: inline;
+    padding:0.5% 1%;
+    border-radius: 5px;
+}
+
+#pokeball-button:hover {
+    animation:shake 0.5s infinite;
+}
+
+@keyframes shake{
+    0%{transform: translate(0px 0px)}
+    25%{transform: translate(5px, 0px)}
+    50%{transform: translate(0px, 5px)}
+    75%{transform: translate(-5px, 0px)}
+    100%{transform: translate(0px, 0px)}
+}
+
+#pokeball-button:hover + #pokeball-button-text-hoover  {
+visibility:visible;
+}
+
+
+
+
+/** {
     list-style: none;
     text-decoration: none;
 }

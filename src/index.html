@@ -4,63 +4,20 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
-  <body>
-  
-    <main>
-      <form class="sorting">
-        <label for="order">Ordenação</label>
+  <body id="home-background">
 
-        <select name="order" id="order">
-          <option selected disable>Selecione</option>
-          <option value="name">Alfabética</option>
-          <option value="pokemon-rarity">Raridade</option>
-          <option value="egg">Distância dos Ovos</option>
-        </select>
+    <figure class="pokemon-logo-figure">
+      <img  id="pokemon-logo-img" src="images/pokemonLogo.png" alt="Pokemon">
+    </figure>
 
-        <select name="option" id="option">
-          <option selected disable>Selecione</option>
-          <option value="ascending">Crescente</option>
-          <option value="descending">Decrescente</option>      
-        </select>
+    <form action="pokedex.html">
+      <input type="image" id="pokeball-button" src="images/pokeballButton.png">
+      <p id="pokeball-button-text-hoover">Abra a Pokedéx</p>
+    </form>
 
-        <button id="order-button">Ordenar</button>
-      </form>
 
-      <form class="filters">
-        <input type = "text" id="filterInput" placeholder="Busque por um Pokemon">
-
-        <div id="buttons-generation">
-          <button class="button" class="filter-button" class="filter-button-generation" id="all-generations-button" value="All"> Todas as Gerações </button>
-          <button class="button" class="filter-button" class="filter-button-generation" id="first-generation-button" value="I"> Geração I - Kanto </button>
-          <button class="button" class="filter-button" class="filter-button-generation" id="second-generation-button" value="II"> Geração II - Johto </button>
-        </div>
-    
-        <div id="buttons-type">
-          <button class="button" class="filter-button" class="filter-button-type" id="steel-type-button" value="Steel"> Aço </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="water-type-button" value="Water"> Água </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="dragon-type-button" value="Dragon"> Dragão </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="electric-type-button" value="Electric"> Elétrico </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="fairy-type-button" value="Fairy"> Fada </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="ghost-type-button" value="Ghost"> Fantasma </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="fire-type-button" value="Fire"> Fogo </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="ice-type-button" value="Ice"> Gelo </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="bug-type-button" value="Bug"> Inseto </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="fighting-type-button" value="Fighting"> Lutador </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="normal-type-button" value="Normal"> Normal </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="grass-type-button" value="Grass"> Planta </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="rock-type-button" value="Rock"> Pedra </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="psychic-type-button" value="Psychic"> Psíquico </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="dark-type-button" value="Dark"> Sombrio </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="ground-type-button" value="Ground"> Terrestre </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="poison-type-button" value="Poison"> Venenoso </button>
-          <button class="button" class="filter-button" class="filter-button-type" id="flying-type-button" value="Flying"> Voador </button>
-        </div>  
-      </form>
-
-      <ul id="lista-impressa"> </ul>
-      
-    </main>
     <script src="main.js" type="module"></script>
   </body>
 </html>
