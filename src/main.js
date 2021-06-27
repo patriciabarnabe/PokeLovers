@@ -74,11 +74,13 @@ for (let i=0; i<pokemon.length; i++) {
 function listPokemons (dataset) {
     const listOfPokemons = dataset.reduce((accumulator, dataset) => {
       accumulator += `
-      <li class="lista-de-pokemons"> 
-        <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
-        <p  class="id-do-pokemon">#${dataset["num"]} </p> 
-        <a  class="nome-do-pokemon"> ${dataset["name"]} </a> 
-      </li>`
+      <div class="pokemon-card"> 
+        <li class="lista-de-pokemons"> 
+          <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
+          <p class="id-do-pokemon">#${dataset["num"]} </p> 
+          <a class="nome-do-pokemon"> ${dataset["name"]} </a> 
+        </li>
+      </div> `
       return accumulator
     },[])
     
@@ -105,11 +107,11 @@ function listPokemons (dataset) {
 
 
 //SEÇÃO : FILTRO PELO TECLADO (KEYUP) 
-let filterInput = document.getElementById("filterInput");
+let filterInput = document.getElementById("pokemon-search");
 filterInput.addEventListener("keyup", filterNames);
 
 function filterNames() {
-  let filterValue = document.getElementById("filterInput").value.toUpperCase();
+  let filterValue = document.getElementById("pokemon-search").value.toUpperCase();
   let ul = document.getElementById("lista-impressa");
   let li = ul.getElementsByClassName("lista-de-pokemons");
 

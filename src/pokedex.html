@@ -4,31 +4,39 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
-  <body>
-  
-    <main>
-      <form class="sorting">
-        <label for="order">Ordenação</label>
 
+  <body id="pokedex-body">
+
+    <div id="pokedex-div-top">
+      <img id="pokedex-img-top" src="images/pokedexTopBackground.png"/>
+      <img id="pokedex-logo-top" src="images/pokedexTopLogo.png"/>
+    </div>
+    
+    <main>
+      <div id="filter-input-and-select-order-div"> 
+      <form class="filters">
+        <input type = "text" id="pokemon-search" placeholder="Busque por um Pokemon">
+    
         <select name="order" id="order">
-          <option selected disable>Selecione</option>
-          <option value="name">Alfabética</option>
+          <option selected disable class="disabled-order">Atributo</option>
+          <option value="name" class="order-selection">Alfabética</option>
           <option value="pokemon-rarity">Raridade</option>
           <option value="egg">Distância dos Ovos</option>
         </select>
 
         <select name="option" id="option">
-          <option selected disable>Selecione</option>
+          <option selected disable class="disabled-order">Ordem</option>
           <option value="ascending">Crescente</option>
           <option value="descending">Decrescente</option>      
         </select>
 
         <button id="order-button">Ordenar</button>
-      </form>
+    </div>
+    </form>
 
-      <form class="filters">
-        <input type = "text" id="filterInput" placeholder="Busque por um Pokemon">
+      <!--
 
         <div id="buttons-generation">
           <button class="button" class="filter-button" class="filter-button-generation" id="all-generations-button" value="All"> Todas as Gerações </button>
@@ -56,6 +64,7 @@
           <button class="button" class="filter-button" class="filter-button-type" id="poison-type-button" value="Poison"> Venenoso </button>
           <button class="button" class="filter-button" class="filter-button-type" id="flying-type-button" value="Flying"> Voador </button>
         </div>  
+      -->
       </form>
 
       <ul id="lista-impressa"> </ul>
