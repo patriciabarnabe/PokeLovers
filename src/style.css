@@ -94,7 +94,7 @@ visibility:visible;
     width: 100%;
 }
 
-#pokemon-search, #order, #option {
+#pokemon-search, #order, #option,#order-button {
     margin-left:1%;
     margin-top:1%;
     width: 30%;
@@ -108,7 +108,6 @@ visibility:visible;
    
     border-radius: 25px;
     border: 1pt solid #00ace6;
-    border-color: #00ace6;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     
     outline: none;
@@ -125,19 +124,40 @@ visibility:visible;
     width: 10%;
     font-size:11pt;
 }
+.disabled-order {
+    color:gray;
+}
 
+#order-button {
+    width: 11%;
+    font-size:11pt;
+    background-color: #c1f0f0;
+    border-color: #196666;
 
+}
+
+#order-button:hover {
+    background-color: #28a4a4;
+    animation:shake 0.5s infinite;
+    cursor:pointer;
+}
 
 /*ORDER pokemons*/
 .pokemon-card {
-   display: inline-flex;
-   justify-content: space-evenly; 
-   margin: 1%;
-   width: 19%;
-   height: 10%;
-   padding: 3% 2%;
-   background-color: turquoise;
-   text-align: center;
+    position:relative;
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin: 1.1%;
+    padding: 4% 2% 0% 2%;
+    
+    background-color:white;
+
+    text-align: center;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 25px 50px;
+    border: 1pt solid #009900;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
 .lista-de-pokemons {
@@ -145,22 +165,41 @@ visibility:visible;
 }
 
 .imagem-do-pokemon {
-    width: 100%;
-    height: auto;
+    position:relative;
+    max-height: 170px;
+    margin-top: -10%;
+    size: 80%;
 }
 
 .nome-do-pokemon {
-    font-size:90%;
+    position:relative;
+    font-size:110%;
+    bottom: 3%;
+    font-weight: 600;
+    color:#2e2e1f;
 }
-
+    
 .id-do-pokemon {
-    font-size:90%;
+    position:relative;
+    bottom: 4%;
+    font-size:80%;
+    color:gray;
+    left:-40%;
 }
-    
 
+.tipo-do-pokemon {
+    display: inline-flex;
+    font-size: 80%;
+    padding: 2% 8%;
+    border-radius: 20px;
+    margin-top: -30%;
+    color:#1a1a1a;
+}
 
-
-    
+p[value="Fire"] {
+    background-color: #ff8533;
+    border:1pt solid #ff8533
+}
 
 /* .dropbtn {
     background-color: rgb(175, 122, 224);

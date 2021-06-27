@@ -17,6 +17,7 @@ const orderButton = document.getElementById("order-button")
 pokemon[28].name = "Nidoran (Fêmea)"
 pokemon[31].name = "Nidoran (Macho)"
 
+
 // Alteração da coluna "generation" para aparecer somente o número da geração:
 for (let i=0; i < pokemon.length; i++) {
   if (pokemon[i].generation.num === "generation i") {
@@ -63,6 +64,11 @@ for (let i=0; i<pokemon.length; i++) {
   }
 }
 
+// Criar segunda coluna de objectos para pegar a imagem (alguns ids começam com 0):
+for (let i=0; i<pokemon.length; i++) {
+pokemon[i].num2 = i + 1
+}
+
 // Transformar variável "spawn-chance" em número:
 /*for (let i=0; i<pokemon.length; i++) {
   let po = ""
@@ -76,9 +82,11 @@ function listPokemons (dataset) {
       accumulator += `
       <div class="pokemon-card"> 
         <li class="lista-de-pokemons"> 
-          <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
+          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
           <p class="id-do-pokemon">#${dataset["num"]} </p> 
-          <a class="nome-do-pokemon"> ${dataset["name"]} </a> 
+          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type"][0]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type"][1]} </p> 
         </li>
       </div> `
       return accumulator
@@ -133,11 +141,11 @@ function listPokemonsByGeneration (dataset) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
     accumulator += `
     <li class="lista-de-pokemons"> 
-      <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
-      <p  class="id-do-pokemon">#${dataset["num"]} </p> 
-      <a  class="nome-do-pokemon"> ${dataset["name"]} </a> 
-      <p  class="geração-do-pokemon"> Geração ${dataset["generation"]["num"]} </p>
-      <p  class="geração-do-pokemon"> ${dataset["generation"]["name"]} </p>
+        <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
+        <p  class="id-do-pokemon">#${dataset["num"]} </p> 
+        <a  class="nome-do-pokemon"> ${dataset["name"]} </a> 
+        <p  class="geração-do-pokemon"> Geração ${dataset["generation"]["num"]} </p>
+        <p  class="geração-do-pokemon"> ${dataset["generation"]["name"]} </p>
     </li>`
     return accumulator
   },[])
