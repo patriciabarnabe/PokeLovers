@@ -85,6 +85,12 @@ visibility:visible;
     margin-left:-62%;   
 }
 
+#goback-button {
+    position:absolute;
+    width: 3%;  
+    margin-left:-47%;  
+    margin-top: -7%; 
+}
 /* "SEARCH FOR POKEMON" and ORDER input */
 #filter-input-and-select-order-div {
     position:relative;
@@ -186,6 +192,7 @@ visibility:visible;
 
 .lista-de-pokemons {
     display: inline;
+    text-align: center;
 }
 
 .imagem-do-pokemon {
@@ -220,99 +227,141 @@ visibility:visible;
     color:#1a1a1a;
 }
 
-p[value="Bug"], #bug-type-button {
+#resistant-to, #weak-to {
+    text-align: center;
+    font-size:80%;
+    color: gray;
+}
+.resistencia-do-pokemon, .fraqueza-do-pokemon {
+    position: relative;
+    bottom: 3%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+    height:4%;
+    margin: 0% auto;
+    font-size:50%;
+    border-radius: 100%;
+}
+
+p[value="Bug"], p[value="RBug"], #bug-type-button, #bug-resistance-button, #bug-weaknesses-button {
     background-color: #ccffcc;
     border:1pt solid #ccffcc;
 }
 
-p[value="Dark"], #dark-type-button {
+p[value="Dark"], [value="RDark"], #dark-type-button, #dark-resistance-button,#dark-weaknesses-button {
     background-color: #336699;
     border:1pt solid #336699;
     color: ghostwhite;
 }
 
-p[value="Dragon"], #dragon-type-button  {
+p[value="Dragon"], p[value="RDragon"], #dragon-type-button, #dragon-resistance-button, #dragon-weaknesses-button  {
     background-color: #800000;
     border:1pt solid #800000;
     color: ghostwhite;
 }
 
-p[value="Electric"], #electric-type-button{
+p[value="Electric"], p[value="RElectric"], #electric-type-button, #electric-resistance-button, #electric-weaknesses-button {
     background-color: #ffcc00;
     border:1pt solid #ffcc00;
 }
 
-p[value="Fairy"], #fairy-type-button {
+p[value="Fairy"], p[value="RFairy"], #fairy-type-button, #fairy-resistance-button, #fairy-weaknesses-button  {
     background-color: #b3b3ff;
     border:1pt solid #b3b3ff;
 }
 
-p[value="Fighting"], #fighting-type-button {
+p[value="Fighting"], p[value="RFighting"],#fighting-type-button , #fighting-resistance-button, #fighting-weaknesses-button {
     background-color: #a3a375;
     border:1pt solid #a3a375;
 }
 
-p[value="Fire"], #fire-type-button {
+p[value="Fire"],p[value="RFire"], #fire-type-button, #fire-resistance-button , #fire-weaknesses-button {
     background-color: #ff8533;
     border:1pt solid #ff8533
 }
 
-p[value="Flying"], #flying-type-button {
+p[value="Flying"], p[value="RFlying"], #flying-type-button , #flying-resistance-button, #flying-weaknesses-button {
     background-color: #d0e1e1;
     border:1pt solid #d0e1e1;
 }
 
-p[value="Ghost"], #ghost-type-button{
+p[value="Ghost"],p[value="RGhost"],  #ghost-type-button, #ghost-resistance-button, #ghost-weaknesses-button {
     background-color: #d1d1e0;
     border:1pt solid #d1d1e0;
 }
 
-p[value="Grass"], #grass-type-button{
+p[value="Grass"],p[value="RGrass"], #grass-type-button, #grass-resistance-button, #grass-weaknesses-button {
     background-color: #009933;
     border:1pt solid #009933;
 }
 
-p[value="Ground"], #ground-type-button {
+p[value="Ground"], p[value="RGround"], #ground-type-button , #ground-resistance-button , #ground-weaknesses-button{
     background-color: #996633;
     border:1pt solid #996633;
 }
 
-p[value="Ice"], #ice-type-button  {
+p[value="Ice"], p[value="RIce"], #ice-type-button , #ice-resistance-button , #ice-weaknesses-button {
     background-color: #99ffff;
     border:1pt solid #99ffff;
 }
 
-p[value="Normal"], #normal-type-button  {
+p[value="Normal"], p[value="RNormal"], #normal-type-button  , #normal-resistance-button , #normal-weaknesses-button{
     background-color: #ffccb3;
     border:1pt solid #ffccb3;
 }
 
-p[value="Poison"], #poison-type-button  {
+p[value="Poison"],p[value="RPoison"],  #poison-type-button  , #poison-resistance-button , #poison-weaknesses-button {
     background-color: #ff80bf;
     border:1pt solid #ff80bf;
 }
 
-p[value="Psychic"], #psychic-type-button  {
+p[value="Psychic"],p[value="RPsychic"],  #psychic-type-button , #psychic-resistance-button , #psychic-weaknesses-button {
     background-color: #6666ff;
     border:1pt solid #6666ff;
     color: ghostwhite;
 }
 
-p[value="Rock"], #rock-type-button  {
+p[value="Rock"], p[value="RRock"], #rock-type-button , #rock-resistance-button , #rock-weaknesses-button {
     background-color: #333333;
     border:1pt solid #333333;
     color: ghostwhite;
 }
 
-p[value="Steel"], #steel-type-button  {
+p[value="Steel"], p[value="RSteel"], #steel-type-button , #steel-resistance-button , #steel-weaknesses-button  {
     background-color: #b3b3b3;
     border:1pt solid #b3b3b3;
 }
 
-p[value="Water"], #water-type-button  {
+p[value="Water"], p[value="RWater"], #water-type-button , #water-resistance-button , #water-weaknesses-button {
     background-color: #33adff;
     border:1pt solid #33adff;
 }
+
+.tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: -17%;
+    font-size: 65%;
+    background-color: gainsboro;
+    padding:1% 2%;
+    border-radius: 30%;
+    
+
+}
+
+.resistencia-do-pokemon:hover, .fraqueza-do-pokemon:hover{
+    cursor: default;
+}
+
+.resistencia-do-pokemon:hover + .tooltiptext, .fraqueza-do-pokemon:hover + .tooltiptext {
+    visibility: visible;
+    cursor: pointer;
+}
+
 
 /* CHANGE TO "NONE"*/
 #filters-section {
@@ -330,10 +379,21 @@ p[value="Water"], #water-type-button  {
     width: 100%;
 }
 
-#filter-by-generation-button, #filter-by-type-button {
+#buttons-resistance {
+    display:none;
+    width: 100%;
+}
+
+#buttons-weaknesses {
+    display:none;
+    width: 100%;
+}
+
+
+#filter-by-generation-button, #filter-by-type-button, #filter-by-resistance-button, #filter-by-weaknesses-button {
     margin-left:1%;
     margin-top:1%;
-    width: 10%;
+    width: 8%;
 
     font-size:11pt;
     font-family:'Montserrat', sans-serif;
@@ -351,7 +411,7 @@ p[value="Water"], #water-type-button  {
 }
 
 
-#filter-by-generation-button:hover, #filter-by-type-button:hover {
+#filter-by-generation-button:hover, #filter-by-type-button:hover, #filter-by-resistance-button:hover, #filter-by-weaknesses-button:hover {
     cursor: pointer;
     background-color: #d2a679;
     border: 1pt solid #d2a679;
@@ -362,7 +422,7 @@ p[value="Water"], #water-type-button  {
     margin-top:1%;
     width: 15%;
 
-    font-size:11pt;
+    font-size:10pt;
     font-family:'Montserrat', sans-serif;
     font-weight: 400;
     color:black;
@@ -383,12 +443,12 @@ p[value="Water"], #water-type-button  {
     background-color: #a3c2c2;
 }
 
-.filter-button-type {
+.filter-button-type, .filter-button-resistance, .filter-button-weaknesses {
     margin-left:1%;
     margin-top:1%;
-    width: 9%;
+    width: 6%;
 
-    font-size:11pt;
+    font-size:10pt;
     font-family:'Montserrat', sans-serif;
     font-weight: 400;
     text-align: center;
@@ -401,7 +461,7 @@ p[value="Water"], #water-type-button  {
     background-color: #D1E8F4;
 }
 
-.filter-button-type:hover {
+.filter-button-type:hover, .filter-button-resistance:hover, .filter-button-weaknesses:hover{
     animation:shake 0.7s infinite;
     cursor:pointer;
 }
@@ -445,15 +505,28 @@ p[value="Water"], #water-type-button  {
 
 
 
+.pokemon-card {
+    position:relative;
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin: 0.9%;
+    padding: 4% 2% 0% 2%;
+    
+    background-color:white;
 
+    text-align: center;
 
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 10px 20px;
+    border: 1pt solid #009900;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    
+    perspective: 1000px;
+    transition: transform 1s ease;
+    transform-style: preserve-3d;
+    
+}
 
-
-
-
-
-
-
-
-
-
+.pokemon-card:hover{
+    transform: rotateY(180deg);
+}
