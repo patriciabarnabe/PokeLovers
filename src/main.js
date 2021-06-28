@@ -69,6 +69,131 @@ for (let i=0; i<pokemon.length; i++) {
 pokemon[i].num2 = i + 1
 }
 
+// Criar segunda coluna de tipo para transformar os tipos em português:
+for (let i=0; i < pokemon.length; i++) {
+  pokemon[i].type2 = [];
+  switch (pokemon[i].type[0]) {
+    case "Bug":
+      pokemon[i].type2[0] = "Inseto"
+      break
+    case "Dark":
+      pokemon[i].type2[0] = "Sombrio" 
+      break
+    case "Dragon":
+      pokemon[i].type2[0] = "Dragão" 
+      break
+    case "Electric":
+      pokemon[i].type2[0] = "Elétrico"
+      break  
+    case "Fairy":
+      pokemon[i].type2[0] = "Fada"  
+      break
+    case "Fighting":
+      pokemon[i].type2[0] = "Lutador"  
+      break
+    case "Fire":
+      pokemon[i].type2[0] = "Fogo"  
+      break
+    case "Flying":
+      pokemon[i].type2[0] = "Voador"  
+      break
+    case "Ghost":
+      pokemon[i].type2[0] = "Fantasma" 
+      break 
+    case "Grass":
+      pokemon[i].type2[0] = "Planta"
+      break
+    case "Ground":
+      pokemon[i].type2[0] = "Terrestre"
+      break
+    case "Ice":
+      pokemon[i].type2[0] = "Gelo"
+      break
+    case "Normal":
+      pokemon[i].type2[0] = "Normal"
+      break
+    case "Poison":
+      pokemon[i].type2[0] = "Venenoso"
+      break
+    case "Psychic":
+      pokemon[i].type2[0] = "Psíquico"
+      break
+    case "Rock":
+      pokemon[i].type2[0] = "Pedra"
+      break
+    case "Steel":
+      pokemon[i].type2[0] = "Aço"
+      break
+    case "Water":
+      pokemon[i].type2[0] = "Água"
+      break
+    default:
+      pokemon[i].type2[0] = ""
+      break
+  }
+  switch (pokemon[i].type[1]) {
+    case "Bug":
+      pokemon[i].type2[1] = "Inseto"
+      break
+    case "Dark":
+      pokemon[i].type2[1] = "Sombrio" 
+      break
+    case "Dragon":
+      pokemon[i].type2[1] = "Dragão" 
+      break
+    case "Electric":
+      pokemon[i].type2[1] = "Elétrico"
+      break  
+    case "Fairy":
+      pokemon[i].type2[1] = "Fada"  
+      break
+    case "Fighting":
+      pokemon[i].type2[1] = "Lutador"  
+      break
+    case "Fire":
+      pokemon[i].type2[1] = "Fogo"  
+      break
+    case "Flying":
+      pokemon[i].type2[1] = "Voador"  
+      break
+    case "Ghost":
+      pokemon[i].type2[1] = "Fantasma" 
+      break 
+    case "Grass":
+      pokemon[i].type2[1] = "Planta"
+      break
+    case "Ground":
+      pokemon[i].type2[1] = "Terrestre"
+      break
+    case "Ice":
+      pokemon[i].type2[1] = "Gelo"
+      break
+    case "Normal":
+      pokemon[i].type2[1] = "Normal"
+      break
+    case "Poison":
+      pokemon[i].type2[1] = "Venenoso"
+      break
+    case "Psychic":
+      pokemon[i].type2[1] = "Psíquico"
+      break
+    case "Rock":
+      pokemon[i].type2[1] = "Pedra"
+      break
+    case "Steel":
+      pokemon[i].type2[1] = "Aço"
+      break
+    case "Water":
+      pokemon[i].type2[1] = "Água"
+      break
+    default:
+      pokemon[i].type2[1] = ""
+      break
+  }
+}
+console.log(pokemon)
+ 
+
 // Transformar variável "spawn-chance" em número:
 /*for (let i=0; i<pokemon.length; i++) {
   let po = ""
@@ -85,8 +210,8 @@ function listPokemons (dataset) {
           <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
           <p class="id-do-pokemon">#${dataset["num"]} </p> 
           <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type"][0]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type"][1]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
         </li>
       </div> `
       return accumulator
@@ -97,9 +222,6 @@ function listPokemons (dataset) {
     
   }
 
-
-  
-//listPokemons(pokemon)
 
 
 
@@ -115,24 +237,67 @@ function listPokemons (dataset) {
 
 
 //SEÇÃO : FILTRO PELO TECLADO (KEYUP) 
-let filterInput = document.getElementById("pokemon-search");
+const filterInput = document.getElementById("pokemon-search");
 filterInput.addEventListener("keyup", filterNames);
 
 function filterNames() {
-  let filterValue = document.getElementById("pokemon-search").value.toUpperCase();
-  let ul = document.getElementById("lista-impressa");
-  let li = ul.getElementsByClassName("lista-de-pokemons");
+  const filterValue = document.getElementById("pokemon-search").value.toUpperCase();
+  const pokemonPrintedList = document.getElementById("lista-impressa");
+  const pokemonList = pokemonPrintedList.getElementsByClassName("lista-de-pokemons");
+  const pokemonCard = document.getElementsByClassName("pokemon-card");
 
-  for (let i=0; i<li.length; i++){
-    let a = li[i].getElementsByClassName("nome-do-pokemon")[0];
-    if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
-      li[i].style.display="";
+  for (let i=0; i<pokemonList.length; i++){
+    let filteredPokemonCard = pokemonList[i].getElementsByClassName("nome-do-pokemon")[0];
+    if (filteredPokemonCard.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+      pokemonList[i].style.display="";
+      pokemonCard[i].style.display="";
     } else {
-      li[i].style.display="none";
+      pokemonList[i].style.display="none";
+      pokemonCard[i].style.display="none";
     }
   }
 }
 
+
+
+// HIDE ADVANCED SEARCH
+function showAndHideFilters (section) {
+  const divSection = document.getElementById(section) 
+  if (divSection.style.display === "none") {
+    divSection.style.display="block"
+  } else {
+    divSection.style.display="none"
+  }
+}
+function hideOtherFilterDivs (showingDiv, hidingDiv) {
+  const divSectionShowed = document.getElementById(showingDiv) 
+  const divSectionHidden = document.getElementById(hidingDiv) 
+  if (divSectionShowed.style.display !== "none") {
+    divSectionHidden.style.display="none"
+  } else {
+    divSectionHidden.style.display="none"
+  }
+}
+
+//Main Filter
+document.getElementById("filters-button").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("filters-section")
+})
+
+//Generation Filter
+document.getElementById("filter-by-generation-button").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("buttons-generation")
+  hideOtherFilterDivs("buttons-generation", "buttons-type")
+})
+
+//Type Filter
+document.getElementById("filter-by-type-button").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("buttons-type")
+  hideOtherFilterDivs("buttons-type", "buttons-generation")
+})
 
 // SEÇÃO: FILTRAGEM DA GERAÇÃO DO POKEMON (NÚMERO E NOME)
 
@@ -140,13 +305,15 @@ function filterNames() {
 function listPokemonsByGeneration (dataset) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
     accumulator += `
+    <div class="pokemon-card"> 
     <li class="lista-de-pokemons"> 
-        <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
-        <p  class="id-do-pokemon">#${dataset["num"]} </p> 
-        <a  class="nome-do-pokemon"> ${dataset["name"]} </a> 
-        <p  class="geração-do-pokemon"> Geração ${dataset["generation"]["num"]} </p>
-        <p  class="geração-do-pokemon"> ${dataset["generation"]["name"]} </p>
-    </li>`
+      <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+      <p class="id-do-pokemon">#${dataset["num"]} </p> 
+      <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+      <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+      <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+    </li>
+  </div> `
     return accumulator
   },[])
   
@@ -186,18 +353,21 @@ document.getElementById("all-generations-button").addEventListener("click", func
     filterNames()
   })
 
+  
 // SEÇÃO: FILTRAGEM DO TIPO:
 //1. Criação de listas de pokemons:
 function listPokemonsByType (dataset) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
     accumulator += `
-    <li class="lista-de-pokemons"> 
-      <img class="imagem-do-pokemon" alt="${dataset.name}" src="${dataset.img}">
-      <p  class="id-do-pokemon">#${dataset["num"]} </p> 
-      <a  class="nome-do-pokemon"> ${dataset["name"]} </a> 
-      <p  class="nome-do-pokemon"> ${dataset["type"][0]} </p> 
-      <p  class="nome-do-pokemon"> ${dataset["type"][1]} </p> 
-    </li>`
+    <div class="pokemon-card"> 
+        <li class="lista-de-pokemons"> 
+          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+          <p class="id-do-pokemon">#${dataset["num"]} </p> 
+          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+        </li>
+      </div> `
     return accumulator
   },[])
   

@@ -1,5 +1,4 @@
 /* INDEX */
-
 #home-body {
     background-image: url(images/homeBackground.jpg);
     background-size: cover; 
@@ -58,13 +57,13 @@ visibility:visible;
 
 
 /* POKEDEX */
-
 /*TOP (Image and pokedex logo)*/
 #pokedex-body {
     margin: 0%;
     font-family:'Montserrat', sans-serif;
     font-weight: 400;
     background-color: #88C2CE;
+    text-align: center;
 }
 
 #pokedex-div-top {
@@ -86,15 +85,13 @@ visibility:visible;
     margin-left:-62%;   
 }
 
-
-
 /* "SEARCH FOR POKEMON" and ORDER input */
 #filter-input-and-select-order-div {
     position:relative;
     width: 100%;
 }
 
-#pokemon-search, #order, #option,#order-button {
+#pokemon-search, #order, #option,#order-button, #filters-button, #search-reset{
     margin-left:1%;
     margin-top:1%;
     width: 30%;
@@ -138,16 +135,43 @@ visibility:visible;
 
 #order-button:hover {
     background-color: #28a4a4;
-    animation:shake 0.5s infinite;
+    animation:shake 0.7s infinite;
     cursor:pointer;
 }
 
-/*ORDER pokemons*/
+#filters-button {
+    width: 5%;
+    font-size:11pt;
+    background-color: #ffcc99;
+    border-color: #ff8000;
+}
+
+#filters-button:hover {
+    background-color: #ffb366;
+    animation:shake 0.7s infinite;
+    cursor:pointer;
+}
+
+#search-reset{
+    width: 10%;
+    font-size:11pt;
+    background-color: gainsboro;
+    border-color: gray
+}
+
+#search-reset:hover {
+    background-color: gray;
+    cursor:pointer;
+}
+
+/* ADVANCED-SEARCH*/
+
+/*Pokemon CARD */
 .pokemon-card {
     position:relative;
     display: inline-flex;
     justify-content: space-evenly;
-    margin: 1.1%;
+    margin: 0.9%;
     padding: 4% 2% 0% 2%;
     
     background-color:white;
@@ -155,7 +179,7 @@ visibility:visible;
     text-align: center;
 
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    border-radius: 25px 50px;
+    border-radius: 10px 20px;
     border: 1pt solid #009900;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
@@ -190,16 +214,198 @@ visibility:visible;
 .tipo-do-pokemon {
     display: inline-flex;
     font-size: 80%;
-    padding: 2% 8%;
-    border-radius: 20px;
+    padding: 2% 4%;
+    border-radius: 10px;
     margin-top: -30%;
     color:#1a1a1a;
 }
 
-p[value="Fire"] {
+p[value="Bug"], #bug-type-button {
+    background-color: #ccffcc;
+    border:1pt solid #ccffcc;
+}
+
+p[value="Dark"], #dark-type-button {
+    background-color: #336699;
+    border:1pt solid #336699;
+    color: ghostwhite;
+}
+
+p[value="Dragon"], #dragon-type-button  {
+    background-color: #800000;
+    border:1pt solid #800000;
+    color: ghostwhite;
+}
+
+p[value="Electric"], #electric-type-button{
+    background-color: #ffcc00;
+    border:1pt solid #ffcc00;
+}
+
+p[value="Fairy"], #fairy-type-button {
+    background-color: #b3b3ff;
+    border:1pt solid #b3b3ff;
+}
+
+p[value="Fighting"], #fighting-type-button {
+    background-color: #a3a375;
+    border:1pt solid #a3a375;
+}
+
+p[value="Fire"], #fire-type-button {
     background-color: #ff8533;
     border:1pt solid #ff8533
 }
+
+p[value="Flying"], #flying-type-button {
+    background-color: #d0e1e1;
+    border:1pt solid #d0e1e1;
+}
+
+p[value="Ghost"], #ghost-type-button{
+    background-color: #d1d1e0;
+    border:1pt solid #d1d1e0;
+}
+
+p[value="Grass"], #grass-type-button{
+    background-color: #009933;
+    border:1pt solid #009933;
+}
+
+p[value="Ground"], #ground-type-button {
+    background-color: #996633;
+    border:1pt solid #996633;
+}
+
+p[value="Ice"], #ice-type-button  {
+    background-color: #99ffff;
+    border:1pt solid #99ffff;
+}
+
+p[value="Normal"], #normal-type-button  {
+    background-color: #ffccb3;
+    border:1pt solid #ffccb3;
+}
+
+p[value="Poison"], #poison-type-button  {
+    background-color: #ff80bf;
+    border:1pt solid #ff80bf;
+}
+
+p[value="Psychic"], #psychic-type-button  {
+    background-color: #6666ff;
+    border:1pt solid #6666ff;
+    color: ghostwhite;
+}
+
+p[value="Rock"], #rock-type-button  {
+    background-color: #333333;
+    border:1pt solid #333333;
+    color: ghostwhite;
+}
+
+p[value="Steel"], #steel-type-button  {
+    background-color: #b3b3b3;
+    border:1pt solid #b3b3b3;
+}
+
+p[value="Water"], #water-type-button  {
+    background-color: #33adff;
+    border:1pt solid #33adff;
+}
+
+/* CHANGE TO "NONE"*/
+#filters-section {
+    display: inline-block;
+    width: 100%;
+}
+
+#buttons-generation {
+    display:none;
+    width: 100%;
+}
+
+#buttons-type {
+    display:none;
+    width: 100%;
+}
+
+#filter-by-generation-button, #filter-by-type-button {
+    margin-left:1%;
+    margin-top:1%;
+    width: 10%;
+
+    font-size:11pt;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 400;
+    color:black;
+    text-align: center;
+    padding:0.5%;
+   
+    background-color: wheat;
+    border-radius: 25px;
+    border: 1pt solid wheat;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    
+    outline: none;
+}
+
+
+#filter-by-generation-button:hover, #filter-by-type-button:hover {
+    cursor: pointer;
+    background-color: #d2a679;
+    border: 1pt solid #d2a679;
+}
+
+.filter-button-generation {
+    margin-left:1%;
+    margin-top:1%;
+    width: 15%;
+
+    font-size:11pt;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 400;
+    color:black;
+    text-align: center;
+    padding:0.5%;
+   
+    border-radius: 25px;
+    border: 1pt solid #669999;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    
+    outline: none;
+    background-color: #c2d6d6;
+}
+
+.filter-button-generation:hover {
+    animation:shake 0.7s infinite;
+    cursor:pointer;
+    background-color: #a3c2c2;
+}
+
+.filter-button-type {
+    margin-left:1%;
+    margin-top:1%;
+    width: 9%;
+
+    font-size:11pt;
+    font-family:'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    padding:0.5%;
+   
+    border-radius: 25px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    
+    outline: none;
+    background-color: #D1E8F4;
+}
+
+.filter-button-type:hover {
+    animation:shake 0.7s infinite;
+    cursor:pointer;
+}
+
 
 /* .dropbtn {
     background-color: rgb(175, 122, 224);
