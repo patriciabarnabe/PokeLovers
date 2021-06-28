@@ -72,6 +72,23 @@ for (let i=0; i < pokemon.length; i++) {
   } 
 }
 
+//Primeira letra da raridade do Pokemon em maiúsculo:
+for (let i=0; i < pokemon.length; i++) {
+  pokemon[i]["pokemon-rarity"] = pokemon[i]["pokemon-rarity"].charAt(0).toUpperCase() + pokemon[i]["pokemon-rarity"].substr(1)
+}
+
+//Transformar raridade em português:
+for (let i=0; i < pokemon.length; i++) {
+  switch (pokemon[i]["pokemon-rarity"]) {
+    case "Legendary":
+      pokemon[i]["pokemon-rarity"] = "Lendário" 
+      break
+    case "Mythic":
+      pokemon[i]["pokemon-rarity"] = "Mítico" 
+      break
+  }
+}
+
 // Transformando undefined de tipo em vazio:
 for (let i=0; i<pokemon.length; i++) {
   if(pokemon[i].type.length === 1) {
@@ -352,7 +369,6 @@ for (let i=0; i < pokemon.length; i++) {
   }
 }
 
-
 // Criar terceira coluna de resistencia para transformar em português:
 for (let i=0; i < pokemon.length; i++) {
   pokemon[i].resistant3 = [];
@@ -418,7 +434,6 @@ for (let i=0; i < pokemon.length; i++) {
     }
   }
 }
-
 
 // Criar segunda coluna de fraqueza para transformar em apenas 2 letras:
 for (let i=0; i < pokemon.length; i++) {
@@ -486,7 +501,6 @@ for (let i=0; i < pokemon.length; i++) {
   }
 }
 
-
 // Criar terceira coluna de resistencia para transformar em português:
 for (let i=0; i < pokemon.length; i++) {
   pokemon[i].weaknesses3 = [];
@@ -553,13 +567,6 @@ for (let i=0; i < pokemon.length; i++) {
   }
 }
 
-console.log(pokemon)
-// Transformar variável "spawn-chance" em número:
-/*for (let i=0; i<pokemon.length; i++) {
-  let po = ""
-  po = pokemon[i]["stats"]["base-attack"] = parseInt(pokemon[i]["stats"]["base-attack"], 10)
-  console.log(po)
-}*/
 
 //Criação de listas de pokemons
 function listPokemons (dataset) {
@@ -578,17 +585,71 @@ function listPokemons (dataset) {
     },[])
     
     const printList= document.getElementById("lista-impressa")
-    printList .innerHTML = listOfPokemons
+    printList.innerHTML = listOfPokemons
     
   }
 
 // SEÇÃO: ORDENAÇÃO POR RARIDADE, NOME e DISTÂNCIA DOS OVOS
-  //Chamando função de ordenar
+
+  //1. Criação de listas de pokemons por raridade
+  function listPokemonsByRarity (dataset) {
+    const listOfPokemonsByRarity = dataset.reduce((accumulator, dataset) => {
+      accumulator += `
+      <div class="pokemon-card"> 
+        <li class="lista-de-pokemons"> 
+          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+          <p class="id-do-pokemon">#${dataset["num"]} </p> 
+          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
+          <p class="raridade-do-pokemon" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>  
+        </li>
+      </div> `
+      return accumulator
+    },[])
+    
+    const printList= document.getElementById("lista-impressa")
+    printList.innerHTML = listOfPokemonsByRarity
+  }
+
+//2. Criação de listas de pokemons por distância de ovos
+  function listPokemonsByEgg (dataset) {
+      const listOfPokemonsByEgg = dataset.reduce((accumulator, dataset) => {
+        accumulator += `
+        <div class="pokemon-card"> 
+          <li class="lista-de-pokemons"> 
+            <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+            <p class="id-do-pokemon">#${dataset["num"]} </p> 
+            <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+            <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+            <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
+            <p class="distancia-ovos" value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>  
+          </li>
+        </div> `
+        return accumulator
+      },[])
+      
+      const printList= document.getElementById("lista-impressa")
+      printList.innerHTML = listOfPokemonsByEgg
+    }
+
+
+  //3.Chamando função de ordenar
   orderButton.addEventListener("click", (event) => {
     event.preventDefault()
 
     const sortedData =  functions.sortData (pokemon, order.value, option.value)
-    listPokemons(sortedData)
+
+    if(order.value === "egg") {
+      listPokemonsByEgg(sortedData)
+    } 
+    else if (order.value === "pokemon-rarity") {
+      listPokemonsByRarity(sortedData)
+    }
+    else {
+      listPokemons(sortedData)
+    }
+
   })
 
 //SEÇÃO : FILTRO PELO TECLADO (KEYUP) 
@@ -612,7 +673,6 @@ function filterNames() {
     }
   }
 }
-
 
 
 // HIDE ADVANCED SEARCH

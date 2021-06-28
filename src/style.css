@@ -504,6 +504,27 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistance-butt
 } */
 
 
+.raridade-do-pokemon, .distancia-ovos{
+    font-weight: bold;
+  
+}
+
+.distancia-ovos {
+    background-color: #c1ccfd;
+}
+
+p[value="Lendário"] {
+    background-color: #ccfff7;
+    border:1pt solid #ccfff7;
+}
+
+p[value="Mítico"] {
+    background-color: #f1b7ff;
+    border:1pt solid #f1b7ff;
+}
+
+
+
 
 .pokemon-card {
     position:relative;
@@ -530,3 +551,4 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistance-butt
 .pokemon-card:hover{
     transform: rotateY(180deg);
 }
+
