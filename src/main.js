@@ -572,7 +572,8 @@ for (let i=0; i < pokemon.length; i++) {
 function listPokemons (dataset) {
     const listOfPokemons = dataset.reduce((accumulator, dataset) => {
       accumulator += `
-      <div class="pokemon-card"> 
+      <div class="card">
+      <div class="pokemon-card-front"> 
         <li class="lista-de-pokemons"> 
           <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
           <p class="id-do-pokemon">#${dataset["num"]} </p> 
@@ -580,7 +581,26 @@ function listPokemons (dataset) {
           <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
           <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
         </li>
-      </div> `
+      </div> 
+
+      <div class="pokemon-card-back"> 
+      <li class="lista-de-pokemons2"> 
+        <p class="nome-do-pokemon2"> ${dataset["name"]} </p> 
+        <p "> Peso ${dataset["size"]["weight"]} </p> 
+        <p "> Altura ${dataset["size"]["height"]} </p> 
+        <p "> Spawn-Chance${dataset["spawn-chance"]} </p> 
+        <p "> Ataque: ${dataset["stats"]["base-attack"]} </p> 
+        <p "> Defesa: ${dataset["stats"]["base-defense"]} </p> 
+        <p "> Stamina: ${dataset["stats"]["base-stamina"]} </p> 
+        <p "> Max-cp: ${dataset["stats"]["max-cp"]} </p> 
+        <p "> Max-hp: ${dataset["stats"]["max-hp"]} </p> 
+
+
+      </li>
+    </div> 
+
+    </div>   
+      `
       return accumulator
     },[])
     
@@ -588,6 +608,7 @@ function listPokemons (dataset) {
     printList.innerHTML = listOfPokemons
     
   }
+  console.log(pokemon)
 
 // SEÇÃO: ORDENAÇÃO POR RARIDADE, NOME e DISTÂNCIA DOS OVOS
 
@@ -660,7 +681,7 @@ function filterNames() {
   const filterValue = document.getElementById("pokemon-search").value.toUpperCase();
   const pokemonPrintedList = document.getElementById("lista-impressa");
   const pokemonList = pokemonPrintedList.getElementsByClassName("lista-de-pokemons");
-  const pokemonCard = document.getElementsByClassName("pokemon-card");
+  const pokemonCard = document.getElementsByClassName("card");
 
   for (let i=0; i<pokemonList.length; i++){
     let filteredPokemonCard = pokemonList[i].getElementsByClassName("nome-do-pokemon")[0];
@@ -1024,4 +1045,6 @@ function listPokemonsByWeaknesses (dataset) {
 // console.log(pokemon)
 
 //console.log(functions.computeStats(pokemon, "stats", "base-attack"))
-listPokemonsByType(pokemon)
+listPokemons(pokemon)
+
+console.log(pokemon)

@@ -198,7 +198,7 @@ visibility:visible;
 .imagem-do-pokemon {
     position:relative;
     max-height: 170px;
-    margin-top: -10%;
+    margin-top:5%;
     size: 80%;
 }
 
@@ -524,13 +524,11 @@ p[value="Mítico"] {
 }
 
 
-
-
-.pokemon-card {
+.pokemon-card-back, .pokemon-card-front{
+    float: left;
     position:relative;
     display: inline-flex;
     justify-content: space-evenly;
-    margin: 0.9%;
     padding: 4% 2% 0% 2%;
     
     background-color:white;
@@ -541,14 +539,41 @@ p[value="Mítico"] {
     border-radius: 10px 20px;
     border: 1pt solid #009900;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    
-    perspective: 1000px;
-    transition: transform 1s ease;
+    transition: .8s;
+    width: 100%;
+    backface-visibility: hidden;
+
+    height:310px;
+}
+
+.card {
+    position:relative;
+    width:17%;
+
+    display: inline-flex;
     transform-style: preserve-3d;
-    
+    transition: .8s;
+    margin: 1%;
+
 }
 
-.pokemon-card:hover{
-    transform: rotateY(180deg);
+.card:hover .pokemon-card-front {
+    transform: rotateX(-180deg)
+}
+.card:hover .pokemon-card-back {
+    transform: rotateX(0deg)
 }
 
+.pokemon-card-front{
+    position:relative;
+    transform: rotateX(0deg);
+
+
+}
+.pokemon-card-back{
+    position:absolute;
+    transform: rotateX(180deg);
+   
+
+   
+}
