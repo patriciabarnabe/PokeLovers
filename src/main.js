@@ -1,6 +1,8 @@
 
-//SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
-import functions from './data.js';
+///SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
+import { filterData } from './data.js'
+import { sortData } from './data.js';
+import { computeStats } from './data.js';
 
 //SEÇÃO 2: IMPORTAÇÃO DO .JSON
 const getPokemonData = await fetch("data/pokemon/pokemon.json");
@@ -69,6 +71,13 @@ for (let i=0; i < pokemon.length; i++) {
     pokemon[i].egg = "05 km"
   } else if (pokemon[i].egg === "7 km"){
     pokemon[i].egg = "07 km"
+  } 
+}
+
+// Transformando o valor da null da propriedade spawn-chance:
+for (let i=0; i < pokemon.length; i++) {
+  if(pokemon[i]["spawn-chance"] === null){
+    pokemon[i]["spawn-chance"] = "0"
   } 
 }
 
@@ -567,65 +576,210 @@ for (let i=0; i < pokemon.length; i++) {
   }
 }
 
+//Médias das estatísticas:
+//Trasnformação dos valores das estatísticas em numérico:
+for (let i=0; i<pokemon.length; i++){
+  pokemon[i].stats["base-attack"] = parseInt(pokemon[i].stats["base-attack"])
+  pokemon[i].stats["base-defense"] = parseInt(pokemon[i].stats["base-defense"])
+  pokemon[i].stats["base-stamina"] = parseInt(pokemon[i].stats["base-stamina"])
+  pokemon[i].stats["max-cp"] = parseInt(pokemon[i].stats["max-cp"])
+  pokemon[i].stats["max-hp"] = parseInt(pokemon[i].stats["max-hp"])
+  
+}
+
+//Definição das médias:
+const baseAttackAverage = computeStats(pokemon, ["stats"], ["base-attack"])
+const baseDefenseAverage = computeStats(pokemon, ["stats"], ["base-defense"])
+const baseStaminaAverage = computeStats(pokemon, ["stats"], ["base-stamina"])
+const maxCpAverage= computeStats(pokemon, ["stats"], ["max-cp"])
+const maxHpAverage= computeStats(pokemon, ["stats"], ["max-hp"])
+
+//Comparação dos valores com as médias:
+for (let i=0; i<pokemon.length; i++){
+  pokemon[i].statusAttackGreater = "";
+  pokemon[i].statusAttackLower = "";
+  pokemon[i].statusDefenseGreater = "";
+  pokemon[i].statusDefenseLower = "";
+  pokemon[i].statusStaminaGreater = "";
+  pokemon[i].statusStaminaLower = "";
+  pokemon[i].statusMaxCpGreater = "";
+  pokemon[i].statusMaxCpLower = "";
+  pokemon[i].statusMaxHpGreater = "";
+  pokemon[i].statusMaxHpLower = "";
+
+  if (pokemon[i].stats["base-attack"] >= baseAttackAverage) {
+    pokemon[i].statusAttackGreater = "↑";
+  } else {
+    pokemon[i].statusAttackLower = "↓";
+  }
+
+  if (pokemon[i].stats["base-defense"] >= baseDefenseAverage) {
+    pokemon[i].statusDefenseGreater = "↑";
+  } else {
+    pokemon[i].statusDefenseLower = "↓";
+  }
+
+  if (pokemon[i].stats["base-stamina"] >= baseStaminaAverage) {
+    pokemon[i].statusStaminaGreater = "↑";
+  } else {
+    pokemon[i].statusStaminaLower = "↓";
+  }
+
+  if (pokemon[i].stats["max-cp"] >= maxCpAverage) {
+    pokemon[i].statusMaxCpGreater = "↑";
+  } else {
+    pokemon[i].statusMaxCpLower = "↓";
+  }
+
+  if (pokemon[i].stats["max-hp"] >= maxHpAverage) {
+    pokemon[i].statusMaxHpGreater = "↑";
+  } else {
+    pokemon[i].statusMaxHpLower = "↓";
+  }
+
+
+}
 
 //Criação de listas de pokemons
 function listPokemons (dataset) {
+
     const listOfPokemons = dataset.reduce((accumulator, dataset) => {
       accumulator += `
-      <div class="card">
-      <div class="pokemon-card-front"> 
-        <li class="lista-de-pokemons"> 
-          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-          <p class="id-do-pokemon">#${dataset["num"]} </p> 
-          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
-        </li>
-      </div> 
+        <div class="card">
+          <div class="pokemon-card-front"> 
+            <li class="lista-de-pokemons"> 
+              <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+              <p class="id-do-pokemon">#${dataset["num"]} </p> 
+              <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+              <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+              <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+            </li>
+          </div> 
 
-      <div class="pokemon-card-back"> 
-      <li class="lista-de-pokemons2"> 
-        <p class="nome-do-pokemon2"> ${dataset["name"]} </p> 
-        <p "> Peso ${dataset["size"]["weight"]} </p> 
-        <p "> Altura ${dataset["size"]["height"]} </p> 
-        <p "> Spawn-Chance${dataset["spawn-chance"]} </p> 
-        <p "> Ataque: ${dataset["stats"]["base-attack"]} </p> 
-        <p "> Defesa: ${dataset["stats"]["base-defense"]} </p> 
-        <p "> Stamina: ${dataset["stats"]["base-stamina"]} </p> 
-        <p "> Max-cp: ${dataset["stats"]["max-cp"]} </p> 
-        <p "> Max-hp: ${dataset["stats"]["max-hp"]} </p> 
+          <div class="pokemon-card-back"> 
+          <li class="lista-de-pokemons-back">  
+
+            <div class="tamanho-do-pokemon">
+            <h1 class="titulo-div-back"> Tamanho do Pokemon </h1>
+            <img class="imagem-back" alt="Peso" src="images/weigth.svg">
+            <span class="tooltiptext2">Peso </span>
+            <span class="peso-do-pokemon">${dataset["size"]["weight"]}</span> 
+            <img class="imagem-back" alt="Altura" src="images/heigth.jpg">
+            <span class="tooltiptext2">Altura</span>
+            <span class="altura-do-pokemon">${dataset["size"]["height"]}</span> 
+            </div>
+
+            <div class="estatisticas-do-pokemon">
+            <h1 class="titulo-div-back"> Estatísticas</h1>
+            <img class="imagem-back2" alt="Ataque" src="images/sword.png">
+            <span class="tooltiptext2">Ataque</span>
+            <span class=ataque-do-pokemon>${dataset["stats"]["base-attack"]}</span>
+            <span class="maior-que-media" value=greater> ${dataset["statusAttackGreater"]} </span> 
+            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
+            <span class="menor-que-media" value=lower> ${dataset["statusAttackLower"]} </span>
+            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
+   
+          
+            <img class="imagem-back2" alt="Escudo" src="images/shield.png">
+            <span class="tooltiptext2">Defesa</span>
+            <span class="defesa-do-pokemon">${dataset["stats"]["base-defense"]}</span> 
+            <span class="maior-que-media" value=greater> ${dataset["statusDefenseGreater"]} </span> 
+            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
+            <span class="menor-que-media" value=lower> ${dataset["statusDefenseLower"]} </span> 
+            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
+          
+
+            <img class="imagem-back2" alt="Energia" src="images/stamina.png">
+            <span class="tooltiptext2">Stamina</span>
+            <span class="stamina-do-pokemon">${dataset["stats"]["base-stamina"]}</span> 
+            <span class="maior-que-media" value=greater> ${dataset["statusStaminaGreater"]} </span>
+            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span> 
+            <span class="menor-que-media" value=lower> ${dataset["statusStaminaLower"]}</span> 
+            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
+           <br>
+            <img class="imagem-back2" alt="Combate" src="images/vs.jpg">
+            <span class="tooltiptext2">Poder de Combate</span>
+            <span class="max-cp-do-pokemon">${dataset["stats"]["max-cp"]}</span> 
+            <span class="maior-que-media" value=greater> ${dataset["statusMaxCpGreater"]}</span> 
+            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
+            <span class="menor-que-media" value=lower> ${dataset["statusMaxCpLower"]} </span> 
+            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
+           
+            <img class="imagem-back2" alt="Vida" src="images/heart.jpg">
+            <span class="tooltiptext2">Pontos de Vida</span>
+            <span class="max-hp-do-pokemon">${dataset["stats"]["max-hp"]}</span> 
+            <span class="maior-que-media" value=greater> ${dataset["statusMaxHpGreater"]} </span> 
+            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
+            <span class="menor-que-media" value=lower> ${dataset["statusMaxHpLower"]} </span> 
+            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
+
+            <p class  ="titulo-div-back"> Resistente à </p>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][0]}>${dataset["resistant2"][0]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][0]}</span>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][1]}>${dataset["resistant2"][1]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][1]}</span>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][2]}>${dataset["resistant2"][2]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][2]}</span>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][3]}>${dataset["resistant2"][3]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][3]}</span>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][4]}>${dataset["resistant2"][4]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][4]}</span>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][5]}>${dataset["resistant2"][5]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][5]}</span>
+            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][6]}>${dataset["resistant2"][6]} </p> 
+            <span class="tooltiptext">${dataset["resistant3"][6]}</span>
+
+            <p class="titulo-div-back"> Fraco contra</p>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][0]}>${dataset["weaknesses2"][0]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][0]}</span>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][1]}>${dataset["weaknesses2"][1]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][1]}</span>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][2]}>${dataset["weaknesses2"][2]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][2]}</span>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][3]}>${dataset["weaknesses2"][3]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][3]}</span>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][4]}>${dataset["weaknesses2"][4]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][4]}</span>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][5]}>${dataset["weaknesses2"][5]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][5]}</span>
+            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][6]}>${dataset["weaknesses2"][6]} </p> 
+            <span class="tooltiptext">${dataset["weaknesses3"][6]}</span>
+
+            </div>
 
 
-      </li>
-    </div> 
-
-    </div>   
-      `
-      return accumulator
+            </li>
+        </div> 
+      </div>   
+          `
+         return accumulator
     },[])
-    
-    const printList= document.getElementById("lista-impressa")
-    printList.innerHTML = listOfPokemons
-    
+        
+      const printList= document.getElementById("lista-impressa")
+      printList.innerHTML = listOfPokemons
   }
-  console.log(pokemon)
 
-// SEÇÃO: ORDENAÇÃO POR RARIDADE, NOME e DISTÂNCIA DOS OVOS
+
+
+
+// SEÇÃO: ORDENAÇÃO POR RARIDADE, NOME, DISTÂNCIA DOS OVOS e PROBABILIDADE DE APARIÇÃO
 
   //1. Criação de listas de pokemons por raridade
-  function listPokemonsByRarity (dataset) {
+function listPokemonsByRarity (dataset) {
     const listOfPokemonsByRarity = dataset.reduce((accumulator, dataset) => {
       accumulator += `
-      <div class="pokemon-card"> 
-        <li class="lista-de-pokemons"> 
-          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-          <p class="id-do-pokemon">#${dataset["num"]} </p> 
-          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
-          <p class="raridade-do-pokemon" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>  
-        </li>
-      </div> `
+      <div class="card">
+        <div class="pokemon-card"> 
+          <li class="lista-de-pokemons"> 
+            <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+            <p class="id-do-pokemon">#${dataset["num"]} </p> 
+            <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+            <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+            <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
+            <p class="raridade-do-pokemon" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>  
+          </li>
+        </div> 
+      </div>`
       return accumulator
     },[])
     
@@ -652,14 +806,35 @@ function listPokemons (dataset) {
       
       const printList= document.getElementById("lista-impressa")
       printList.innerHTML = listOfPokemonsByEgg
-    }
+  }
+
+  //3. Criação de listas de pokemons pela probabilidade de aparição
+  function listPokemonsBySpawn (dataset) {
+    const listOfPokemonsBySpawn = dataset.reduce((accumulator, dataset) => {
+      accumulator += `
+      <div class="pokemon-card"> 
+        <li class="lista-de-pokemons"> 
+          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+          <p class="id-do-pokemon">#${dataset["num"]} </p> 
+          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
+          <p class="spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>  
+        </li>
+      </div> `
+      return accumulator
+    },[])
+    
+    const printList= document.getElementById("lista-impressa")
+    printList.innerHTML = listOfPokemonsBySpawn
+  }
 
 
-  //3.Chamando função de ordenar
+  //4.Chamando função de ordenar
   orderButton.addEventListener("click", (event) => {
     event.preventDefault()
 
-    const sortedData =  functions.sortData (pokemon, order.value, option.value)
+    const sortedData =  sortData (pokemon, order.value, option.value)
 
     if(order.value === "egg") {
       listPokemonsByEgg(sortedData)
@@ -667,11 +842,33 @@ function listPokemons (dataset) {
     else if (order.value === "pokemon-rarity") {
       listPokemonsByRarity(sortedData)
     }
+    else if (order.value === "spawn-chance"){
+      listPokemonsBySpawn(sortedData)
+    }
     else {
       listPokemons(sortedData)
     }
 
   })
+
+//SEÇÃO : CÁLCULO AGREGADO (SPAWN-CHANCE)
+
+//Chamando função de cálculo agregado
+
+function spawnChanceRate () {
+  const spawnChance = computeStats(pokemon, ["spawn-chance"], [""])
+  
+  for (let i=0; i < pokemon.length; i++) {
+    if(pokemon[i]["spawn-chance"] >= spawnChance) {
+      console.log("sim")
+    }
+    console.log("não")
+  }
+
+}
+
+spawnChanceRate()
+
 
 //SEÇÃO : FILTRO PELO TECLADO (KEYUP) 
 const filterInput = document.getElementById("pokemon-search");
@@ -793,9 +990,9 @@ function generationButtonsFunction (generationInput) {
 document.getElementById(generationInput).addEventListener("click", function (event) {
     event.preventDefault()
     generationButton = event.target.value;
-    functionGenerationResult = functions.filterData(pokemon, ["generation"],["num"], generationButton);
-    listPokemonsByGeneration(functionGenerationResult)
-    filterNames()
+    functionGenerationResult = filterData(pokemon, ["generation"],["num"], generationButton);
+    listPokemonsByGeneration(functionGenerationResult);
+    filterNames();
   })
 }
   
@@ -848,8 +1045,8 @@ function typeButtonsFunction (typeInput) {
   document.getElementById(typeInput).addEventListener("click", function (event) {
     event.preventDefault()
     typeButton = event.target.value;
-    functionTypeResult1 = functions.filterData(pokemon, ["type"],[0], typeButton);
-    functionTypeResult2 = functions.filterData(pokemon, ["type"],[1], typeButton);
+    functionTypeResult1 = filterData(pokemon, ["type"],[0], typeButton);
+    functionTypeResult2 = filterData(pokemon, ["type"],[1], typeButton);
     functionTypeResultMerged = functionTypeResult1.concat(functionTypeResult2)
     listPokemonsByType(functionTypeResultMerged)
     filterNames()
@@ -926,13 +1123,13 @@ function resistanceButtonsFunction (resistanceInput) {
   document.getElementById(resistanceInput).addEventListener("click", function (event) {
     event.preventDefault()
     resistanceButton = event.target.value;
-    functionResistanceResult1 = functions.filterData(pokemon, ["resistant"],[0], resistanceButton);
-    functionResistanceResult2 = functions.filterData(pokemon, ["resistant"],[1], resistanceButton);
-    functionResistanceResult3 = functions.filterData(pokemon, ["resistant"],[2], resistanceButton);
-    functionResistanceResult4 = functions.filterData(pokemon, ["resistant"],[3], resistanceButton);
-    functionResistanceResult5 = functions.filterData(pokemon, ["resistant"],[4], resistanceButton);
-    functionResistanceResult6 = functions.filterData(pokemon, ["resistant"],[5], resistanceButton);
-    functionResistanceResult7 = functions.filterData(pokemon, ["resistant"],[6], resistanceButton);
+    functionResistanceResult1 = filterData(pokemon, ["resistant"],[0], resistanceButton);
+    functionResistanceResult2 = filterData(pokemon, ["resistant"],[1], resistanceButton);
+    functionResistanceResult3 = filterData(pokemon, ["resistant"],[2], resistanceButton);
+    functionResistanceResult4 = filterData(pokemon, ["resistant"],[3], resistanceButton);
+    functionResistanceResult5 = filterData(pokemon, ["resistant"],[4], resistanceButton);
+    functionResistanceResult6 = filterData(pokemon, ["resistant"],[5], resistanceButton);
+    functionResistanceResult7 = filterData(pokemon, ["resistant"],[6], resistanceButton);
   
     functionResistanceResultMerged = functionResistanceResult1.concat(functionResistanceResult2,functionResistanceResult3,
     functionResistanceResult4, functionResistanceResult5, functionResistanceResult6, functionResistanceResult7)
@@ -1009,13 +1206,13 @@ function listPokemonsByWeaknesses (dataset) {
   document.getElementById(WeaknessesInput).addEventListener("click", function (event) {
   event.preventDefault()
   WeaknessesButton = event.target.value;
-  functionWeaknessesResult1 = functions.filterData(pokemon, ["weaknesses"],[0], WeaknessesButton);
-  functionWeaknessesResult2 = functions.filterData(pokemon, ["weaknesses"],[1], WeaknessesButton);
-  functionWeaknessesResult3 = functions.filterData(pokemon, ["weaknesses"],[2], WeaknessesButton);
-  functionWeaknessesResult4 = functions.filterData(pokemon, ["weaknesses"],[3], WeaknessesButton);
-  functionWeaknessesResult5 = functions.filterData(pokemon, ["weaknesses"],[4], WeaknessesButton);
-  functionWeaknessesResult6 = functions.filterData(pokemon, ["weaknesses"],[5], WeaknessesButton);
-  functionWeaknessesResult7 = functions.filterData(pokemon, ["weaknesses"],[6], WeaknessesButton);
+  functionWeaknessesResult1 = filterData(pokemon, ["weaknesses"],[0], WeaknessesButton);
+  functionWeaknessesResult2 = filterData(pokemon, ["weaknesses"],[1], WeaknessesButton);
+  functionWeaknessesResult3 = filterData(pokemon, ["weaknesses"],[2], WeaknessesButton);
+  functionWeaknessesResult4 = filterData(pokemon, ["weaknesses"],[3], WeaknessesButton);
+  functionWeaknessesResult5 = filterData(pokemon, ["weaknesses"],[4], WeaknessesButton);
+  functionWeaknessesResult6 = filterData(pokemon, ["weaknesses"],[5], WeaknessesButton);
+  functionWeaknessesResult7 = filterData(pokemon, ["weaknesses"],[6], WeaknessesButton);
 
   functionWeaknessesResultMerged = functionWeaknessesResult1.concat(functionWeaknessesResult2, functionWeaknessesResult3,
   functionWeaknessesResult4, functionWeaknessesResult5, functionWeaknessesResult6, functionWeaknessesResult7)
@@ -1036,15 +1233,7 @@ function listPokemonsByWeaknesses (dataset) {
   
   //3.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
   pokemonWeaknesses.map(WeaknessesButtonsFunction)
-  
 
 
 
-// let average = pokemon.reduce((a,c) =>  a+c["stats"]["base-attack"]/251,0)
-// console.log(average)
-// console.log(pokemon)
-
-//console.log(functions.computeStats(pokemon, "stats", "base-attack"))
 listPokemons(pokemon)
-
-console.log(pokemon)

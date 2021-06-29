@@ -190,7 +190,7 @@ visibility:visible;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
-.lista-de-pokemons {
+.lista-de-pokemons, .lista-de-pokemons2 {
     display: inline;
     text-align: center;
 }
@@ -234,7 +234,7 @@ visibility:visible;
 }
 .resistencia-do-pokemon, .fraqueza-do-pokemon {
     position: relative;
-    bottom: 3%;
+    bottom: 1%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -367,8 +367,8 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistance-butt
 #filters-section {
     display: inline-block;
     width: 100%;
+    display:none;
 }
-
 #buttons-generation {
     display:none;
     width: 100%;
@@ -467,50 +467,32 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistance-butt
 }
 
 
-/* .dropbtn {
-    background-color: rgb(175, 122, 224);
-    color: rgb(255, 239, 239);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-  }
-.dropdown {
-  position: relative;
-  display: inline-block;
-} 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 10px;
-}
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    display: block;
-  }
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-} */
-
-
-.raridade-do-pokemon, .distancia-ovos{
+.raridade-do-pokemon, .distancia-ovos, .spawn-chance {
     font-weight: bold;
-  
+    display: inline-flex;
+    font-size: 80%;
+    padding: 2% 4%;
+    border-radius: 10px;
+    margin-top: -30%;
+    color:#1a1a1a;
+}
+
+.propriedade-back {
+    border-radius: 10px;
+    padding: 2% 4%;
+    background-color: #faf2c9;
+}
+
+.atributo-back {
+    font-weight: bold;
 }
 
 .distancia-ovos {
     background-color: #c1ccfd;
+}
+
+.spawn-chance {
+    background-color: #b3b3b3;
 }
 
 p[value="Lendário"] {
@@ -523,13 +505,15 @@ p[value="Mítico"] {
     border:1pt solid #f1b7ff;
 }
 
-
+ul {
+    list-style-type: none;
+} 
 .pokemon-card-back, .pokemon-card-front{
     float: left;
     position:relative;
     display: inline-flex;
-    justify-content: space-evenly;
-    padding: 4% 2% 0% 2%;
+    justify-content: space-around;
+  
     
     background-color:white;
 
@@ -572,8 +556,74 @@ p[value="Mítico"] {
 }
 .pokemon-card-back{
     position:absolute;
+    display: inline-block;
     transform: rotateX(180deg);
-   
+    font-size: 11pt;
+    text-align: center;
+    color:#111109;
 
-   
+}
+
+.imagem-back {
+    max-height:30px;
+}
+
+.menor-que-media {
+    font-size: 20pt;
+    color:red;
+}
+
+
+.maior-que-media {
+    font-size: 20pt;
+    color:green;
+}
+.titulo-div-back {
+    font-size: 10pt;
+}
+
+
+.imagem-back2{
+    max-height:20px;
+}
+.estatisticas-do-pokemon {
+    display: block;
+    margin-top:2%;
+    position: relative;
+    font-weight: 300;
+    font-size: 10pt;
+    
+}
+
+.tamanho-do-pokemon {
+    display: block;
+    margin-top:2%;
+    position: relative;
+    font-weight: 300;
+    font-size: 10pt;
+}
+.titulo-div-back {
+    font-weight: 300;
+    top: 1%;
+    color:#222211;
+}
+
+.imagem-back:hover + .tooltiptext2, .imagem-back2:hover + .tooltiptext2, .maior-que-media:hover +.tooltiptext2, .menor-que-media:hover +.tooltiptext2 {
+    visibility: visible;
+    cursor: pointer;
+}
+
+
+.tooltiptext2 {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: -14%;
+    font-size: 65%;
+    background-color: gainsboro;
+    padding:1% 2%;
+    border-radius: 30%;
+    color:black;
+    
+
 }
