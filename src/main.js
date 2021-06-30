@@ -52,7 +52,6 @@ for (let i=0; i < pokemon.length; i++) {
     pokemon[i].resistant[j] = pokemon[i].resistant[j].charAt(0).toUpperCase() + pokemon[i].resistant[j].substr(1)
 }
 
-
 //Primeira letra da fraqueza do Pokemom em maiusculo:
 for (let i=0; i < pokemon.length; i++) {
   for (let j=0; j <pokemon[i].weaknesses.length; j++)
@@ -310,68 +309,67 @@ for (let i=0; i < pokemon.length; i++) {
   }
 }
 
-
 // Criar segunda coluna de resistencia para transformar em apenas 2 letras:
 for (let i=0; i < pokemon.length; i++) {
-  pokemon[i].resistant2 = [];
+  pokemon[i].PTPokemonResistant = [];
   for (let j =0; j <pokemon[i].resistant.length; j++) {
     switch (pokemon[i].resistant[j]) {
     case "Bug":
-      pokemon[i].resistant2[j] = "IN"
+      pokemon[i].PTPokemonResistant[j] = "IN"
       break
     case "Dark":
-      pokemon[i].resistant2[j] = "SO" 
+      pokemon[i].PTPokemonResistant[j] = "SO" 
       break
     case "Dragon":
-      pokemon[i].resistant2[j] = "DG" 
+      pokemon[i].PTPokemonResistant[j] = "DG" 
       break
     case "Electric":
-      pokemon[i].resistant2[j] = "EL"
+      pokemon[i].PTPokemonResistant[j] = "EL"
       break  
     case "Fairy":
-      pokemon[i].resistant2[j] = "FA"  
+      pokemon[i].PTPokemonResistant[j] = "FA"  
       break
     case "Fighting":
-      pokemon[i].resistant2[j] = "LU"  
+      pokemon[i].PTPokemonResistant[j] = "LU"  
       break
     case "Fire":
-      pokemon[i].resistant2[j] = "FO"  
+      pokemon[i].PTPokemonResistant[j] = "FO"  
       break
     case "Flying":
-      pokemon[i].resistant2[j] = "VO"  
+      pokemon[i].PTPokemonResistant[j] = "VO"  
       break
     case "Ghost":
-      pokemon[i].resistant2[j] = "FT" 
+      pokemon[i].PTPokemonResistant[j] = "FT" 
       break 
     case "Grass":
-      pokemon[i].resistant2[j] = "PL"
+      pokemon[i].PTPokemonResistant[j] = "PL"
       break
     case "Ground":
-      pokemon[i].resistant2[j] = "TE"
+      pokemon[i].PTPokemonResistant[j] = "TE"
       break
     case "Ice":
-      pokemon[i].resistant2[j] = "GE"
+      pokemon[i].PTPokemonResistant[j] = "GE"
       break
     case "Normal":
-      pokemon[i].resistant2[j] = "NO"
+      pokemon[i].PTPokemonResistant[j] = "NO"
       break
     case "Poison":
-      pokemon[i].resistant2[j] = "VE"
+      pokemon[i].PTPokemonResistant[j] = "VE"
       break
     case "Psychic":
-      pokemon[i].resistant2[j] = "PS"
+      pokemon[i].PTPokemonResistant[j] = "PS"
       break
     case "Rock":
-      pokemon[i].resistant2[j] = "PE"
+      pokemon[i].PTPokemonResistant[j] = "PE"
       break
     case "Steel":
-      pokemon[i].resistant2[j] = "AÇ"
+      pokemon[i].PTPokemonResistant[j] = "AÇ"
       break
     case "Water":
-      pokemon[i].resistant2[j] = "ÁG"
+      pokemon[i].PTPokemonResistant[j] = "ÁG"
       break
     default:
-      pokemon[i].resistant2[j] = ""
+      pokemon[i].PTPokemonResistant[j] = ""
       break
     }
   }
@@ -379,65 +377,65 @@ for (let i=0; i < pokemon.length; i++) {
 
 // Criar terceira coluna de resistencia para transformar em português:
 for (let i=0; i < pokemon.length; i++) {
-  pokemon[i].resistant3 = [];
+  pokemon[i].pokemonResistantInitials = [];
   for (let j =0; j <pokemon[i].resistant.length; j++) {
     switch (pokemon[i].resistant[j]) {
     case "Bug":
-      pokemon[i].resistant3[j] = "Inseto"
+      pokemon[i].pokemonResistantInitials[j] = "Inseto"
       break
     case "Dark":
-      pokemon[i].resistant3[j] = "Sombrio" 
+      pokemon[i].pokemonResistantInitials[j] = "Sombrio" 
       break
     case "Dragon":
-      pokemon[i].resistant3[j] = "Dragão" 
+      pokemon[i].pokemonResistantInitials[j] = "Dragão" 
       break
     case "Electric":
-      pokemon[i].resistant3[j] = "Elétrico"
+      pokemon[i].pokemonResistantInitials[j] = "Elétrico"
       break  
     case "Fairy":
-      pokemon[i].resistant3[j] = "Fada"  
+      pokemon[i].pokemonResistantInitials[j] = "Fada"  
       break
     case "Fighting":
-      pokemon[i].resistant3[j] = "Lutador"  
+      pokemon[i].pokemonResistantInitials[j] = "Lutador"  
       break
     case "Fire":
-      pokemon[i].resistant3[j] = "Fogo"  
+      pokemon[i].pokemonResistantInitials[j] = "Fogo"  
       break
     case "Flying":
-      pokemon[i].resistant3[j] = "Voador"  
+      pokemon[i].pokemonResistantInitials[j] = "Voador"  
       break
     case "Ghost":
-      pokemon[i].resistant3[j] = "Fantasma" 
+      pokemon[i].pokemonResistantInitials[j] = "Fantasma" 
       break 
     case "Grass":
-      pokemon[i].resistant3[j] = "Planta"
+      pokemon[i].pokemonResistantInitials[j] = "Planta"
       break
     case "Ground":
-      pokemon[i].resistant3[j] = "Terreste"
+      pokemon[i].pokemonResistantInitials[j] = "Terreste"
       break
     case "Ice":
-      pokemon[i].resistant3[j] = "Gelo"
+      pokemon[i].pokemonResistantInitials[j] = "Gelo"
       break
     case "Normal":
-      pokemon[i].resistant3[j] = "Normal"
+      pokemon[i].pokemonResistantInitials[j] = "Normal"
       break
     case "Poison":
-      pokemon[i].resistant3[j] = "Venenoso"
+      pokemon[i].pokemonResistantInitials[j] = "Venenoso"
       break
     case "Psychic":
-      pokemon[i].resistant3[j] = "Psíquico"
+      pokemon[i].pokemonResistantInitials[j] = "Psíquico"
       break
     case "Rock":
-      pokemon[i].resistant3[j] = "Pedra"
+      pokemon[i].pokemonResistantInitials[j] = "Pedra"
       break
     case "Steel":
-      pokemon[i].resistant3[j] = "Aço"
+      pokemon[i].pokemonResistantInitials[j] = "Aço"
       break
     case "Water":
-      pokemon[i].resistant3[j] = "Água"
+      pokemon[i].pokemonResistantInitials[j] = "Água"
       break
     default:
-      pokemon[i].resistant3[j] = ""
+      pokemon[i].pokemonResistantInitials[j] = ""
       break
     }
   }
@@ -445,65 +443,65 @@ for (let i=0; i < pokemon.length; i++) {
 
 // Criar segunda coluna de fraqueza para transformar em apenas 2 letras:
 for (let i=0; i < pokemon.length; i++) {
-  pokemon[i].weaknesses2 = [];
+  pokemon[i].PTPokemonWeaknesses = [];
   for (let j =0; j <pokemon[i].weaknesses.length; j++) {
     switch (pokemon[i].weaknesses[j]) {
     case "Bug":
-      pokemon[i].weaknesses2[j] = "IN"
+      pokemon[i].PTPokemonWeaknesses[j] = "IN"
       break
     case "Dark":
-      pokemon[i].weaknesses2[j] = "SO" 
+      pokemon[i].PTPokemonWeaknesses[j] = "SO" 
       break
     case "Dragon":
-      pokemon[i].weaknesses2[j] = "DG" 
+      pokemon[i].PTPokemonWeaknesses[j] = "DG" 
       break
     case "Electric":
-      pokemon[i].weaknesses2[j] = "EL"
+      pokemon[i].PTPokemonWeaknesses[j] = "EL"
       break  
     case "Fairy":
-      pokemon[i].weaknesses2[j] = "FA"  
+      pokemon[i].PTPokemonWeaknesses[j] = "FA"  
       break
     case "Fighting":
-      pokemon[i].weaknesses2[j] = "LU"  
+      pokemon[i].PTPokemonWeaknesses[j] = "LU"  
       break
     case "Fire":
-      pokemon[i].weaknesses2[j] = "FO"  
+      pokemon[i].PTPokemonWeaknesses[j] = "FO"  
       break
     case "Flying":
-      pokemon[i].weaknesses2[j] = "VO"  
+      pokemon[i].PTPokemonWeaknesses[j] = "VO"  
       break
     case "Ghost":
-      pokemon[i].weaknesses2[j] = "FT" 
+      pokemon[i].PTPokemonWeaknesses[j] = "FT" 
       break 
     case "Grass":
-      pokemon[i].weaknesses2[j] = "PL"
+      pokemon[i].PTPokemonWeaknesses[j] = "PL"
       break
     case "Ground":
-      pokemon[i].weaknesses2[j] = "TE"
+      pokemon[i].PTPokemonWeaknesses[j] = "TE"
       break
     case "Ice":
-      pokemon[i].weaknesses2[j] = "GE"
+      pokemon[i].PTPokemonWeaknesses[j] = "GE"
       break
     case "Normal":
-      pokemon[i].weaknesses2[j] = "NO"
+      pokemon[i].PTPokemonWeaknesses[j] = "NO"
       break
     case "Poison":
-      pokemon[i].weaknesses2[j] = "VE"
+      pokemon[i].PTPokemonWeaknesses[j] = "VE"
       break
     case "Psychic":
-      pokemon[i].weaknesses2[j] = "PS"
+      pokemon[i].PTPokemonWeaknesses[j] = "PS"
       break
     case "Rock":
-      pokemon[i].weaknesses2[j] = "PE"
+      pokemon[i].PTPokemonWeaknesses[j] = "PE"
       break
     case "Steel":
-      pokemon[i].weaknesses2[j] = "AÇ"
+      pokemon[i].PTPokemonWeaknesses[j] = "AÇ"
       break
     case "Water":
-      pokemon[i].weaknesses2[j] = "ÁG"
+      pokemon[i].PTPokemonWeaknesses[j] = "ÁG"
       break
     default:
-      pokemon[i].weaknesses2[j] = ""
+      pokemon[i].PTPokemonWeaknesses[j] = ""
       break
     }
   }
@@ -511,65 +509,65 @@ for (let i=0; i < pokemon.length; i++) {
 
 // Criar terceira coluna de resistencia para transformar em português:
 for (let i=0; i < pokemon.length; i++) {
-  pokemon[i].weaknesses3 = [];
+  pokemon[i].pokemonWeaknessesInitials = [];
   for (let j =0; j <pokemon[i].weaknesses.length; j++) {
     switch (pokemon[i].weaknesses[j]) {
     case "Bug":
-      pokemon[i].weaknesses3[j] = "Inseto"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Inseto"
       break
     case "Dark":
-      pokemon[i].weaknesses3[j] = "Sombrio" 
+      pokemon[i].pokemonWeaknessesInitials[j] = "Sombrio" 
       break
     case "Dragon":
-      pokemon[i].weaknesses3[j] = "Dragão" 
+      pokemon[i].pokemonWeaknessesInitials[j] = "Dragão" 
       break
     case "Electric":
-      pokemon[i].weaknesses3[j] = "Elétrico"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Elétrico"
       break  
     case "Fairy":
-      pokemon[i].weaknesses3[j] = "Fada"  
+      pokemon[i].pokemonWeaknessesInitials[j] = "Fada"  
       break
     case "Fighting":
-      pokemon[i].weaknesses3[j] = "Lutador"  
+      pokemon[i].pokemonWeaknessesInitials[j] = "Lutador"  
       break
     case "Fire":
-      pokemon[i].weaknesses3[j] = "Fogo"  
+      pokemon[i].pokemonWeaknessesInitials[j] = "Fogo"  
       break
     case "Flying":
-      pokemon[i].weaknesses3[j] = "Voador"  
+      pokemon[i].pokemonWeaknessesInitials[j] = "Voador"  
       break
     case "Ghost":
-      pokemon[i].weaknesses3[j] = "Fantasma" 
+      pokemon[i].pokemonWeaknessesInitials[j] = "Fantasma" 
       break 
     case "Grass":
-      pokemon[i].weaknesses3[j] = "Planta"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Planta"
       break
     case "Ground":
-      pokemon[i].weaknesses3[j] = "Terreste"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Terreste"
       break
     case "Ice":
-      pokemon[i].weaknesses3[j] = "Gelo"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Gelo"
       break
     case "Normal":
-      pokemon[i].weaknesses3[j] = "Normal"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Normal"
       break
     case "Poison":
-      pokemon[i].weaknesses3[j] = "Venenoso"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Venenoso"
       break
     case "Psychic":
-      pokemon[i].weaknesses3[j] = "Psíquico"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Psíquico"
       break
     case "Rock":
-      pokemon[i].weaknesses3[j] = "Pedra"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Pedra"
       break
     case "Steel":
-      pokemon[i].weaknesses3[j] = "Aço"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Aço"
       break
     case "Water":
-      pokemon[i].weaknesses3[j] = "Água"
+      pokemon[i].pokemonWeaknessesInitials[j] = "Água"
       break
     default:
-      pokemon[i].weaknesses3[j] = ""
+      pokemon[i].pokemonWeaknessesInitials[j] = ""
       break
     }
   }
@@ -641,103 +639,115 @@ for (let i=0; i<pokemon.length; i++){
 
 //Criação de listas de pokemons
 function listPokemons (dataset) {
+  const listOfPokemons = dataset.reduce((accumulator, dataset) => {
+    accumulator += `
+      <div class="card">
 
-    const listOfPokemons = dataset.reduce((accumulator, dataset) => {
-      accumulator += `
-        <div class="card">
-          <div class="pokemon-card-front"> 
-            <li class="lista-de-pokemons"> 
-              <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-              <p class="id-do-pokemon">#${dataset["num"]} </p> 
-              <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-              <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-              <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
-            </li>
-          </div> 
-          <div class="pokemon-card-back"> 
-          <li class="lista-de-pokemons-back">  
-            <div class="tamanho-do-pokemon">
-            <h1 class="titulo-div-back"> Tamanho do Pokemon </h1>
-            <img class="imagem-back" alt="Peso" src="images/weigth.svg">
-            <span class="tooltiptext2">Peso </span>
-            <span class="peso-do-pokemon">${dataset["size"]["weight"]}</span> 
-            <img class="imagem-back" alt="Altura" src="images/heigth.jpg">
-            <span class="tooltiptext2">Altura</span>
-            <span class="altura-do-pokemon">${dataset["size"]["height"]}</span> 
+        <div class="front-card"> 
+          <li class="front-list"> 
+            <img class="front-pokemon-image front-general-card-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+            <p class="front-pokemon-id">#${dataset["num"]} </p> 
+            <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
+          </li>
+        </div> 
+
+        <div class="back-card"> 
+          <li class="back-list">  
+
+            <div class="back-pokemon-size">
+              <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+              <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+              <span class="back-tooltiptext">Peso </span>
+              <span>${dataset["size"]["weight"]}</span> 
+              <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+              <span class="back-tooltiptext">Altura</span>
+              <span>${dataset["size"]["height"]}</span> 
             </div>
-            <div class="estatisticas-do-pokemon">
-            <h1 class="titulo-div-back"> Estatísticas</h1>
-            <img class="imagem-back2" alt="Ataque" src="images/sword.png">
-            <span class="tooltiptext2">Ataque</span>
-            <span class=ataque-do-pokemon>${dataset["stats"]["base-attack"]}</span>
-            <span class="maior-que-media" value=greater> ${dataset["statusAttackGreater"]} </span> 
-            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
-            <span class="menor-que-media" value=lower> ${dataset["statusAttackLower"]} </span>
-            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
-   
+
+            <div class="back-pokemon-stats">
+              <h1 class="back-card-titles"> Estatísticas</h1>
+
+              <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+              <span class="back-tooltiptext">Ataque</span>
+              <span>${dataset["stats"]["base-attack"]}</span>
+              <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+             
+              <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+              <span class="back-tooltiptext">Defesa</span>
+              <span>${dataset["stats"]["base-defense"]}</span> 
+              <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
           
-            <img class="imagem-back2" alt="Escudo" src="images/shield.png">
-            <span class="tooltiptext2">Defesa</span>
-            <span class="defesa-do-pokemon">${dataset["stats"]["base-defense"]}</span> 
-            <span class="maior-que-media" value=greater> ${dataset["statusDefenseGreater"]} </span> 
-            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
-            <span class="menor-que-media" value=lower> ${dataset["statusDefenseLower"]} </span> 
-            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
-          
-            <img class="imagem-back2" alt="Energia" src="images/stamina.png">
-            <span class="tooltiptext2">Stamina</span>
-            <span class="stamina-do-pokemon">${dataset["stats"]["base-stamina"]}</span> 
-            <span class="maior-que-media" value=greater> ${dataset["statusStaminaGreater"]} </span>
-            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span> 
-            <span class="menor-que-media" value=lower> ${dataset["statusStaminaLower"]}</span> 
-            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
-           <br>
-            <img class="imagem-back2" alt="Combate" src="images/vs.jpg">
-            <span class="tooltiptext2">Poder de Combate</span>
-            <span class="max-cp-do-pokemon">${dataset["stats"]["max-cp"]}</span> 
-            <span class="maior-que-media" value=greater> ${dataset["statusMaxCpGreater"]}</span> 
-            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
-            <span class="menor-que-media" value=lower> ${dataset["statusMaxCpLower"]} </span> 
-            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
-           
-            <img class="imagem-back2" alt="Vida" src="images/heart.jpg">
-            <span class="tooltiptext2">Pontos de Vida</span>
-            <span class="max-hp-do-pokemon">${dataset["stats"]["max-hp"]}</span> 
-            <span class="maior-que-media" value=greater> ${dataset["statusMaxHpGreater"]} </span> 
-            <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
-            <span class="menor-que-media" value=lower> ${dataset["statusMaxHpLower"]} </span> 
-            <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
-            <p class  ="titulo-div-back"> Resistente à </p>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][0]}>${dataset["resistant2"][0]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][0]}</span>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][1]}>${dataset["resistant2"][1]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][1]}</span>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][2]}>${dataset["resistant2"][2]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][2]}</span>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][3]}>${dataset["resistant2"][3]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][3]}</span>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][4]}>${dataset["resistant2"][4]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][4]}</span>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][5]}>${dataset["resistant2"][5]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][5]}</span>
-            <p class="resistencia-do-pokemon" value= R${dataset["resistant"][6]}>${dataset["resistant2"][6]} </p> 
-            <span class="tooltiptext">${dataset["resistant3"][6]}</span>
-            <p class="titulo-div-back"> Fraco contra</p>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][0]}>${dataset["weaknesses2"][0]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][0]}</span>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][1]}>${dataset["weaknesses2"][1]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][1]}</span>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][2]}>${dataset["weaknesses2"][2]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][2]}</span>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][3]}>${dataset["weaknesses2"][3]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][3]}</span>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][4]}>${dataset["weaknesses2"][4]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][4]}</span>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][5]}>${dataset["weaknesses2"][5]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][5]}</span>
-            <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][6]}>${dataset["weaknesses2"][6]} </p> 
-            <span class="tooltiptext">${dataset["weaknesses3"][6]}</span>
+              <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+              <span class="back-tooltiptext">Stamina</span>
+              <span>${dataset["stats"]["base-stamina"]}</span> 
+              <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+              <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+            
+              <br>
+
+              <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+              <span class="back-tooltiptext">Poder de Combate</span>
+              <span>${dataset["stats"]["max-cp"]}</span> 
+              <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+            
+              <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+              <span class="back-tooltiptext">Pontos de Vida</span>
+              <span>${dataset["stats"]["max-hp"]}</span> 
+              <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
             </div>
+
+            <div class="back-resistant-to">
+              <p class="back-card-titles"> Resistente à </p>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+            </div>
+            <div class="back-weak-to">
+              <p class="back-card-titles"> Fraco contra</p>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+            
+              </div>
+              <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
             </li>
         </div> 
       </div>   
@@ -759,17 +769,116 @@ function listPokemonsByRarity (dataset) {
     const listOfPokemonsByRarity = dataset.reduce((accumulator, dataset) => {
       accumulator += `
       <div class="card">
-        <div class="pokemon-card"> 
-          <li class="lista-de-pokemons"> 
-            <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-            <p class="id-do-pokemon">#${dataset["num"]} </p> 
-            <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-            <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-            <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
-            <p class="raridade-do-pokemon" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>  
+
+        <div class="front-card"> 
+          <li class="front-list"> 
+            <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+            <p class="front-pokemon-id">#${dataset["num"]} </p> 
+            <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+            <p class="front-pokemon-rarity" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p> 
           </li>
         </div> 
-      </div>`
+
+        <div class="back-card"> 
+          <li class="back-list">  
+
+            <div class="back-pokemon-size">
+              <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+              <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+              <span class="back-tooltiptext">Peso </span>
+              <span>${dataset["size"]["weight"]}</span> 
+              <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+              <span class="back-tooltiptext">Altura</span>
+              <span>${dataset["size"]["height"]}</span> 
+            </div>
+
+            <div class="back-pokemon-stats">
+              <h1 class="back-card-titles"> Estatísticas</h1>
+
+              <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+              <span class="back-tooltiptext">Ataque</span>
+              <span>${dataset["stats"]["base-attack"]}</span>
+              <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+             
+              <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+              <span class="back-tooltiptext">Defesa</span>
+              <span>${dataset["stats"]["base-defense"]}</span> 
+              <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          
+              <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+              <span class="back-tooltiptext">Stamina</span>
+              <span>${dataset["stats"]["base-stamina"]}</span> 
+              <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+              <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+            
+              <br>
+
+              <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+              <span class="back-tooltiptext">Poder de Combate</span>
+              <span>${dataset["stats"]["max-cp"]}</span> 
+              <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+            
+              <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+              <span class="back-tooltiptext">Pontos de Vida</span>
+              <span>${dataset["stats"]["max-hp"]}</span> 
+              <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+              <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+              <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+              <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+            </div>
+
+            <div class="back-resistant-to">
+              <p class="back-card-titles"> Resistente à </p>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+              <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+              <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+            </div>
+            <div class="back-weak-to">
+              <p class="back-card-titles"> Fraco contra</p>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+              <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+              <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+            
+              </div>
+              <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+            </li>
+        </div> 
+      </div>  `
       return accumulator
     },[])
     
@@ -781,16 +890,118 @@ function listPokemonsByRarity (dataset) {
   function listPokemonsByEgg (dataset) {
       const listOfPokemonsByEgg = dataset.reduce((accumulator, dataset) => {
         accumulator += `
-        <div class="pokemon-card"> 
-          <li class="lista-de-pokemons"> 
-            <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-            <p class="id-do-pokemon">#${dataset["num"]} </p> 
-            <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-            <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-            <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
-            <p class="distancia-ovos" value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>  
+        <div class="card">
+
+        <div class="front-card"> 
+          <li class="front-list"> 
+            <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+            <p class="front-pokemon-id">#${dataset["num"]} </p> 
+            <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+            <p class="front-eggs-distance"  value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>
           </li>
-        </div> `
+        </div> 
+
+        <div class="back-card"> 
+        <li class="back-list">  
+
+          <div class="back-pokemon-size">
+            <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+            <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+            <span class="back-tooltiptext">Peso </span>
+            <span>${dataset["size"]["weight"]}</span> 
+            <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+            <span class="back-tooltiptext">Altura</span>
+            <span>${dataset["size"]["height"]}</span> 
+          </div>
+
+          <div class="back-pokemon-stats">
+            <h1 class="back-card-titles"> Estatísticas</h1>
+
+            <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+            <span class="back-tooltiptext">Ataque</span>
+            <span>${dataset["stats"]["base-attack"]}</span>
+            <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+           
+            <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+            <span class="back-tooltiptext">Defesa</span>
+            <span>${dataset["stats"]["base-defense"]}</span> 
+            <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+        
+            <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+            <span class="back-tooltiptext">Stamina</span>
+            <span>${dataset["stats"]["base-stamina"]}</span> 
+            <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+            <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          
+            <br>
+
+            <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+            <span class="back-tooltiptext">Poder de Combate</span>
+            <span>${dataset["stats"]["max-cp"]}</span> 
+            <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          
+            <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+            <span class="back-tooltiptext">Pontos de Vida</span>
+            <span>${dataset["stats"]["max-hp"]}</span> 
+            <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          </div>
+
+          <div class="back-resistant-to">
+            <p class="back-card-titles"> Resistente à </p>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+          </div>
+          <div class="back-weak-to">
+            <p class="back-card-titles"> Fraco contra</p>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+          
+            </div>
+            <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+          </li>
+      </div> 
+    </div>  
+      `
         return accumulator
       },[])
       
@@ -802,16 +1013,118 @@ function listPokemonsByRarity (dataset) {
   function listPokemonsBySpawn (dataset) {
     const listOfPokemonsBySpawn = dataset.reduce((accumulator, dataset) => {
       accumulator += `
-      <div class="pokemon-card"> 
-        <li class="lista-de-pokemons"> 
-          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-          <p class="id-do-pokemon">#${dataset["num"]} </p> 
-          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
-          <p class="spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>  
-        </li>
-      </div> `
+      <div class="card">
+
+        <div class="front-card front-card-spawn-chance"> 
+          <li class="front-list"> 
+            <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+            <p class="front-pokemon-id">#${dataset["num"]} </p> 
+            <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+            <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+            <p class="front-spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>  
+          </li>
+        </div> 
+
+        <div class="back-card"> 
+        <li class="back-list">  
+
+          <div class="back-pokemon-size">
+            <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+            <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+            <span class="back-tooltiptext">Peso </span>
+            <span>${dataset["size"]["weight"]}</span> 
+            <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+            <span class="back-tooltiptext">Altura</span>
+            <span>${dataset["size"]["height"]}</span> 
+          </div>
+
+          <div class="back-pokemon-stats">
+            <h1 class="back-card-titles"> Estatísticas</h1>
+
+            <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+            <span class="back-tooltiptext">Ataque</span>
+            <span>${dataset["stats"]["base-attack"]}</span>
+            <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+           
+            <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+            <span class="back-tooltiptext">Defesa</span>
+            <span>${dataset["stats"]["base-defense"]}</span> 
+            <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+        
+            <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+            <span class="back-tooltiptext">Stamina</span>
+            <span>${dataset["stats"]["base-stamina"]}</span> 
+            <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+            <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          
+            <br>
+
+            <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+            <span class="back-tooltiptext">Poder de Combate</span>
+            <span>${dataset["stats"]["max-cp"]}</span> 
+            <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          
+            <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+            <span class="back-tooltiptext">Pontos de Vida</span>
+            <span>${dataset["stats"]["max-hp"]}</span> 
+            <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+            <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+            <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+            <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+          </div>
+
+          <div class="back-resistant-to">
+            <p class="back-card-titles"> Resistente à </p>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+            <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+            <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+          </div>
+          <div class="back-weak-to">
+            <p class="back-card-titles"> Fraco contra</p>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+            <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+            <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+          
+            </div>
+            <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+          </li>
+      </div> 
+    </div>  
+       `
       return accumulator
     },[])
     
@@ -867,11 +1180,11 @@ filterInput.addEventListener("keyup", filterNames);
 function filterNames() {
   const filterValue = document.getElementById("pokemon-search").value.toUpperCase();
   const pokemonPrintedList = document.getElementById("lista-impressa");
-  const pokemonList = pokemonPrintedList.getElementsByClassName("lista-de-pokemons");
+  const pokemonList = pokemonPrintedList.getElementsByClassName("front-list");
   const pokemonCard = document.getElementsByClassName("card");
 
   for (let i=0; i<pokemonList.length; i++){
-    let filteredPokemonCard = pokemonList[i].getElementsByClassName("nome-do-pokemon")[0];
+    let filteredPokemonCard = pokemonList[i].getElementsByClassName("front-pokemon-name")[0];
     if (filteredPokemonCard.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
       pokemonList[i].style.display="";
       pokemonCard[i].style.display="";
@@ -950,16 +1263,118 @@ document.getElementById("filter-by-weaknesses-button").addEventListener("click",
 //1. Criação de listas de pokemons:
 function listPokemonsByGeneration (dataset) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
-    accumulator += `
-    <div class="pokemon-card"> 
-    <li class="lista-de-pokemons"> 
-      <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-      <p class="id-do-pokemon">#${dataset["num"]} </p> 
-      <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-      <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-      <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
-    </li>
-  </div> `
+    accumulator +=  `
+    <div class="card">
+
+      <div class="front-card front-card-generation"> 
+        <li class="front-list"> 
+          <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+          <p class="front-pokemon-id">#${dataset["num"]} </p> 
+          <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+          <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+          <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>
+          <p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+        </li>
+      </div> 
+
+      <div class="back-card"> 
+      <li class="back-list">  
+
+        <div class="back-pokemon-size">
+          <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+          <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+          <span class="back-tooltiptext">Peso </span>
+          <span>${dataset["size"]["weight"]}</span> 
+          <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+          <span class="back-tooltiptext">Altura</span>
+          <span>${dataset["size"]["height"]}</span> 
+        </div>
+
+        <div class="back-pokemon-stats">
+          <h1 class="back-card-titles"> Estatísticas</h1>
+
+          <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+          <span class="back-tooltiptext">Ataque</span>
+          <span>${dataset["stats"]["base-attack"]}</span>
+          <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+          <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+          <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+          <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+         
+          <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+          <span class="back-tooltiptext">Defesa</span>
+          <span>${dataset["stats"]["base-defense"]}</span> 
+          <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+          <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+          <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+          <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+      
+          <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+          <span class="back-tooltiptext">Stamina</span>
+          <span>${dataset["stats"]["base-stamina"]}</span> 
+          <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+          <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+          <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+          <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+        
+          <br>
+
+          <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+          <span class="back-tooltiptext">Poder de Combate</span>
+          <span>${dataset["stats"]["max-cp"]}</span> 
+          <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+          <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+          <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+          <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+        
+          <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+          <span class="back-tooltiptext">Pontos de Vida</span>
+          <span>${dataset["stats"]["max-hp"]}</span> 
+          <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+          <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+          <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+          <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+        </div>
+
+        <div class="back-resistant-to">
+          <p class="back-card-titles"> Resistente à </p>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+        </div>
+        <div class="back-weak-to">
+          <p class="back-card-titles"> Fraco contra</p>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+          <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+          <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+        
+          </div>
+          <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+        </li>
+    </div> 
+  </div>      `
     return accumulator
   },[])
   
@@ -1001,28 +1416,9 @@ document.getElementById("all-generations-button").addEventListener("click", func
 
 // SEÇÃO: FILTRAGEM DO TIPO:
 //1. Criação de listas de pokemons:
-function listPokemonsByType (dataset) {
-  const listOfPokemons = dataset.reduce((accumulator, dataset) => {
-    accumulator += `
-    <div class="pokemon-card"> 
-        <li class="lista-de-pokemons"> 
-          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-          <p class="id-do-pokemon">#${dataset["num"]} </p> 
-          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p>           
-        </li>
-      </div> `
-    return accumulator
-  },[])
-  
-  const printList= document.getElementById("lista-impressa")
-  printList .innerHTML = listOfPokemons
-  
-}
 
 //2. Impressão da lista de pokemons completa:
-listPokemonsByType(pokemon)
+listPokemons(pokemon)
 
 //3. Manipulação do DOM
 let functionTypeResult1 = "";
@@ -1038,7 +1434,7 @@ function typeButtonsFunction (typeInput) {
     functionTypeResult1 = filterData(pokemon, ["type"],[0], typeButton);
     functionTypeResult2 = filterData(pokemon, ["type"],[1], typeButton);
     functionTypeResultMerged = functionTypeResult1.concat(functionTypeResult2)
-    listPokemonsByType(functionTypeResultMerged)
+    listPokemons(functionTypeResultMerged)
     filterNames()
   })
 }
@@ -1061,30 +1457,135 @@ pokemonTypes.map(typeButtonsFunction)
 function listPokemonsByResistance (dataset) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
     accumulator += `
-    <div class="pokemon-card"> 
-        <li class="lista-de-pokemons"> 
-          <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-          <p class="id-do-pokemon">#${dataset["num"]} </p> 
-          <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-          <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
-          <p id="resistant-to"> Resistente à </p>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][0]}>${dataset["resistant2"][0]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][0]}</span>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][1]}>${dataset["resistant2"][1]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][1]}</span>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][2]}>${dataset["resistant2"][2]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][2]}</span>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][3]}>${dataset["resistant2"][3]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][3]}</span>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][4]}>${dataset["resistant2"][4]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][4]}</span>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][5]}>${dataset["resistant2"][5]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][5]}</span>
-          <p class="resistencia-do-pokemon" value= R${dataset["resistant"][6]}>${dataset["resistant2"][6]} </p> 
-          <span class="tooltiptext">${dataset["resistant3"][6]}</span>
+    <div class="card">
+
+    <div class="front-card front-card-spawn-chance"> 
+      <li class="front-list"> 
+        <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+        <p class="front-pokemon-id">#${dataset["num"]} </p> 
+        <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+        <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+        <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+        <p id="resistant-to"> Resistente à </p>
+        <div class="front-pokemon-resistance">
+          <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+          <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+          <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+        </div>
         </li>
-      </div> `
+    </div> 
+
+    <div class="back-card"> 
+    <li class="back-list">  
+
+      <div class="back-pokemon-size">
+        <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+        <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+        <span class="back-tooltiptext">Peso </span>
+        <span>${dataset["size"]["weight"]}</span> 
+        <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+        <span class="back-tooltiptext">Altura</span>
+        <span>${dataset["size"]["height"]}</span> 
+      </div>
+
+      <div class="back-pokemon-stats">
+        <h1 class="back-card-titles"> Estatísticas</h1>
+
+        <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+        <span class="back-tooltiptext">Ataque</span>
+        <span>${dataset["stats"]["base-attack"]}</span>
+        <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+        <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+        <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+        <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+       
+        <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+        <span class="back-tooltiptext">Defesa</span>
+        <span>${dataset["stats"]["base-defense"]}</span> 
+        <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+        <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+        <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+        <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+    
+        <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+        <span class="back-tooltiptext">Stamina</span>
+        <span>${dataset["stats"]["base-stamina"]}</span> 
+        <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+        <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+        <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+        <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+      
+        <br>
+
+        <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+        <span class="back-tooltiptext">Poder de Combate</span>
+        <span>${dataset["stats"]["max-cp"]}</span> 
+        <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+        <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+        <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+        <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+      
+        <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+        <span class="back-tooltiptext">Pontos de Vida</span>
+        <span>${dataset["stats"]["max-hp"]}</span> 
+        <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+        <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+        <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+        <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+      </div>
+
+      <div class="back-resistant-to">
+        <p class="back-card-titles"> Resistente à </p>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+        <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+        <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+      </div>
+      <div class="back-weak-to">
+        <p class="back-card-titles"> Fraco contra</p>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+        <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+        <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+      
+        </div>
+        <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+      </li>
+  </div> 
+</div>  
+
+    `
     return accumulator
   },[])
   
@@ -1147,30 +1648,134 @@ pokemonResistance.map(resistanceButtonsFunction)
 function listPokemonsByWeaknesses (dataset) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
   accumulator += `
-  <div class="pokemon-card"> 
-  <li class="lista-de-pokemons"> 
-  <img class="imagem-do-pokemon" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
-  <p class="id-do-pokemon">#${dataset["num"]} </p> 
-  <p class="nome-do-pokemon"> ${dataset["name"]} </p> 
-  <p class="tipo-do-pokemon" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
-  <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
-  <p id="weak-to"> Fraco contra</p>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][0]}>${dataset["weaknesses2"][0]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][0]}</span>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][1]}>${dataset["weaknesses2"][1]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][1]}</span>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][2]}>${dataset["weaknesses2"][2]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][2]}</span>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][3]}>${dataset["weaknesses2"][3]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][3]}</span>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][4]}>${dataset["weaknesses2"][4]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][4]}</span>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][5]}>${dataset["weaknesses2"][5]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][5]}</span>
-  <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][6]}>${dataset["weaknesses2"][6]} </p> 
-  <span class="tooltiptext">${dataset["weaknesses3"][6]}</span>
-  </li>
-  </div> `
+  <div class="card">
+
+  <div class="front-card front-card-spawn-chance"> 
+    <li class="front-list"> 
+      <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.num2}.png">
+      <p class="front-pokemon-id">#${dataset["num"]} </p> 
+      <p class="front-pokemon-name"> ${dataset["name"]} </p> 
+      <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["type2"][0]} </p> 
+      <p class="front-pokemon-type" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
+      <div class="front-pokemon-weaknesses">
+      <p id="weak-to"> Fraco contra</p>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+      </div>
+      </li>
+  </div> 
+
+  <div class="back-card"> 
+  <li class="back-list">  
+
+    <div class="back-pokemon-size">
+      <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
+      <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
+      <span class="back-tooltiptext">Peso </span>
+      <span>${dataset["size"]["weight"]}</span> 
+      <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
+      <span class="back-tooltiptext">Altura</span>
+      <span>${dataset["size"]["height"]}</span> 
+    </div>
+
+    <div class="back-pokemon-stats">
+      <h1 class="back-card-titles"> Estatísticas</h1>
+
+      <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
+      <span class="back-tooltiptext">Ataque</span>
+      <span>${dataset["stats"]["base-attack"]}</span>
+      <span class="back-greater-than-average-arrow" > ${dataset["statusAttackGreater"]} </span> 
+      <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+      <span class="back-lower-than-average-arrow"> ${dataset["statusAttackLower"]} </span>
+      <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+     
+      <img class="back-stats-figures" alt="Escudo" src="images/shield.png">
+      <span class="back-tooltiptext">Defesa</span>
+      <span>${dataset["stats"]["base-defense"]}</span> 
+      <span class="back-greater-than-average-arrow" > ${dataset["statusDefenseGreater"]} </span> 
+      <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+      <span class="back-lower-than-average-arrow"> ${dataset["statusDefenseLower"]} </span> 
+      <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+  
+      <img class="back-stats-figures" alt="Energia" src="images/stamina.png">
+      <span class="back-tooltiptext">Stamina</span>
+      <span>${dataset["stats"]["base-stamina"]}</span> 
+      <span class="back-greater-than-average-arrow" > ${dataset["statusStaminaGreater"]} </span>
+      <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span> 
+      <span class="back-lower-than-average-arrow"> ${dataset["statusStaminaLower"]}</span> 
+      <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+    
+      <br>
+
+      <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
+      <span class="back-tooltiptext">Poder de Combate</span>
+      <span>${dataset["stats"]["max-cp"]}</span> 
+      <span class="back-greater-than-average-arrow"> ${dataset["statusMaxCpGreater"]}</span> 
+      <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+      <span class="back-lower-than-average-arrow"> ${dataset["statusMaxCpLower"]} </span> 
+      <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+    
+      <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
+      <span class="back-tooltiptext">Pontos de Vida</span>
+      <span>${dataset["stats"]["max-hp"]}</span> 
+      <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
+      <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
+      <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
+      <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
+    </div>
+
+    <div class="back-resistant-to">
+      <p class="back-card-titles"> Resistente à </p>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][0]}>${dataset["PTPokemonResistant"][0]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][0]}</span>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][1]}>${dataset["PTPokemonResistant"][1]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][1]}</span>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][2]}>${dataset["PTPokemonResistant"][2]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][2]}</span>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][3]}>${dataset["PTPokemonResistant"][3]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][3]}</span>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][4]}>${dataset["PTPokemonResistant"][4]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][4]}</span>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][5]}>${dataset["PTPokemonResistant"][5]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][5]}</span>
+      <p class="pokemon-resistance" value= R${dataset["resistant"][6]}>${dataset["PTPokemonResistant"][6]} </p> 
+      <span class="tooltiptext">${dataset["pokemonResistantInitials"][6]}</span>
+    </div>
+    <div class="back-weak-to">
+      <p class="back-card-titles"> Fraco contra</p>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["PTPokemonWeaknesses"][0]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][0]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["PTPokemonWeaknesses"][1]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][1]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["PTPokemonWeaknesses"][2]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][2]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["PTPokemonWeaknesses"][3]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][3]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["PTPokemonWeaknesses"][4]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][4]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["PTPokemonWeaknesses"][5]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][5]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["PTPokemonWeaknesses"][6]} </p> 
+      <span class="tooltiptext">${dataset["pokemonWeaknessesInitials"][6]}</span>
+    
+      </div>
+      <p class="back-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>
+    </li>
+</div> 
+</div>  
+`
   return accumulator
   },[])
   const printList= document.getElementById("lista-impressa")
