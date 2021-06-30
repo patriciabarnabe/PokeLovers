@@ -1,4 +1,3 @@
-
 ///SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
 import { filterData } from './data.js'
 import { sortData } from './data.js';
@@ -655,10 +654,8 @@ function listPokemons (dataset) {
               <p class="tipo-do-pokemon" value= ${dataset["type"][1]}> ${dataset["type2"][1]} </p> 
             </li>
           </div> 
-
           <div class="pokemon-card-back"> 
           <li class="lista-de-pokemons-back">  
-
             <div class="tamanho-do-pokemon">
             <h1 class="titulo-div-back"> Tamanho do Pokemon </h1>
             <img class="imagem-back" alt="Peso" src="images/weigth.svg">
@@ -668,7 +665,6 @@ function listPokemons (dataset) {
             <span class="tooltiptext2">Altura</span>
             <span class="altura-do-pokemon">${dataset["size"]["height"]}</span> 
             </div>
-
             <div class="estatisticas-do-pokemon">
             <h1 class="titulo-div-back"> Estatísticas</h1>
             <img class="imagem-back2" alt="Ataque" src="images/sword.png">
@@ -688,7 +684,6 @@ function listPokemons (dataset) {
             <span class="menor-que-media" value=lower> ${dataset["statusDefenseLower"]} </span> 
             <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
           
-
             <img class="imagem-back2" alt="Energia" src="images/stamina.png">
             <span class="tooltiptext2">Stamina</span>
             <span class="stamina-do-pokemon">${dataset["stats"]["base-stamina"]}</span> 
@@ -712,7 +707,6 @@ function listPokemons (dataset) {
             <span class="tooltiptext2">Acima da Média (Todos Pokemons)</span>
             <span class="menor-que-media" value=lower> ${dataset["statusMaxHpLower"]} </span> 
             <span class="tooltiptext2">Abaixo da Média (Todos Pokemons)</span> 
-
             <p class  ="titulo-div-back"> Resistente à </p>
             <p class="resistencia-do-pokemon" value= R${dataset["resistant"][0]}>${dataset["resistant2"][0]} </p> 
             <span class="tooltiptext">${dataset["resistant3"][0]}</span>
@@ -728,7 +722,6 @@ function listPokemons (dataset) {
             <span class="tooltiptext">${dataset["resistant3"][5]}</span>
             <p class="resistencia-do-pokemon" value= R${dataset["resistant"][6]}>${dataset["resistant2"][6]} </p> 
             <span class="tooltiptext">${dataset["resistant3"][6]}</span>
-
             <p class="titulo-div-back"> Fraco contra</p>
             <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][0]}>${dataset["weaknesses2"][0]} </p> 
             <span class="tooltiptext">${dataset["weaknesses3"][0]}</span>
@@ -744,10 +737,7 @@ function listPokemons (dataset) {
             <span class="tooltiptext">${dataset["weaknesses3"][5]}</span>
             <p class="fraqueza-do-pokemon" value= R${dataset["weaknesses"][6]}>${dataset["weaknesses2"][6]} </p> 
             <span class="tooltiptext">${dataset["weaknesses3"][6]}</span>
-
             </div>
-
-
             </li>
         </div> 
       </div>   
