@@ -573,17 +573,19 @@ function typeButtonsFunction (typeInput) {
   })
 }
 
-//14.b.II) Criação de um array com o nome dos botões:
-let pokemonTypes = ["bug", "dark", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost",
-"grass", "ground","ice", "normal", "poison", "psychic", "rock", "water", "steel"]
-
-//14.b.III) Adição do sufixo "-type-button"
-for (let i=0; i<pokemonTypes.length; i++) {
-  pokemonTypes[i] = pokemonTypes[i] + "-type-button"
+//14.b.II) Criação de um array com o nome dos botões + Adição do sufixo "-attribute-button":
+function addingButtonSuffix (attribute) {
+let newButton = [];
+  for (let i=0; i<namesCorrespondence.length; i++) {
+    namesCorrespondence[i].forButtton = namesCorrespondence[i].englishNameLowerCase + "-" + attribute + "-button"
+    }
+  newButton = namesCorrespondence.map((ObjectFrom) => {
+    return ObjectFrom.forButtton});
+  return (newButton)
 }
 
-//14.b.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
-pokemonTypes.map(typeButtonsFunction)
+//14.b.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
+addingButtonSuffix("type").map(typeButtonsFunction)
 
 //14.c) Resistência
 let functionResistanceResult1 = "";
@@ -618,16 +620,8 @@ function resistantButtonsFunction (resistantInput) {
   })
 }
 
-//14.c.II) Criação de um array com o nome dos botões:
-let pokemonResistance = ["bug", "dark", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost",
-"grass", "ground","ice", "normal", "poison", "psychic", "rock", "water", "steel"]
-
-//14.c.III) Adição do sufixo "-type-button"
-for (let i=0; i<pokemonResistance.length; i++) {
-  pokemonResistance[i] = pokemonResistance[i] + "-resistant-button" 
-}
-//14.c.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
-pokemonResistance.map(resistantButtonsFunction)
+//14.c.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
+addingButtonSuffix("resistant").map(resistantButtonsFunction)
 
 
 //14.d) Resistência
@@ -646,7 +640,7 @@ pokemonResistance.map(resistantButtonsFunction)
   document.getElementById(WeaknessesInput).addEventListener("click", function (event) {
   event.preventDefault()
   WeaknessesButton = event.target.value;
-  pokemonTypes.map(typeButtonsFunction)
+  
   functionWeaknessesResult1 = filterData(pokemon, ["weaknesses"],[0], WeaknessesButton);
   functionWeaknessesResult2 = filterData(pokemon, ["weaknesses"],[1], WeaknessesButton);
   functionWeaknessesResult3 = filterData(pokemon, ["weaknesses"],[2], WeaknessesButton);
@@ -663,15 +657,6 @@ pokemonResistance.map(resistantButtonsFunction)
   })
   }
 
- //14.d.II) Criação de um array com o nome dos botões:
-  let pokemonWeaknesses = ["bug", "dark", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost",
-  "grass", "ground","ice", "normal", "poison", "psychic", "rock", "water", "steel"]
-  
- //14.d.III) Adição do sufixo "-type-button"
-  for (let i=0; i<pokemonWeaknesses.length; i++) {
-  pokemonWeaknesses[i] = pokemonWeaknesses[i] + "-weaknesses-button" 
-  }
-  
 //14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
-  pokemonWeaknesses.map(WeaknessesButtonsFunction)
+addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction)
 
