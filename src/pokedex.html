@@ -23,60 +23,63 @@
     <main>
       <section id="filters"> 
 
-      <form id="form">
+        <form id="form">
 
-        <input type = "text" id="pokemon-search" class= "is-button-or-input" placeholder="Busque por um Pokémon">
-    
-        <select name="order" class="is-button-or-input" id="order">
-          <option selected disable class="disabled-order">Atributo</option>
-          <option value="name" class="order-selection">Alfabética</option>
-          <option value="pokemon-rarity">Raridade</option>
-          <option value="egg">Distância dos Ovos</option>
-          <option value="spawn-chance">Probabilidade de Aparição</option>
-        </select>
+          <input type = "text" id="pokemon-search" class= "is-button-or-input" placeholder="Busque por um Pokémon">
+      
+          <select name="order" class="is-button-or-input" id="order">
+            <option selected disable class="disabled-order">Atributo</option>
+            <option value="name" class="order-selection">Alfabética</option>
+            <option value="pokemon-rarity">Raridade</option>
+            <option value="egg">Distância dos Ovos</option>
+            <option value="spawn-chance">Probabilidade de Aparição</option>
+          </select>
 
-        <select name="option" class="is-button-or-input" id="option">
-          <option selected disable class="disabled-order">Ordem</option>
-          <option value="ascending">Crescente</option>
-          <option value="descending">Decrescente</option>      
-        </select>
+          <select name="option" class="is-button-or-input" id="option">
+            <option selected disable class="disabled-order">Ordem</option>
+            <option value="ascending">Crescente</option>
+            <option value="descending">Decrescente</option>      
+          </select>
 
-        <button class="is-button-or-input" id="order-button">Ordenar</button>
+          <button class="is-button-or-input" id="order-button">Ordenar</button>
 
-        <button class="is-button-or-input" id="filters-button">Filtros</button>
+          <button class="is-button-or-input" id="filters-button">Filtros</button>
 
-        <button class="is-button-or-input" id="search-reset">Limpar Busca</button>
-      </form>
-       
-      <section class="hidden-buttons" id="filters-section">
-
-        <button class="main-filter is-button-or-input" id="filter-by-generation-button">Geração</button>
+          <button class="is-button-or-input" id="search-reset">Limpar Busca</button>
+        </form>
         
-        <div class="hidden-buttons" id="buttons-generation">
-          <button class="filter-button-generation is-button-or-input" id="all-generations-button" value="All"> Todas as Gerações </button>
-          <button class="filter-button-generation is-button-or-input" id="first-generation-button" value="I"> Geração I - Kanto </button>
-          <button class="filter-button-generation is-button-or-input" id="second-generation-button" value="II"> Geração II - Johto </button>
-        </div>
+        <section class="hidden-buttons" id="filters-section">
 
-        <button class= "main-filter is-button-or-input" id="filter-by-type-button">Tipo</button>
-        <div class="hidden-buttons" id="buttons-type"></div>
-      
-        <button class= "main-filter is-button-or-input"id="filter-by-resistant-button">Resistência</button>
-        <div class="hidden-buttons" id="buttons-resistant"></div> 
-      
-        <button class= "main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
-        <div class="hidden-buttons" id="buttons-weaknesses"></div> 
+          <button class="main-filter is-button-or-input" id="filter-by-generation-button">Geração</button>
+          
+          <div class="hidden-buttons" id="buttons-generation">
+            <button class="filter-button-generation is-button-or-input" id="all-generations-button" value="All"> Todas as Gerações </button>
+            <button class="filter-button-generation is-button-or-input" id="first-generation-button" value="I"> Geração I - Kanto </button>
+            <button class="filter-button-generation is-button-or-input" id="second-generation-button" value="II"> Geração II - Johto </button>
+          </div>
 
-      </section> 
-      
-      <ul id="lista-impressa"> </ul>
+          <button class="main-filter is-button-or-input" id="filter-by-type-button">Tipo</button>
+          <div class="hidden-buttons" id="buttons-type"></div>
+        
+          <button class="main-filter is-button-or-input" id="filter-by-resistant-button">Resistência</button>
+          <div class="hidden-buttons" id="buttons-resistant"></div> 
+        
+          <button class="main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
+          <div class="hidden-buttons" id="buttons-weaknesses"></div> 
 
-      <footer class="footer-pokedex">
-        <h4 class="footer-title"> Desenvolvido por <a class="footer-nome" href="https://github.com/laismune/" target="_blank"><i>Laís Mune</i></a> e <a class="footer-nome" href="https://github.com/patbarnabe/" target="_blank"><i>Patrícia Barnabé</i></a> 
-        </h4>
-      </footer>
+        </section> 
+        
+        <ul id="lista-impressa"> </ul>
+
+        <footer class="footer-pokedex">
+          <h4 class="footer-title"> Desenvolvido por <a class="footer-nome" href="https://github.com/laismune/" target="_blank"><i>Laís Mune</i></a> e <a class="footer-nome" href="https://github.com/patbarnabe/" target="_blank"><i>Patrícia Barnabé</i></a> 
+          </h4>
+        </footer>
+
+       </section>
       
     </main>
 
     <script src="main.js" type="module"></script>
   </body>
+</html>

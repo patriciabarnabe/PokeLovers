@@ -1,12 +1,11 @@
-export const filterData = (dataset,firstAttribute,secondAttribute, value) => {
-  let filteredData = ""
-  if (secondAttribute !== "") {
+export const filterData = (dataset, firstAttribute, secondAttribute, value) => {
+  let filteredData = "";
+  if (secondAttribute !== ""){
     filteredData = dataset.filter(data => data[firstAttribute][secondAttribute] === value);
+  } else {
+    filteredData = dataset.filter((data) => data[firstAttribute].includes(value));
   }
-  else {
-    filteredData = dataset.filter(data => data[firstAttribute] === value);
-  } 
-return filteredData   
+ return filteredData
 };
 
 export const sortData = (data, sortBy, sortOrder) => {
@@ -75,15 +74,14 @@ const compare = (a, b) => {
   }
 };
 
-export const computeStats = (data, firstAttribute, secondAttribute) => {
-  let average = ""
+export const computeAverage = (data, firstAttribute, secondAttribute) => {
+  
   let result = ""
   if (secondAttribute !== ""){
-    average = data.reduce((inicial,current) => inicial + current[firstAttribute][secondAttribute]/data.length,0)
-    result = average.toFixed(4)
+    result = data.reduce((inicial,current) => inicial + current[firstAttribute][secondAttribute]/data.length,0)
   } else {
-    average = data.reduce((inicial,current) => inicial + current[firstAttribute]/data.length,0)
-    result = average.toFixed(4)
+    result = data.reduce((inicial,current) => inicial + current[firstAttribute]/data.length,0)
   }
 return result
 }
+

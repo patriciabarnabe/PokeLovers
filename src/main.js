@@ -1,13 +1,14 @@
 ///SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
 import { filterData } from './data.js'
 import { sortData } from './data.js';
-import { computeStats } from './data.js';
+import { computeAverage } from './data.js';
 
 //SEÇÃO 2: IMPORTAÇÃO DO .JSON
+let pokemon = []
+async function getData () {
 const getPokemonData = await fetch("data/pokemon/pokemon.json");
 const pokemonData = await getPokemonData.json();
-const pokemon = pokemonData.pokemon
-
+pokemon = pokemonData.pokemon
 
 const order = document.getElementById("order")
 const option = document.getElementById("option")
@@ -165,11 +166,11 @@ stringToNumber(pokemon, ["stats"], ["max-hp"])
 
 //Cálculo agregado (comparação com as stats médias:)
 //8) Definição das médias:
-const baseAttackAverage = computeStats(pokemon, ["stats"], ["base-attack"])
-const baseDefenseAverage = computeStats(pokemon, ["stats"], ["base-defense"])
-const baseStaminaAverage = computeStats(pokemon, ["stats"], ["base-stamina"])
-const maxCpAverage= computeStats(pokemon, ["stats"], ["max-cp"])
-const maxHpAverage= computeStats(pokemon, ["stats"], ["max-hp"])
+const baseAttackAverage = computeAverage(pokemon, ["stats"], ["base-attack"])
+const baseDefenseAverage = computeAverage(pokemon, ["stats"], ["base-defense"])
+const baseStaminaAverage = computeAverage(pokemon, ["stats"], ["base-stamina"])
+const maxCpAverage= computeAverage(pokemon, ["stats"], ["max-cp"])
+const maxHpAverage= computeAverage(pokemon, ["stats"], ["max-hp"])
 
 //Comparação dos valores com as médias:
 for (const individual of pokemon){
@@ -660,3 +661,7 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction)
 //14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction)
 
+}
+
+
+getData()
