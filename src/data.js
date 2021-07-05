@@ -1,13 +1,13 @@
-export const filterData = (dataset,firstAttribute,secondAttribute, value) => {
-  let filteredData = ""
-  if (secondAttribute !== "") {
+export const filterData = (dataset, firstAttribute, secondAttribute, value) => {
+  let filteredData = "";
+  if (secondAttribute !== ""){
     filteredData = dataset.filter(data => data[firstAttribute][secondAttribute] === value);
+  } else {
+    filteredData = dataset.filter((data) => data[firstAttribute].includes(value));
   }
-  else {
-    filteredData = dataset.filter(data => data[firstAttribute] === value);
-  } 
-return filteredData   
+ return filteredData
 };
+
 
 export const sortData = (data, sortBy, sortOrder) => {
 const compare = (a, b) => {
@@ -87,3 +87,4 @@ export const computeStats = (data, firstAttribute, secondAttribute) => {
   }
 return result
 }
+

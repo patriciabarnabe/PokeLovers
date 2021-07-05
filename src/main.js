@@ -9,10 +9,6 @@ const pokemonData = await getPokemonData.json();
 const pokemon = pokemonData.pokemon
 
 
-const order = document.getElementById("order")
-const option = document.getElementById("option")
-const orderButton = document.getElementById("order-button")
-
 //SEÇÃO 3: MANIPULAÇÃO/ALTERAÇÃO dos atributos
 
 //1) Alteração do sexo dos Pokemons. Fêmea (para female) e Macho (para male):
@@ -440,6 +436,10 @@ function filterNames() {
 }
 
 //12) Ordenação das listas - SortData:
+const order = document.getElementById("order")
+const option = document.getElementById("option")
+const orderButton = document.getElementById("order-button")
+
 orderButton.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -526,7 +526,7 @@ document.getElementById("filter-by-weaknesses-button").addEventListener("click",
 //14) SubFiltros por botão:
 //14.a) Geraçao
 //14.a.I) Printar primeira OU Segunda geração:
-let functionGenerationResult = "";
+let data = "";
 let generationButton = "";
 
 //3.a) Criação da função geral dos botões (primeira e segunda geração):
@@ -534,8 +534,8 @@ function generationButtonsFunction (generationInput) {
 document.getElementById(generationInput).addEventListener("click", function (event) {
     event.preventDefault()
     generationButton = event.target.value;
-    functionGenerationResult = filterData(pokemon, ["generation"],["num"], generationButton);
-    listPokemons(functionGenerationResult, addGeneration);
+    data = filterData(pokemon, ["generation"],["num"], generationButton);
+    listPokemons(data, addGeneration);
     filterNames();
   })
 }
@@ -554,22 +554,17 @@ document.getElementById("all-generations-button").addEventListener("click", func
     filterNames()
 })
 
-
 //14.b) Tipo
-let functionTypeResult1 = "";
-let functionTypeResult2 = "";
-let functionTypeResultMerged = "";
 let typeButton = "";
 
 //14.b.I) Criação da função geral dos botões:
 function typeButtonsFunction (typeInput) {
   document.getElementById(typeInput).addEventListener("click", function (event) {
-    event.preventDefault()
-    typeButton = event.target.value;
-    functionTypeResult1 = filterData(pokemon, ["type"],[0], typeButton);
-    functionTypeResult2 = filterData(pokemon, ["type"],[1], typeButton);
-    functionTypeResultMerged = functionTypeResult1.concat(functionTypeResult2)
-    listPokemons(functionTypeResultMerged, addNothing)
+  event.preventDefault()
+  typeButton = event.target.value;
+  data = filterData(pokemon, ["type"],"", typeButton)
+  listPokemons(data, addNothing)
+  filterNames()
   })
 }
 
@@ -588,75 +583,35 @@ let newButton = [];
 addingButtonSuffix("type").map(typeButtonsFunction)
 
 //14.c) Resistência
-let functionResistanceResult1 = "";
-let functionResistanceResult2 = "";
-let functionResistanceResult3 = "";
-let functionResistanceResult4 = "";
-let functionResistanceResult5 = "";
-let functionResistanceResult6 = "";
-let functionResistanceResult7 = "";
-let functionResistanceResultMerged = [];
 let resistantButton = "";
-
 
 //14.c.I) Criação da função geral dos botões:
 function resistantButtonsFunction (resistantInput) {
   document.getElementById(resistantInput).addEventListener("click", function (event) {
-    event.preventDefault()
-    resistantButton = event.target.value;
-    functionResistanceResult1 = filterData(pokemon, ["resistant"],[0], resistantButton);
-    functionResistanceResult2 = filterData(pokemon, ["resistant"],[1], resistantButton);
-    functionResistanceResult3 = filterData(pokemon, ["resistant"],[2], resistantButton);
-    functionResistanceResult4 = filterData(pokemon, ["resistant"],[3], resistantButton);
-    functionResistanceResult5 = filterData(pokemon, ["resistant"],[4], resistantButton);
-    functionResistanceResult6 = filterData(pokemon, ["resistant"],[5], resistantButton);
-    functionResistanceResult7 = filterData(pokemon, ["resistant"],[6], resistantButton);
-  
-    functionResistanceResultMerged = functionResistanceResult1.concat(functionResistanceResult2,functionResistanceResult3,
-    functionResistanceResult4, functionResistanceResult5, functionResistanceResult6, functionResistanceResult7)
-    
-    listPokemons(functionResistanceResultMerged, addResistant)
-    filterNames()
+  event.preventDefault()
+  resistantButton = event.target.value;
+  data = filterData(pokemon, ["resistant"], "",resistantButton)
+  listPokemons(data, addResistant)
+  filterNames()
   })
 }
 
 //14.c.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("resistant").map(resistantButtonsFunction)
 
-
 //14.d) Resistência
-  let functionWeaknessesResult1 = "";
-  let functionWeaknessesResult2 = "";
-  let functionWeaknessesResult3 = "";
-  let functionWeaknessesResult4 = "";
-  let functionWeaknessesResult5 = "";
-  let functionWeaknessesResult6 = "";
-  let functionWeaknessesResult7 = "";
-  let functionWeaknessesResultMerged = "";
-  let WeaknessesButton = "";
+let WeaknessesButton = "";
   
 //14.c.I) Criação da função geral dos botões:
-  function WeaknessesButtonsFunction (WeaknessesInput) {
+function WeaknessesButtonsFunction (WeaknessesInput) {
   document.getElementById(WeaknessesInput).addEventListener("click", function (event) {
   event.preventDefault()
   WeaknessesButton = event.target.value;
-  
-  functionWeaknessesResult1 = filterData(pokemon, ["weaknesses"],[0], WeaknessesButton);
-  functionWeaknessesResult2 = filterData(pokemon, ["weaknesses"],[1], WeaknessesButton);
-  functionWeaknessesResult3 = filterData(pokemon, ["weaknesses"],[2], WeaknessesButton);
-  functionWeaknessesResult4 = filterData(pokemon, ["weaknesses"],[3], WeaknessesButton);
-  functionWeaknessesResult5 = filterData(pokemon, ["weaknesses"],[4], WeaknessesButton);
-  functionWeaknessesResult6 = filterData(pokemon, ["weaknesses"],[5], WeaknessesButton);
-  functionWeaknessesResult7 = filterData(pokemon, ["weaknesses"],[6], WeaknessesButton);
-
-  functionWeaknessesResultMerged = functionWeaknessesResult1.concat(functionWeaknessesResult2, functionWeaknessesResult3,
-  functionWeaknessesResult4, functionWeaknessesResult5, functionWeaknessesResult6, functionWeaknessesResult7)
-
-  listPokemons(functionWeaknessesResultMerged, addWeaknesses)
+  data = filterData(pokemon, ["weaknesses"],"", WeaknessesButton)
+  listPokemons(data, addWeaknesses)
   filterNames()
   })
-  }
+ }
 
 //14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction)
-
