@@ -23,7 +23,7 @@
     <main>
       <section id="filters"> 
 
-        <form id="form">
+      <form id="form">
 
         <input type = "text" id="pokemon-search" class= "is-button-or-input" placeholder="Busque por um Pokémon">
     
@@ -41,17 +41,17 @@
           <option value="descending">Decrescente</option>      
         </select>
 
-       
-
         <button class="is-button-or-input" id="order-button">Ordenar</button>
 
         <button class="is-button-or-input" id="filters-button">Filtros</button>
 
         <button class="is-button-or-input" id="search-reset">Limpar Busca</button>
       </form>
-        <section class="hidden-buttons" id="filters-section">
+       
+      <section class="hidden-buttons" id="filters-section">
 
         <button class="main-filter is-button-or-input" id="filter-by-generation-button">Geração</button>
+        
         <div class="hidden-buttons" id="buttons-generation">
           <button class="filter-button-generation is-button-or-input" id="all-generations-button" value="All"> Todas as Gerações </button>
           <button class="filter-button-generation is-button-or-input" id="first-generation-button" value="I"> Geração I - Kanto </button>
@@ -59,73 +59,15 @@
         </div>
 
         <button class= "main-filter is-button-or-input" id="filter-by-type-button">Tipo</button>
-          <div class="hidden-buttons" id="buttons-type">
-          <button class="filter-button-type is-button-or-input" id="steel-type-button" value="Steel"> Aço </button>
-          <button class="filter-button-type is-button-or-input" id="water-type-button" value="Water"> Água </button>
-          <button class="filter-button-type is-button-or-input" id="dragon-type-button" value="Dragon"> Dragão </button>
-          <button class="filter-button-type is-button-or-input" id="electric-type-button" value="Electric"> Elétrico </button>
-          <button class="filter-button-type is-button-or-input" id="fairy-type-button" value="Fairy"> Fada </button>
-          <button class="filter-button-type is-button-or-input" id="ghost-type-button" value="Ghost"> Fantasma </button>
-          <button class="filter-button-type is-button-or-input" id="fire-type-button" value="Fire"> Fogo </button>
-          <button class="filter-button-type is-button-or-input" id="ice-type-button" value="Ice"> Gelo </button>
-          <button class="filter-button-type is-button-or-input" id="bug-type-button" value="Bug"> Inseto </button>
-          <button class="filter-button-type is-button-or-input" id="fighting-type-button" value="Fighting"> Lutador </button>
-          <button class="filter-button-type is-button-or-input" id="normal-type-button" value="Normal"> Normal </button>
-          <button class="filter-button-type is-button-or-input" id="grass-type-button" value="Grass"> Planta </button>
-          <button class="filter-button-type is-button-or-input" id="rock-type-button" value="Rock"> Pedra </button>
-          <button class="filter-button-type is-button-or-input" id="psychic-type-button" value="Psychic"> Psíquico </button>
-          <button class="filter-button-type is-button-or-input" id="dark-type-button" value="Dark"> Sombrio </button>
-          <button class="filter-button-type is-button-or-input" id="ground-type-button" value="Ground"> Terrestre </button>
-          <button class="filter-button-type is-button-or-input" id="poison-type-button" value="Poison"> Venenoso </button>
-          <button class="filter-button-type is-button-or-input" id="flying-type-button" value="Flying"> Voador </button>
-        </div> 
-
-        <button class= "main-filter is-button-or-input"id="filter-by-resistance-button">Resistência</button>
-        <div class="hidden-buttons" id="buttons-resistance">
-          <button class="filter-button-resistance is-button-or-input" id="steel-resistance-button" value="Steel"> Aço </button>
-          <button class="filter-button-resistance is-button-or-input" id="water-resistance-button" value="Water"> Água </button>
-          <button class="filter-button-resistance is-button-or-input" id="dragon-resistance-button" value="Dragon"> Dragão </button>
-          <button class="filter-button-resistance is-button-or-input" id="electric-resistance-button" value="Electric"> Elétrico </button>
-          <button class="filter-button-resistance is-button-or-input" id="fairy-resistance-button" value="Fairy"> Fada </button>
-          <button class="filter-button-resistance is-button-or-input" id="ghost-resistance-button" value="Ghost"> Fantasma </button>
-          <button class="filter-button-resistance is-button-or-input" id="fire-resistance-button" value="Fire"> Fogo </button>
-          <button class="filter-button-resistance is-button-or-input" id="ice-resistance-button" value="Ice"> Gelo </button>
-          <button class="filter-button-resistance is-button-or-input" id="bug-resistance-button" value="Bug"> Inseto </button>
-          <button class="filter-button-resistance is-button-or-input" id="fighting-resistance-button" value="Fighting"> Lutador </button>
-          <button class="filter-button-resistance is-button-or-input" id="normal-resistance-button" value="Normal"> Normal </button>
-          <button class="filter-button-resistance is-button-or-input" id="grass-resistance-button" value="Grass"> Planta </button>
-          <button class="filter-button-resistance is-button-or-input" id="rock-resistance-button" value="Rock"> Pedra </button>
-          <button class="filter-button-resistance is-button-or-input" id="psychic-resistance-button" value="Psychic"> Psíquico </button>
-          <button class="filter-button-resistance is-button-or-input" id="dark-resistance-button" value="Dark"> Sombrio </button>
-          <button class="filter-button-resistance is-button-or-input" id="ground-resistance-button" value="Ground"> Terrestre </button>
-          <button class="filter-button-resistance is-button-or-input" id="poison-resistance-button" value="Poison"> Venenoso </button>
-          <button class="filter-button-resistance is-button-or-input" id="flying-resistance-button" value="Flying"> Voador </button>
-        </div> 
+        <div class="hidden-buttons" id="buttons-type"></div>
+      
+        <button class= "main-filter is-button-or-input"id="filter-by-resistant-button">Resistência</button>
+        <div class="hidden-buttons" id="buttons-resistant"></div> 
       
         <button class= "main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
-        <div class="hidden-buttons" id="buttons-weaknesses">
-          <button class="filter-button-weaknesses is-button-or-input" id="steel-weaknesses-button" value="Steel"> Aço </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="water-weaknesses-button" value="Water"> Água </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="dragon-weaknesses-button" value="Dragon"> Dragão </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="electric-weaknesses-button" value="Electric"> Elétrico </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="fairy-weaknesses-button" value="Fairy"> Fada </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="ghost-weaknesses-button" value="Ghost"> Fantasma </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="fire-weaknesses-button" value="Fire"> Fogo </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="ice-weaknesses-button" value="Ice"> Gelo </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="bug-weaknesses-button" value="Bug"> Inseto </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="fighting-weaknesses-button" value="Fighting"> Lutador </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="normal-weaknesses-button" value="Normal"> Normal </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="grass-weaknesses-button" value="Grass"> Planta </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="rock-weaknesses-button" value="Rock"> Pedra </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="psychic-weaknesses-button" value="Psychic"> Psíquico </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="dark-weaknesses-button" value="Dark"> Sombrio </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="ground-weaknesses-button" value="Ground"> Terrestre </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="poison-weaknesses-button" value="Poison"> Venenoso </button>
-          <button class="filter-button-weaknesses is-button-or-input" id="flying-weaknesses-button" value="Flying"> Voador </button>
-        </div> 
+        <div class="hidden-buttons" id="buttons-weaknesses"></div> 
 
       </section> 
-      
       
       <ul id="lista-impressa"> </ul>
 
@@ -135,5 +77,6 @@
       </footer>
       
     </main>
+
     <script src="main.js" type="module"></script>
   </body>
