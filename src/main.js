@@ -539,7 +539,7 @@ document.getElementById("filter-by-weaknesses-button").addEventListener("click",
 //14) SubFiltros por botão:
 //14.a) Geraçao
 //14.a.I) Printar primeira OU Segunda geração:
-let generationResult = "";
+let generationResult = {};
 let generationButton = "";
 
 //3.a) Criação da função geral dos botões (primeira e segunda geração):

@@ -8,6 +8,7 @@ export const filterData = (dataset, firstAttribute, secondAttribute, value) => {
  return filteredData
 };
 
+
 export const sortData = (data, sortBy, sortOrder) => {
   const compare = (a, b) => {
     if (a[sortBy] < b[sortBy]){
