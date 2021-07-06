@@ -57,16 +57,16 @@ describe('sortData', () => {
    });
 
    //Comparação entre L e N, N > L. Então ocorre a necessidade de "girar";
-   it('When to sort in ascending order (pokemon rarity) Normal and Legendary, it should show Normal first.', () => {
-    const pokemonRarity= [{pokemonR:"Normal"}, {pokemonR:"Lendário"}];
-    const pokemonRaritySorted = sortData(pokemonRarity, "pokemon-rarity", "ascending");
-    expect(pokemonRaritySorted[0].pokemonR).toEqual("Lendário");
+   it('When to sort in ascending order (rarity-order) First and Third, it should show First first.', () => {
+    const pokemonRarity= [{pokemonR:"First"}, {pokemonR:"Third"}];
+    const pokemonRaritySorted = sortData(pokemonRarity, "rarity-order", "ascending");
+    expect(pokemonRaritySorted[0].pokemonR).toEqual("First");
    });
  
-   it('When to sort in descending order (pokemon rarity) Normal and Legendary, it should show Legendary first.', () => {
-    const pokemonRarity= [{pokemonR:"Normal"}, {pokemonR:"Lendário"}];
-    const pokemonRaritySorted = sortData(pokemonRarity, "pokemon-rarity", "descending");
-    expect(pokemonRaritySorted[0].pokemonR).toEqual("Normal"); 
+   it('When to sort in descending order (rarity-order) First and Third, it should show Third first.', () => {
+    const pokemonRarity= [{pokemonR:"First"}, {pokemonR:"Third"}];
+    const pokemonRaritySorted = sortData(pokemonRarity, "rarity-order", "descending");
+    expect(pokemonRaritySorted[0].pokemonR).toEqual("Third");
    });
   
    it('When to sort in ascending order (eggs distance) 02 Km and 05 Km, it should show 02 Km first.', () => {
