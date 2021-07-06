@@ -1,54 +1,59 @@
 ///SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
 import { filterData } from './data.js'
 import { sortData } from './data.js';
-import { computeStats } from './data.js';
+import { computeAverage } from './data.js';
 
 //SEÇÃO 2: IMPORTAÇÃO DO .JSON
+let pokemon = [];
+async function getData () {
 const getPokemonData = await fetch("data/pokemon/pokemon.json");
 const pokemonData = await getPokemonData.json();
-const pokemon = pokemonData.pokemon
+pokemon = pokemonData.pokemon;
 
+const order = document.getElementById("order");
+const option = document.getElementById("option");
+const orderButton = document.getElementById("order-button");
 
 //SEÇÃO 3: MANIPULAÇÃO/ALTERAÇÃO dos atributos
 
 //1) Alteração do sexo dos Pokemons. Fêmea (para female) e Macho (para male):
-pokemon[28].name = "Nidoran (Fêmea)"
-pokemon[31].name = "Nidoran (Macho)"
+pokemon[28].name = "Nidoran (Fêmea)";
+pokemon[31].name = "Nidoran (Macho)";
 
 //2) Transformação da primeira letra do valor em maiúsculo:
 function firstLetterToUpperCase (dataset, firstAttribute, secondAttribute) {
     for (const individual of dataset) {
       if (!Array.isArray(individual[firstAttribute])) {
         if (secondAttribute !== "") {
-          individual[firstAttribute][secondAttribute] = individual[firstAttribute][secondAttribute].charAt(0).toUpperCase() + individual[firstAttribute][secondAttribute].substr(1)
+          individual[firstAttribute][secondAttribute] = individual[firstAttribute][secondAttribute].charAt(0).toUpperCase() + individual[firstAttribute][secondAttribute].substr(1);
         } else {
-          individual[firstAttribute] = individual[firstAttribute].charAt(0).toUpperCase() + individual[firstAttribute].substr(1)
+          individual[firstAttribute] = individual[firstAttribute].charAt(0).toUpperCase() + individual[firstAttribute].substr(1);
         }
       } else {
         for (let j=0; j < individual[firstAttribute].length; j++) {
-          individual[firstAttribute][j] = individual[firstAttribute][j].charAt(0).toUpperCase() + individual[firstAttribute][j].substr(1)
+          individual[firstAttribute][j] = individual[firstAttribute][j].charAt(0).toUpperCase() + individual[firstAttribute][j].substr(1);
         }
       }
     }
 }
 
 // Primeira letra do nome do Pokemon em maiúsculo:
-firstLetterToUpperCase(pokemon, ["name"], "")
+firstLetterToUpperCase(pokemon, ["name"], "");
 
 //Primeira letra da geração em maiúsculo:
-firstLetterToUpperCase(pokemon, ["generation"], ["name"])
+firstLetterToUpperCase(pokemon, ["generation"], ["name"]);
 
 //Primeira letra do nível de raridade em maiúsculo:
-firstLetterToUpperCase(pokemon, ["pokemon-rarity"], "")
+firstLetterToUpperCase(pokemon, ["pokemon-rarity"], "");
 
 //Primeira letra do tipo do pokemon:
-firstLetterToUpperCase(pokemon, ["type"], "")
+firstLetterToUpperCase(pokemon, ["type"], "");
 
 //Primeira letra das fraquezas do pokemon:
-firstLetterToUpperCase(pokemon, ["weaknesses"], "")
+firstLetterToUpperCase(pokemon, ["weaknesses"], "");
 
 //Primeira letra das resistências do pokemon:
-firstLetterToUpperCase(pokemon, ["resistant"], "")
+firstLetterToUpperCase(pokemon, ["resistant"], "");
 
 //3) Transformação de valores esperados para novos valores:
 function valueTransformation (dataset, firstAttribute, secondAttribute, expectedValue, newValue) {
@@ -64,46 +69,59 @@ function valueTransformation (dataset, firstAttribute, secondAttribute, expected
 }
 
 // Gerações:
-valueTransformation (pokemon, ["generation"], ["num"], "generation i", "I")
-valueTransformation (pokemon, ["generation"], ["num"], "generation ii", "II")
+valueTransformation (pokemon, ["generation"], ["num"], "generation i", "I");
+valueTransformation (pokemon, ["generation"], ["num"], "generation ii", "II");
 
 // Distância dos Ovos:
-valueTransformation (pokemon, ["egg"], "", "not in eggs", "Não possui ovos")
-valueTransformation (pokemon, ["egg"], "", "2 km", "02 Km")
-valueTransformation (pokemon, ["egg"], "", "5 km", "05 Km")
-valueTransformation (pokemon, ["egg"], "", "7 km", "07 Km")
+valueTransformation (pokemon, ["egg"], "", "not in eggs", "Não possui ovos");
+valueTransformation (pokemon, ["egg"], "", "2 km", "02 Km");
+valueTransformation (pokemon, ["egg"], "", "5 km", "05 Km");
+valueTransformation (pokemon, ["egg"], "", "7 km", "07 Km");
 
 // Probabilidade de aparição:
-valueTransformation (pokemon, ["spawn-chance"], "", null, "0")
+valueTransformation (pokemon, ["spawn-chance"], "", null, "0");
 
 //Raridade do pokemon:
-valueTransformation (pokemon, ["pokemon-rarity"], "", "Legendary", "Lendário")
-valueTransformation (pokemon, ["pokemon-rarity"], "", "Mythic", "Mítico")
+valueTransformation (pokemon, ["pokemon-rarity"], "", "Legendary", "Lendário");
+valueTransformation (pokemon, ["pokemon-rarity"], "", "Mythic", "Mítico");
+valueTransformation (pokemon, ["pokemon-rarity"], "", "Normal", "Normal");
 
 //4) Identificando quantidade máximas de tipo de um pokemon e substituindo-as (length dos arrays):
 function adjustArraySize (dataset, attribute) {
   //Identificando valor máximo do tamanho da array:
-  const maxLengthOfAnArray = dataset.reduce((acc, item ) => Math.max(acc, item[attribute].length), 0)
+  const maxLengthOfAnArray = dataset.reduce((acc, item ) => Math.max(acc, item[attribute].length), 0);
   for (const individual of dataset) {
     for (let j=0; j<individual[attribute].length; j++){
       //O tamanho da array antigo se torna o start do fill e irá preencher até o novo tamanho da array:
-      const oldLength = individual[attribute].length
+      const oldLength = individual[attribute].length;
       if (individual[attribute].length < maxLengthOfAnArray) {
-          individual[attribute].length = maxLengthOfAnArray
-          individual[attribute].fill("", oldLength, maxLengthOfAnArray)
+          individual[attribute].length = maxLengthOfAnArray;
+          individual[attribute].fill("", oldLength, maxLengthOfAnArray);
       }
     }
   }
 }
 //Tipos
-adjustArraySize(pokemon, ["type"])
-adjustArraySize(pokemon, ["resistant"])
-adjustArraySize(pokemon, ["weaknesses"])
+adjustArraySize(pokemon, ["type"]);
+adjustArraySize(pokemon, ["resistant"]);
+adjustArraySize(pokemon, ["weaknesses"]);
 
 //5)  Criar segunda coluna de objetos para pegar a imagem do outro site  (alguns ids começam com 0):
 //Soma 1 ao index da array.
 for (let i=0; i<pokemon.length; i++) {
 pokemon[i].idWithoutLeftZeros = i + 1
+}
+
+//5.b) Cria uma segunda coluna de objetos para indicar a importância da raridade:
+for (const individual of pokemon){
+  individual["rarity-order"] = "";
+  if(individual["pokemon-rarity"] === "Lendário") {
+    individual["rarity-order"] = "Third";
+  } else if (individual["pokemon-rarity"] === "Mítico") {
+    individual["rarity-order"] = "Second";
+  } else if (individual["pokemon-rarity"] === "Normal") {
+    individual["rarity-order"] = "First";
+  }
 }
 
 //6) Criação dos tipos, resistência e fraqueza em português e abreviação:
@@ -128,44 +146,44 @@ const namesCorrespondence = [{englishName: "Bug", englishNameLowerCase: "bug", p
 
 function changeNames (dataset, originalAttribute, attributeInPortuguese, attributePTAbreviation) {
   for (const individual of dataset) {
-    individual[attributeInPortuguese] = []
-    individual[attributePTAbreviation] = []
+    individual[attributeInPortuguese] = [];
+    individual[attributePTAbreviation] = [];
     for (let j=0; j<individual[originalAttribute].length; j++) {
       for (let k=0; k < namesCorrespondence.length; k++)
       if(individual[originalAttribute][j] === namesCorrespondence[k].englishName) {
-        individual[attributeInPortuguese][j] = namesCorrespondence[k].portugueseName
-        individual[attributePTAbreviation][j] = namesCorrespondence[k].abreviation
+        individual[attributeInPortuguese][j] = namesCorrespondence[k].portugueseName;
+        individual[attributePTAbreviation][j] = namesCorrespondence[k].abreviation;
       } else if (individual[originalAttribute][j] === "") {
-        individual[attributeInPortuguese][j] = ""
-        individual[attributePTAbreviation][j] = ""
+        individual[attributeInPortuguese][j] = "";
+        individual[attributePTAbreviation][j] = "";
       }
     }
   }
 }
 //Tipo, resistência e abreviações:
-changeNames (pokemon, ["type"], ["typeInPortugues"], ["typePTabreviation"])
-changeNames (pokemon, ["resistant"], ["resistantInPortugues"], ["resistantPTabreviation"])
-changeNames (pokemon, ["weaknesses"], ["weaknessesInPortugues"], ["weaknessesPTabreviation"])
+changeNames (pokemon, ["type"], ["typeInPortugues"], ["typePTabreviation"]);
+changeNames (pokemon, ["resistant"], ["resistantInPortugues"], ["resistantPTabreviation"]);
+changeNames (pokemon, ["weaknesses"], ["weaknessesInPortugues"], ["weaknessesPTabreviation"]);
 
 //7) Transformação de variáveis do tipo string em numéricas:
 function stringToNumber (dataset, firstAttribute, secondAttribute) {
   for (const individual of dataset) {
-    individual[firstAttribute][secondAttribute] = parseInt(individual[firstAttribute][secondAttribute])
+    individual[firstAttribute][secondAttribute] = parseInt(individual[firstAttribute][secondAttribute]);
   }
 }
-stringToNumber(pokemon, ["stats"], ["base-attack"])
-stringToNumber(pokemon, ["stats"], ["base-defense"])
-stringToNumber(pokemon, ["stats"], ["base-stamina"])
-stringToNumber(pokemon, ["stats"], ["max-cp"])
-stringToNumber(pokemon, ["stats"], ["max-hp"])
+stringToNumber(pokemon, ["stats"], ["base-attack"]);
+stringToNumber(pokemon, ["stats"], ["base-defense"]);
+stringToNumber(pokemon, ["stats"], ["base-stamina"]);
+stringToNumber(pokemon, ["stats"], ["max-cp"]);
+stringToNumber(pokemon, ["stats"], ["max-hp"]);
 
 //Cálculo agregado (comparação com as stats médias:)
 //8) Definição das médias:
-const baseAttackAverage = computeStats(pokemon, ["stats"], ["base-attack"])
-const baseDefenseAverage = computeStats(pokemon, ["stats"], ["base-defense"])
-const baseStaminaAverage = computeStats(pokemon, ["stats"], ["base-stamina"])
-const maxCpAverage= computeStats(pokemon, ["stats"], ["max-cp"])
-const maxHpAverage= computeStats(pokemon, ["stats"], ["max-hp"])
+const baseAttackAverage = computeAverage(pokemon, ["stats"], ["base-attack"]);
+const baseDefenseAverage = computeAverage(pokemon, ["stats"], ["base-defense"]);
+const baseStaminaAverage = computeAverage(pokemon, ["stats"], ["base-stamina"]);
+const maxCpAverage= computeAverage(pokemon, ["stats"], ["max-cp"]);
+const maxHpAverage= computeAverage(pokemon, ["stats"], ["max-hp"]);
 
 //Comparação dos valores com as médias:
 for (const individual of pokemon){
@@ -190,11 +208,11 @@ function compareWithAverage (dataset, firstAttribute, secondAttribute, averageTo
     }
   }
 }
-compareWithAverage(pokemon, ["stats"], ["base-attack"], baseAttackAverage, ["statusAttackGreater"], ["statusAttackLower"])
-compareWithAverage(pokemon, ["stats"], ["base-defense"], baseDefenseAverage, ["statusDefenseGreater"], ["statusDefenseLower"])
-compareWithAverage(pokemon, ["stats"], ["base-stamina"], baseStaminaAverage, ["statusStaminaGreater"], ["statusStaminaLower"])
-compareWithAverage(pokemon, ["stats"], ["max-cp"], maxCpAverage, ["statusMaxCpGreater"], ["statusMaxCpLower"])
-compareWithAverage(pokemon, ["stats"], ["max-hp"], maxHpAverage, ["statusMaxHpGreater"], ["statusMaxHpLower"])
+compareWithAverage(pokemon, ["stats"], ["base-attack"], baseAttackAverage, ["statusAttackGreater"], ["statusAttackLower"]);
+compareWithAverage(pokemon, ["stats"], ["base-defense"], baseDefenseAverage, ["statusDefenseGreater"], ["statusDefenseLower"]);
+compareWithAverage(pokemon, ["stats"], ["base-stamina"], baseStaminaAverage, ["statusStaminaGreater"], ["statusStaminaLower"]);
+compareWithAverage(pokemon, ["stats"], ["max-cp"], maxCpAverage, ["statusMaxCpGreater"], ["statusMaxCpLower"]);
+compareWithAverage(pokemon, ["stats"], ["max-hp"], maxHpAverage, ["statusMaxHpGreater"], ["statusMaxHpLower"]);
 
 //9) Criação dos botões de tipo, resistência e fraqueza no HTML:
 function createButtons (dataset, attribute) {
@@ -202,17 +220,17 @@ function createButtons (dataset, attribute) {
     accumulator += `
     <button class="filter-button-${attribute} is-button-or-input" id="${dataset["englishNameLowerCase"]}-${attribute}-button" value=${dataset["englishName"]}> ${dataset["portugueseName"]}</button>
         `
-   return(accumulator)
+   return(accumulator);
   },[])
   
 
-    const printList= document.getElementById("buttons-" + attribute)
-    printList.innerHTML = listButttons
+    const printList= document.getElementById("buttons-" + attribute);
+    printList.innerHTML = listButttons;
 }
 
-createButtons(namesCorrespondence, "type")
-createButtons(namesCorrespondence, "resistant")
-createButtons(namesCorrespondence, "weaknesses")
+createButtons(namesCorrespondence, "type");
+createButtons(namesCorrespondence, "resistant");
+createButtons(namesCorrespondence, "weaknesses");
 
 //10) Criação das listas:
 function listPokemons (dataset, additionalFunction) {
@@ -338,28 +356,28 @@ function listPokemons (dataset, additionalFunction) {
     return accumulator
   },[])
   
-  const printList= document.getElementById("lista-impressa")
-  printList.innerHTML = listOfPokemons
+  const printList= document.getElementById("lista-impressa");
+  printList.innerHTML = listOfPokemons;
 }
 
 //Criação dos atributos adicionais na visualização dos cards:
 function addPokemonRarity(dataset){
-  const attributeToBeAdded = `<p class="front-pokemon-rarity" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>`
-  return attributeToBeAdded
+  const attributeToBeAdded = `<p class="front-pokemon-rarity" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>`;
+  return attributeToBeAdded;
 }
 
 function addEggsDistance(dataset){
-  const attributeToBeAdded = `<p class="front-eggs-distance"  value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>`
+  const attributeToBeAdded = `<p class="front-eggs-distance"  value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>`;
   return attributeToBeAdded
 }
 
 function addSpawnChance(dataset){
-  const attributeToBeAdded = `<p class="front-spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>`
+  const attributeToBeAdded = `<p class="front-spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>`;
   return attributeToBeAdded
 }
 
 function addGeneration(dataset){
-  const attributeToBeAdded = `<p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>`
+  const attributeToBeAdded = `<p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>`;
   return attributeToBeAdded
 }
 
@@ -381,7 +399,7 @@ function addResistant(dataset){
     <p class="pokemon-resistant" value= R${dataset["resistant"][6]}>${dataset["resistantPTabreviation"][6]} </p> 
     <span class="tooltiptext">${dataset["resistantInPortugues"][6]}</span>
   </div>`
-  return attributeToBeAdded
+  return attributeToBeAdded;
 }
 
 function addWeaknesses(dataset){
@@ -402,16 +420,15 @@ function addWeaknesses(dataset){
   <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["weaknessesPTabreviation"][6]} </p> 
   <span class="tooltiptext">${dataset["weaknessesInPortugues"][6]}</span>
 </div>`
-  return attributeToBeAdded
+  return attributeToBeAdded;
 }
 
 function addNothing(){
-  const attributeToBeAdded = ``
-  return attributeToBeAdded
+  const attributeToBeAdded = ``;
+  return attributeToBeAdded;
 }
-
 //Print lista geral na tela:
-listPokemons(pokemon, addNothing)
+listPokemons(pokemon, addNothing);
 
 //11) Fltro por key-up:
 const filterInput = document.getElementById("pokemon-search");
@@ -436,20 +453,16 @@ function filterNames() {
 }
 
 //12) Ordenação das listas - SortData:
-const order = document.getElementById("order")
-const option = document.getElementById("option")
-const orderButton = document.getElementById("order-button")
-
 orderButton.addEventListener("click", (event) => {
   event.preventDefault();
-
+  
   const sortedData =  sortData (pokemon, order.value, option.value);
 
   switch (order.value) {
     case "egg":
       listPokemons(sortedData, addEggsDistance);
       break;
-    case "pokemon-rarity":
+    case "rarity-order":
       listPokemons(sortedData,addPokemonRarity );
       break;
     case "spawn-chance":
@@ -515,56 +528,57 @@ document.getElementById("filter-by-resistant-button").addEventListener("click", 
 
 //Weaknesses Filter
 document.getElementById("filter-by-weaknesses-button").addEventListener("click", function (event) {
-  event.preventDefault()
-  showAndHideFilters("buttons-weaknesses")
-  hideOtherFilterDivs("buttons-weaknesses", "buttons-generation")
-  hideOtherFilterDivs("buttons-weaknesses", "buttons-type")
-  hideOtherFilterDivs("buttons-weaknesses", "buttons-resistant")
+  event.preventDefault();
+  showAndHideFilters("buttons-weaknesses");
+  hideOtherFilterDivs("buttons-weaknesses", "buttons-generation");
+  hideOtherFilterDivs("buttons-weaknesses", "buttons-type");
+  hideOtherFilterDivs("buttons-weaknesses", "buttons-resistant");
 })
 
 
 //14) SubFiltros por botão:
 //14.a) Geraçao
 //14.a.I) Printar primeira OU Segunda geração:
-let data = "";
+let generationResult = {};
 let generationButton = "";
 
 //3.a) Criação da função geral dos botões (primeira e segunda geração):
 function generationButtonsFunction (generationInput) {
 document.getElementById(generationInput).addEventListener("click", function (event) {
-    event.preventDefault()
+    event.preventDefault();
     generationButton = event.target.value;
-    data = filterData(pokemon, ["generation"],["num"], generationButton);
-    listPokemons(data, addGeneration);
+    generationResult = filterData(pokemon, ["generation"],["num"], generationButton);
+    listPokemons(generationResult, addGeneration);
     filterNames();
   })
 }
   
 //3.b) Criação de um array com o nome dos botões:
-const pokemonGenerations = ["first-generation-button","second-generation-button"] 
+const pokemonGenerations = ["first-generation-button","second-generation-button"] ;
 
 //3.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão).
 //A função generationButtonsFunction irá ser aplicada para cada geração do
-pokemonGenerations.map(generationButtonsFunction)
+pokemonGenerations.map(generationButtonsFunction);
 
 //14.a.II) Printar primeira E Segunda gerações;
 document.getElementById("all-generations-button").addEventListener("click", function (event) {
-    event.preventDefault()
+    event.preventDefault();
     listPokemons(pokemon, addGeneration);
-    filterNames()
+    filterNames();
 })
 
 //14.b) Tipo
+let typeResult = {};
 let typeButton = "";
 
 //14.b.I) Criação da função geral dos botões:
 function typeButtonsFunction (typeInput) {
   document.getElementById(typeInput).addEventListener("click", function (event) {
-  event.preventDefault()
-  typeButton = event.target.value;
-  data = filterData(pokemon, ["type"],"", typeButton)
-  listPokemons(data, addNothing)
-  filterNames()
+    event.preventDefault();
+    typeButton = event.target.value;
+    typeResult = filterData(pokemon, ["type"], "", typeButton);
+    listPokemons(typeResult, addNothing);
+    filterNames();
   })
 }
 
@@ -572,46 +586,51 @@ function typeButtonsFunction (typeInput) {
 function addingButtonSuffix (attribute) {
 let newButton = [];
   for (let i=0; i<namesCorrespondence.length; i++) {
-    namesCorrespondence[i].forButtton = namesCorrespondence[i].englishNameLowerCase + "-" + attribute + "-button"
+    namesCorrespondence[i].forButtton = namesCorrespondence[i].englishNameLowerCase + "-" + attribute + "-button";
     }
   newButton = namesCorrespondence.map((ObjectFrom) => {
     return ObjectFrom.forButtton});
-  return (newButton)
+  return (newButton);
 }
 
 //14.b.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
-addingButtonSuffix("type").map(typeButtonsFunction)
+addingButtonSuffix("type").map(typeButtonsFunction);
 
 //14.c) Resistência
+let resistantResult = {};
 let resistantButton = "";
 
 //14.c.I) Criação da função geral dos botões:
 function resistantButtonsFunction (resistantInput) {
   document.getElementById(resistantInput).addEventListener("click", function (event) {
-  event.preventDefault()
-  resistantButton = event.target.value;
-  data = filterData(pokemon, ["resistant"], "",resistantButton)
-  listPokemons(data, addResistant)
-  filterNames()
+    event.preventDefault();
+    resistantButton = event.target.value;
+    resistantResult = filterData(pokemon, ["resistant"], "", resistantButton);
+    listPokemons(resistantResult, addResistant);
+    filterNames();
   })
 }
 
 //14.c.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
-addingButtonSuffix("resistant").map(resistantButtonsFunction)
+addingButtonSuffix("resistant").map(resistantButtonsFunction);
 
 //14.d) Resistência
-let WeaknessesButton = "";
+  let weaknessesResult = {};
+  let weaknessesButton = "";
   
 //14.c.I) Criação da função geral dos botões:
-function WeaknessesButtonsFunction (WeaknessesInput) {
-  document.getElementById(WeaknessesInput).addEventListener("click", function (event) {
-  event.preventDefault()
-  WeaknessesButton = event.target.value;
-  data = filterData(pokemon, ["weaknesses"],"", WeaknessesButton)
-  listPokemons(data, addWeaknesses)
-  filterNames()
-  })
- }
-
+  function WeaknessesButtonsFunction (WeaknessesInput) {
+    document.getElementById(WeaknessesInput).addEventListener("click", function (event) {
+    event.preventDefault();
+    weaknessesButton = event.target.value;
+    weaknessesResult = filterData(pokemon, ["weaknesses"], "", weaknessesButton);
+    listPokemons(weaknessesResult, addWeaknesses);
+    filterNames();
+    });
+  }
+  
 //14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
-addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction)
+addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
+
+}
+getData();
