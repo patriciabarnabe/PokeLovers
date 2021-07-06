@@ -211,6 +211,62 @@ visibility:visible;
     color:#262626;
 }
 
+#open-glossary {
+    position:fixed;
+    top: 39%;
+    left:1%;
+    background-color: #9ae59a;
+    border-color: #2d8658;
+}
+
+#close-glossary {
+    margin-left:93%;
+    background-color: #9ae59a;
+    border-color: #2d8658;
+}
+
+#glossary {
+    position:fixed;
+    top: 17%;
+    left:5%;
+    z-index: 100;
+    width: 93%;
+    height: 75%;
+   
+    background-color: whitesmoke;
+    border-radius: 12px;
+    border:1pt solid #2d8658;
+
+    display:none;
+}
+
+
+.glossary-tooltiptext {
+    visibility: hidden;
+    position:fixed;
+    top: 48%;
+    left:0.2%;
+    padding:0.2% 0.5%;
+
+
+    font-size: 60%;
+    color:black;
+
+    background-color: gainsboro;
+    border-radius: 25px;
+}
+
+#open-glossary:hover, #close-glossary:hover {
+    background-color:#66cc99;
+    border-color: green;
+    animation: none;
+}
+
+#open-glossary:hover + .glossary-tooltiptext {
+    visibility: visible;
+    cursor: defaut;
+}
+
 /* CORES */
 p[value="Bug"], p[value="RBug"], #bug-type-button, #bug-resistant-button, #bug-weaknesses-button {
     background-color: #729F3F;

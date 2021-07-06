@@ -474,6 +474,18 @@ orderButton.addEventListener("click", (event) => {
     }
 })
 
+// Get the modal
+document.getElementById("open-glossary").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("glossary")
+})
+
+document.getElementById("close-glossary").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("glossary")
+})
+
+
 // 13) Main Filtros por botão:
 function showAndHideFilters (section) {
   const divSection = document.getElementById(section) 
@@ -631,6 +643,9 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction);
   
 //14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
+
+
+
 
 }
 getData();
