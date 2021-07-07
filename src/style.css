@@ -828,3 +828,7 @@ ul {
         }
     }
     
+
+.show {
+    display:block;
+}

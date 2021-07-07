@@ -474,35 +474,20 @@ orderButton.addEventListener("click", (event) => {
     }
 })
 
-// Get the modal
-document.getElementById("open-glossary").addEventListener("click", function (event) {
-  event.preventDefault()
-  showAndHideFilters("glossary")
-})
-
-document.getElementById("close-glossary").addEventListener("click", function (event) {
-  event.preventDefault()
-  showAndHideFilters("glossary")
-})
-
 
 // 13) Main Filtros por botão:
 function showAndHideFilters (section) {
   const divSection = document.getElementById(section) 
-  if (divSection.style.display === "none") {
-    divSection.style.display="block"
-  } else {
-    divSection.style.display="none"
-  }
+  divSection.classList.toggle("show")
 }
-function hideOtherFilterDivs (showingDiv, hidingDiv) {
-  const divSectionShowed = document.getElementById(showingDiv) 
-  const divSectionHidden = document.getElementById(hidingDiv) 
-  if (divSectionShowed.style.display !== "none") {
-    divSectionHidden.style.display="none"
-  } else {
-    divSectionHidden.style.display="none"
-  }
+
+//ids é um array dos parametros que eu defini. Por isso fiz o map para ir em cada elemento do array.
+function hideOtherFilterDivs (...ids) {
+  const elements = ids.map(id => document.getElementById(id))
+  elements.forEach(el => {
+    el.classList.remove("show")
+  })
+  
 }
 
 //Main Filter
@@ -515,36 +500,33 @@ document.getElementById("filters-button").addEventListener("click", function (ev
 document.getElementById("filter-by-generation-button").addEventListener("click", function (event) {
   event.preventDefault()
   showAndHideFilters("buttons-generation")
-  hideOtherFilterDivs("buttons-generation", "buttons-type")
-  hideOtherFilterDivs("buttons-generation", "buttons-resistant")
-  hideOtherFilterDivs("buttons-generation", "buttons-weaknesses")
+  hideOtherFilterDivs("buttons-type", "buttons-resistant", "buttons-weaknesses")
+
 })
 
 //Type Filter
 document.getElementById("filter-by-type-button").addEventListener("click", function (event) {
   event.preventDefault()
   showAndHideFilters("buttons-type")
-  hideOtherFilterDivs("buttons-type", "buttons-generation")
-  hideOtherFilterDivs("buttons-type", "buttons-resistant")
-  hideOtherFilterDivs("buttons-type", "buttons-weaknesses")
+  hideOtherFilterDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses")
 })
 
 //Resistence Filter
 document.getElementById("filter-by-resistant-button").addEventListener("click", function (event) {
   event.preventDefault()
   showAndHideFilters("buttons-resistant")
-  hideOtherFilterDivs("buttons-resistant", "buttons-generation")
-  hideOtherFilterDivs("buttons-resistant", "buttons-type")
-  hideOtherFilterDivs("buttons-resistant", "buttons-weaknesses")
+  hideOtherFilterDivs("buttons-generation")
+  hideOtherFilterDivs("buttons-type")
+  hideOtherFilterDivs("buttons-weaknesses")
 })
 
 //Weaknesses Filter
 document.getElementById("filter-by-weaknesses-button").addEventListener("click", function (event) {
   event.preventDefault();
   showAndHideFilters("buttons-weaknesses");
-  hideOtherFilterDivs("buttons-weaknesses", "buttons-generation");
-  hideOtherFilterDivs("buttons-weaknesses", "buttons-type");
-  hideOtherFilterDivs("buttons-weaknesses", "buttons-resistant");
+  hideOtherFilterDivs("buttons-generation");
+  hideOtherFilterDivs("buttons-type");
+  hideOtherFilterDivs("buttons-resistant");
 })
 
 
@@ -644,7 +626,18 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction);
 //14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
 
+// 15. Glossário)
+//15.a) Abrir glossário:
+document.getElementById("open-glossary").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("glossary")
+})
 
+//15.b) Abrir glossário:
+document.getElementById("close-glossary").addEventListener("click", function (event) {
+  event.preventDefault()
+  showAndHideFilters("glossary")
+})
 
 
 }
