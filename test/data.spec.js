@@ -44,55 +44,123 @@ describe('sortData', () => {
     expect(typeof sortData).toBe('function');
   });
 
+
  it('When to sort in ascending order (names) Abra and Zubat, it should show Abra first', () => {
    const pokemonNames = [{name:"Abra"}, {name:"Zubat"}];
-   const pokemonNamesSorted = sortData(pokemonNames, "name", "ascending");
+   const pokemonNamesSorted = sortData(pokemonNames, "", "name", "ascending");
    expect(pokemonNamesSorted[0].name).toEqual("Abra");
   });
 
   it('When to sort in descending order (names) Abra and Zubat, it should show Zubat first.', () => {
     const pokemonNames = [{name:"Abra"}, {name:"Zubat"}];
-    const pokemonNamesSorted = sortData(pokemonNames, "name", "descending");
+    const pokemonNamesSorted = sortData(pokemonNames, "","name", "descending");
     expect(pokemonNamesSorted[0].name).toEqual("Zubat");
    });
 
    //Comparação entre L e N, N > L. Então ocorre a necessidade de "girar";
    it('When to sort in ascending order (rarity-order) First and Third, it should show First first.', () => {
     const pokemonRarity= [{pokemonR:"First"}, {pokemonR:"Third"}];
-    const pokemonRaritySorted = sortData(pokemonRarity, "rarity-order", "ascending");
+    const pokemonRaritySorted = sortData(pokemonRarity, "","rarity-order", "ascending");
     expect(pokemonRaritySorted[0].pokemonR).toEqual("First");
    });
  
    it('When to sort in descending order (rarity-order) First and Third, it should show Third first.', () => {
     const pokemonRarity= [{pokemonR:"First"}, {pokemonR:"Third"}];
-    const pokemonRaritySorted = sortData(pokemonRarity, "rarity-order", "descending");
+    const pokemonRaritySorted = sortData(pokemonRarity, "","rarity-order", "descending");
     expect(pokemonRaritySorted[0].pokemonR).toEqual("Third");
    });
   
    it('When to sort in ascending order (eggs distance) 02 Km and 05 Km, it should show 02 Km first.', () => {
     const pokemonEggsDistance = [{eggD:"02 Km"}, {eggD:"05 Km"}];
-    const pokemonEggsDistanceSorted = sortData(pokemonEggsDistance, "egg", "ascending");
+    const pokemonEggsDistanceSorted = sortData(pokemonEggsDistance, "","egg", "ascending");
     expect(pokemonEggsDistanceSorted[0].eggD).toEqual("02 Km");
    });
  
    it('When to sort in descending order (eggs distance) 02 Km and 05 Km, it should show 05 Km first.', () => {
     const pokemonEggsDistance = [{eggD:"02 Km"}, {eggD:"05 Km"}];
-    const pokemonEggsDistanceSorted = sortData(pokemonEggsDistance, "egg", "descending");
+    const pokemonEggsDistanceSorted = sortData(pokemonEggsDistance, "","egg", "descending");
     expect(pokemonEggsDistanceSorted[0].eggD).toEqual("05 Km");
    });
 
   it('When to sort in ascending order (spawn-chance) 0% and 0.1%, it should show 0% first.', () => {
     const pokemonSpawnChance = [{name:"Pikachu", pokemonSC:0}, {name:"Charmander", pokemonSC:0.1}, {name:"Chikorita", pokemonSC:0.5}];
-    const pokemonSpawnChanceSorted = sortData(pokemonSpawnChance, "spawn-chance", "ascending");
+    const pokemonSpawnChanceSorted = sortData(pokemonSpawnChance, "","spawn-chance", "ascending");
     expect(pokemonSpawnChanceSorted[0].pokemonSC).toEqual(0);
    });
 
   it('When to sort in descending order (spawn-chance) 0% and 0.1%, it should show 0.1% first.', () => {
     const pokemonSpawnChance = [{name:"Pikachu", pokemonSC:0}, {name:"Charmander", pokemonSC:0.1}, {name:"Chikorita", pokemonSC:0.5}];
-    const pokemonSpawnChanceSorted = sortData(pokemonSpawnChance, "spawn-chance", "descending");
+    const pokemonSpawnChanceSorted = sortData(pokemonSpawnChance, "","spawn-chance", "descending");
     expect(pokemonSpawnChanceSorted[0].pokemonSC).toEqual(0.5);
    });
  
+  it('When to sort in ascending order (stats, base-attack) it should show Charmander first.',() => {
+    const pokemonAttack = [
+      {name:"Pikachu", stats:{"base-attack":122, "base-defense":96}},
+      {name:"Charmander", stats:{"base-attack":116, "base-defense":93}},
+      {name:"Pupitar", stats:{"base-attack":155, "base-defense":133}},
+      {name:"Lugia", stats:{"base-attack":193, "base-defense":310}}
+    ]
+    const pokemonAttackSorted = sortData(pokemonAttack, ["stats"],["base-attack"], "ascending");
+    expect(pokemonAttackSorted[0].name).toEqual("Charmander");
+  })
+
+  it('When to sort in descending order (stats, base-attack) it should show Lugia first.',() => {
+    const pokemonAttack = [
+      {name:"Pikachu", stats:{"base-attack":122, "base-defense":96}},
+      {name:"Charmander", stats:{"base-attack":116, "base-defense":93}},
+      {name:"Pupitar", stats:{"base-attack":155, "base-defense":133}},
+      {name:"Lugia", stats:{"base-attack":193, "base-defense":310}}
+    ]
+    const pokemonAttackSorted = sortData(pokemonAttack, ["stats"],["base-attack"], "descending");
+    expect(pokemonAttackSorted[0].name).toEqual("Lugia");
+  })
+
+  it('When to sort in ascending order (defense) it should show Charmander first.',() => {
+    const pokemonAttack = [
+      {name:"Pikachu", defense:96},
+      {name:"Charmander", defense:93},
+      {name:"Pupitar", defense:133},
+      {name:"Lugia", defense:310}
+    ]
+    const pokemonAttackSorted = sortData(pokemonAttack, "","defense", "ascending");
+    expect(pokemonAttackSorted[0].name).toEqual("Charmander");
+  })
+
+  it('When to sort in descending order (defense) it should show Lugia first.',() => {
+    const pokemonAttack = [
+      {name:"Pikachu", defense:96},
+      {name:"Charmander", defense:93},
+      {name:"Pupitar", defense:133},
+      {name:"Lugia", defense:310}
+    ]
+    const pokemonAttackSorted = sortData(pokemonAttack, "","defense", "descending");
+    expect(pokemonAttackSorted[0].name).toEqual("Lugia");
+  })
+
+  it('When to sort in ascending order (type[first]) it should show Charmander first.',() => {
+    const pokemonType = [
+      {name:"Pikachu", type:{"first":"water", "second":"ice"}},
+      {name:"Charmander", type:{"first":"electric", "second":"steel"}},
+      {name:"Pupitar", type:{"first":"grass", "second":"ground"}},
+      {name:"Lugia", type:{"first":"ground", "second":"glass"}}
+    ]
+    const pokemonTypeSorted = sortData(pokemonType, ["type"],["first"], "ascending");
+    expect(pokemonTypeSorted[0].name).toEqual("Charmander");
+  })
+
+  it('When to sort in descending order (type[second]) it should show Charmander fisrt.',() => {
+    const pokemonType = [
+      {name:"Pikachu", type:{"first":"water", "second":"ice"}},
+      {name:"Charmander", type:{"first":"electric", "second":"steel"}},
+      {name:"Pupitar", type:{"first":"grass", "second":"ground"}},
+      {name:"Lugia", type:{"first":"ground", "second":"glass"}}
+    ]
+    const pokemonTypeSorted = sortData(pokemonType, ["type"],["second"], "descending");
+    expect(pokemonTypeSorted[0].name).toEqual("Charmander");
+  })
+
+
 });
 
 describe('computeAverage', () => {

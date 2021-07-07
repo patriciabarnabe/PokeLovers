@@ -530,6 +530,8 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistant-butto
 .front-pokemon-rarity, 
 .front-eggs-distance, 
 .front-spawn-chance,
+.front-size,
+.front-stats,
 .front-pokemon-generation,
 .back-pokemon-generation {
     position: relative;
@@ -565,6 +567,15 @@ front-pokemon-rarity {
 
 .front-spawn-chance {
     background-color: #b3b3b3;
+}
+
+.front-size {
+    background-color: DarkSeaGreen;
+    
+}
+
+.front-stats {
+    background-color: #ffb3b3;;
 }
 
 .front-pokemon-generation, .back-pokemon-generation {

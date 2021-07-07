@@ -5,18 +5,21 @@ export const filterData = (dataset, firstAttribute, secondAttribute, value) => {
   } else {
     filteredData = dataset.filter((data) => data[firstAttribute].includes(value));
   }
- return filteredData
+ return filteredData;
 };
 
 
-export const sortData = (data, sortBy, sortOrder) => {
-  const compare = (a, b) => {
-    if (a[sortBy] < b[sortBy]){
-      return -1;
-    } else {
-      return 0;
+export const sortData = (data,firstAttribute, sortBy, sortOrder) => {
+  if (firstAttribute === "") {
+    const compare = (a, b) => {
+      if(typeof a[sortBy] !== "number") {
+        if(a[sortBy] > b[sortBy]) return 1;
+        if(a[sortBy] < b[sortBy]) return -1;
+        return 0;
+        } else {
+          return a[sortBy] - b[sortBy];
+        }
     }
-  }
     if(sortOrder === "ascending"){
       data.sort(compare);
       return data;
@@ -26,6 +29,27 @@ export const sortData = (data, sortBy, sortOrder) => {
       data.reverse();
       return data;
     } 
+  } else {
+    const compare = (a, b) => {
+      if(typeof a[firstAttribute][sortBy] !== "number") {
+          if(a[firstAttribute][sortBy] > b[firstAttribute][sortBy]) return 1;
+          if(a[firstAttribute][sortBy] < b[firstAttribute][sortBy]) return -1;
+          return 0;
+          } else {
+            return a[firstAttribute][sortBy]- b[firstAttribute][sortBy];
+          }
+      }
+    if(sortOrder === "ascending"){
+      data.sort(compare);
+      return data;
+  
+    } else {
+      data.sort(compare);
+      data.reverse();
+      return data;
+    } 
+  }
+    
 };
 
 export const computeAverage = (data, firstAttribute, secondAttribute) => {

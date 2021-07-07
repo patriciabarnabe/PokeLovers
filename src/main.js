@@ -36,23 +36,11 @@ function firstLetterToUpperCase (dataset, firstAttribute, secondAttribute) {
       }
     }
 }
-
-// Primeira letra do nome do Pokemon em maiúsculo:
 firstLetterToUpperCase(pokemon, ["name"], "");
-
-//Primeira letra da geração em maiúsculo:
 firstLetterToUpperCase(pokemon, ["generation"], ["name"]);
-
-//Primeira letra do nível de raridade em maiúsculo:
 firstLetterToUpperCase(pokemon, ["pokemon-rarity"], "");
-
-//Primeira letra do tipo do pokemon:
 firstLetterToUpperCase(pokemon, ["type"], "");
-
-//Primeira letra das fraquezas do pokemon:
 firstLetterToUpperCase(pokemon, ["weaknesses"], "");
-
-//Primeira letra das resistências do pokemon:
 firstLetterToUpperCase(pokemon, ["resistant"], "");
 
 //3) Transformação de valores esperados para novos valores:
@@ -67,24 +55,29 @@ function valueTransformation (dataset, firstAttribute, secondAttribute, expected
     }
   }
 }
-
 // Gerações:
 valueTransformation (pokemon, ["generation"], ["num"], "generation i", "I");
 valueTransformation (pokemon, ["generation"], ["num"], "generation ii", "II");
-
 // Distância dos Ovos:
 valueTransformation (pokemon, ["egg"], "", "not in eggs", "Não possui ovos");
 valueTransformation (pokemon, ["egg"], "", "2 km", "02 Km");
 valueTransformation (pokemon, ["egg"], "", "5 km", "05 Km");
 valueTransformation (pokemon, ["egg"], "", "7 km", "07 Km");
-
 // Probabilidade de aparição:
 valueTransformation (pokemon, ["spawn-chance"], "", null, "0");
-
 //Raridade do pokemon:
 valueTransformation (pokemon, ["pokemon-rarity"], "", "Legendary", "Lendário");
 valueTransformation (pokemon, ["pokemon-rarity"], "", "Mythic", "Mítico");
 valueTransformation (pokemon, ["pokemon-rarity"], "", "Normal", "Normal");
+// Size, irá como numérico:
+for (const individual of pokemon) {
+  individual["size"]["height"] = individual["size"]["height"].replace(" m", "")
+  individual["size"]["height"] = parseFloat(individual["size"]["height"])
+
+  individual["size"]["weight"] = individual["size"]["weight"].replace(" kg", "")
+  individual["size"]["weight"] = parseFloat(individual["size"]["weight"])
+  
+}
 
 //4) Identificando quantidade máximas de tipo de um pokemon e substituindo-as (length dos arrays):
 function adjustArraySize (dataset, attribute) {
@@ -227,7 +220,6 @@ function createButtons (dataset, attribute) {
     const printList= document.getElementById("buttons-" + attribute);
     printList.innerHTML = listButttons;
 }
-
 createButtons(namesCorrespondence, "type");
 createButtons(namesCorrespondence, "resistant");
 createButtons(namesCorrespondence, "weaknesses");
@@ -238,7 +230,6 @@ function listPokemons (dataset, additionalFunction) {
     const printAdditionalHere = additionalFunction(dataset)
     accumulator += `
     <div class="card">
-
       <div class="front-card"> 
         <li class="front-list"> 
           <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.idWithoutLeftZeros}.png">
@@ -253,23 +244,19 @@ function listPokemons (dataset, additionalFunction) {
         </li>
       </div> 
      
-
       <div class="back-card"> 
         <li class="back-list">  
-
           <div class="back-pokemon-size">
             <h1 class="back-card-titles"> Tamanho do Pokemon </h1>
             <img class="back-size-figures" alt="Peso" src="images/weigth.svg">
             <span class="back-tooltiptext">Peso </span>
-            <span>${dataset["size"]["weight"]}</span> 
+            <span>${dataset["size"]["weight"]} kg</span> 
             <img class="back-size-figures" alt="Altura" src="images/heigth.jpg">
             <span class="back-tooltiptext">Altura</span>
-            <span>${dataset["size"]["height"]}</span> 
+            <span>${dataset["size"]["height"]} m</span> 
           </div>
-
           <div class="back-pokemon-stats">
             <h1 class="back-card-titles"> Estatísticas</h1>
-
             <img class="back-stats-figures" alt="Ataque" src="images/sword.png">
             <span class="back-tooltiptext">Ataque</span>
             <span>${dataset["stats"]["base-attack"]}</span>
@@ -295,7 +282,6 @@ function listPokemons (dataset, additionalFunction) {
             <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
           
             <br>
-
             <img  class="back-stats-figures" alt="Combate" src="images/vs.jpg">
             <span class="back-tooltiptext">Poder de Combate</span>
             <span>${dataset["stats"]["max-cp"]}</span> 
@@ -312,7 +298,6 @@ function listPokemons (dataset, additionalFunction) {
             <span class="back-lower-than-average-arrow" > ${dataset["statusMaxHpLower"]} </span> 
             <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
           </div>
-
           <div class="back-resistant-to">
             <p class="back-card-titles"> Resistente à </p>
             <p class="pokemon-resistant" value= R${dataset["resistant"][0]}>${dataset["resistantPTabreviation"][0]} </p> 
@@ -375,6 +360,46 @@ function addSpawnChance(dataset){
   const attributeToBeAdded = `<p class="front-spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>`;
   return attributeToBeAdded
 }
+
+function addWeight(dataset){
+  const attributeToBeAdded = `<p class="front-size" value= ${dataset["size"]["weight"]}> Peso: ${dataset["size"]["weight"]} kg</p>`;
+  return attributeToBeAdded
+}
+
+function addHeight(dataset){
+  const attributeToBeAdded = `<p class="front-size" value= ${dataset["size"]["height"]}> Altura: ${dataset["size"]["height"]}m</p>`;
+  return attributeToBeAdded
+}
+
+function addAttack(dataset){
+  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-attack"]}> Ataque: ${dataset["stats"]["base-attack"]}</p>`;
+  return attributeToBeAdded
+}
+
+
+function addDefense(dataset){
+  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-defense"]}> Defesa: ${dataset["stats"]["base-defense"]}</p>`;
+  return attributeToBeAdded
+}
+
+function addStamina(dataset){
+  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-stamina"]}> Stamina: ${dataset["stats"]["base-stamina"]}</p>`;
+  return attributeToBeAdded
+}
+
+function addCp(dataset){
+  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-cp"]}> Força de Combate: ${dataset["stats"]["max-cp"]}</p>`;
+  return attributeToBeAdded
+}
+
+function addHp(dataset){
+  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-hp"]}> Pontos de Vida: ${dataset["stats"]["max-hp"]}</p>`;
+  return attributeToBeAdded
+}
+
+
+
+
 
 function addGeneration(dataset){
   const attributeToBeAdded = `<p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>`;
@@ -456,77 +481,87 @@ function filterNames() {
 orderButton.addEventListener("click", (event) => {
   event.preventDefault();
   
-  const sortedData =  sortData (pokemon, order.value, option.value);
-
   switch (order.value) {
     case "egg":
-      listPokemons(sortedData, addEggsDistance);
+      listPokemons(sortData (pokemon, "", order.value, option.value), addEggsDistance);
       break;
     case "rarity-order":
-      listPokemons(sortedData,addPokemonRarity );
+      listPokemons(sortData (pokemon, "", order.value, option.value),addPokemonRarity );
       break;
     case "spawn-chance":
-      listPokemons(sortedData, addSpawnChance);
+      listPokemons(sortData (pokemon, "", order.value, option.value), addSpawnChance);
+      break;
+    case "weight":
+      listPokemons(sortData (pokemon, ["size"], order.value, option.value), addWeight);
+      break;
+    case "height":
+      listPokemons(sortData (pokemon, ["size"], order.value, option.value), addHeight);
+      break;
+    case "base-attack":
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addAttack);
+      break;
+    case "base-defense":
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addDefense);
+      break;
+    case "base-stamina":
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addStamina);
+      break;
+    case "max-cp":
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addCp);
+      break;
+    case "max-hp":
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addHp);
       break;
     default:
-      listPokemons(sortedData, addNothing);
+      listPokemons(sortData (pokemon, "", order.value, option.value), addNothing);
       break
     }
-})
 
+  
+})
+console.log(pokemon)
 
 // 13) Main Filtros por botão:
-function showAndHideFilters (section) {
+function showFilters (section) {
   const divSection = document.getElementById(section) 
   divSection.classList.toggle("show")
 }
-
-//ids é um array dos parametros que eu defini. Por isso fiz o map para ir em cada elemento do array.
-function hideOtherFilterDivs (...ids) {
+function hideFiltersDivs (...ids) {
   const elements = ids.map(id => document.getElementById(id))
   elements.forEach(el => {
     el.classList.remove("show")
   })
   
 }
-
 //Main Filter
 document.getElementById("filters-button").addEventListener("click", function (event) {
   event.preventDefault()
-  showAndHideFilters("filters-section")
+  showFilters("filters-section")
 })
-
 //Generation Filter
 document.getElementById("filter-by-generation-button").addEventListener("click", function (event) {
   event.preventDefault()
-  showAndHideFilters("buttons-generation")
-  hideOtherFilterDivs("buttons-type", "buttons-resistant", "buttons-weaknesses")
+  showFilters("buttons-generation")
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-weaknesses")
 
 })
-
 //Type Filter
 document.getElementById("filter-by-type-button").addEventListener("click", function (event) {
   event.preventDefault()
-  showAndHideFilters("buttons-type")
-  hideOtherFilterDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses")
+  showFilters("buttons-type")
+  hideFiltersDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses")
 })
-
 //Resistence Filter
 document.getElementById("filter-by-resistant-button").addEventListener("click", function (event) {
   event.preventDefault()
-  showAndHideFilters("buttons-resistant")
-  hideOtherFilterDivs("buttons-generation")
-  hideOtherFilterDivs("buttons-type")
-  hideOtherFilterDivs("buttons-weaknesses")
+  showFilters("buttons-resistant")
+  hideFiltersDivs("buttons-type", "buttons-generation", "buttons-weaknesses")
 })
-
 //Weaknesses Filter
 document.getElementById("filter-by-weaknesses-button").addEventListener("click", function (event) {
   event.preventDefault();
-  showAndHideFilters("buttons-weaknesses");
-  hideOtherFilterDivs("buttons-generation");
-  hideOtherFilterDivs("buttons-type");
-  hideOtherFilterDivs("buttons-resistant");
+  showFilters("buttons-weaknesses");
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation")
 })
 
 
@@ -535,8 +570,7 @@ document.getElementById("filter-by-weaknesses-button").addEventListener("click",
 //14.a.I) Printar primeira OU Segunda geração:
 let generationResult = {};
 let generationButton = "";
-
-//3.a) Criação da função geral dos botões (primeira e segunda geração):
+//14.a) Criação da função geral dos botões (primeira e segunda geração):
 function generationButtonsFunction (generationInput) {
 document.getElementById(generationInput).addEventListener("click", function (event) {
     event.preventDefault();
@@ -546,15 +580,12 @@ document.getElementById(generationInput).addEventListener("click", function (eve
     filterNames();
   })
 }
-  
-//3.b) Criação de um array com o nome dos botões:
+//14.b) Criação de um array com o nome dos botões:
 const pokemonGenerations = ["first-generation-button","second-generation-button"] ;
-
-//3.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão).
+//14.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão).
 //A função generationButtonsFunction irá ser aplicada para cada geração do
 pokemonGenerations.map(generationButtonsFunction);
-
-//14.a.II) Printar primeira E Segunda gerações;
+//14.d) Printar primeira E Segunda gerações;
 document.getElementById("all-generations-button").addEventListener("click", function (event) {
     event.preventDefault();
     listPokemons(pokemon, addGeneration);
@@ -564,7 +595,6 @@ document.getElementById("all-generations-button").addEventListener("click", func
 //14.b) Tipo
 let typeResult = {};
 let typeButton = "";
-
 //14.b.I) Criação da função geral dos botões:
 function typeButtonsFunction (typeInput) {
   document.getElementById(typeInput).addEventListener("click", function (event) {
@@ -575,7 +605,6 @@ function typeButtonsFunction (typeInput) {
     filterNames();
   })
 }
-
 //14.b.II) Criação de um array com o nome dos botões + Adição do sufixo "-attribute-button":
 function addingButtonSuffix (attribute) {
 let newButton = [];
@@ -586,14 +615,13 @@ let newButton = [];
     return ObjectFrom.forButtton});
   return (newButton);
 }
-
 //14.b.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("type").map(typeButtonsFunction);
+
 
 //14.c) Resistência
 let resistantResult = {};
 let resistantButton = "";
-
 //14.c.I) Criação da função geral dos botões:
 function resistantButtonsFunction (resistantInput) {
   document.getElementById(resistantInput).addEventListener("click", function (event) {
@@ -604,15 +632,14 @@ function resistantButtonsFunction (resistantInput) {
     filterNames();
   })
 }
-
-//14.c.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
+//14.c.II) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("resistant").map(resistantButtonsFunction);
 
-//14.d) Resistência
+
+//14.d) Fraqueza
   let weaknessesResult = {};
   let weaknessesButton = "";
-  
-//14.c.I) Criação da função geral dos botões:
+//14.d.I) Criação da função geral dos botões:
   function WeaknessesButtonsFunction (WeaknessesInput) {
     document.getElementById(WeaknessesInput).addEventListener("click", function (event) {
     event.preventDefault();
@@ -622,21 +649,21 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction);
     filterNames();
     });
   }
-  
-//14.d.IV) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
+//14.d.II Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
+
+
 
 // 15. Glossário)
 //15.a) Abrir glossário:
 document.getElementById("open-glossary").addEventListener("click", function (event) {
   event.preventDefault()
-  showAndHideFilters("glossary")
+  showFilters("glossary")
 })
-
-//15.b) Abrir glossário:
+//15.b) Fechar glossário:
 document.getElementById("close-glossary").addEventListener("click", function (event) {
   event.preventDefault()
-  showAndHideFilters("glossary")
+  showFilters("glossary")
 })
 
 
