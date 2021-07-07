@@ -30,10 +30,13 @@
           <select name="order" class="is-button-or-input" id="order">
             <option selected disable class="disabled-order">Nome</option>
             <option value="name" class="order-selection">Alfabética</option>
-            <option selected disable class="disabled-order">Chance de Encontro</option>
+            <option selected disable class="disabled-order">Chance de Aparição</option>
             <option value="rarity-order">Raridade</option>
             <option value="egg">Distância dos Ovos</option>
             <option value="spawn-chance">Probabilidade de Aparição</option>
+            <option selected disable class="disabled-order">Encontro</option>
+            <option value="base-flee-rate">Chance de Escape</option>
+            <option value="base-capture-rate">Chance de Captura</option>
             <option selected disable class="disabled-order">Tamanho</option>
             <option value="weight">Peso</option>
             <option value="height">Altura</option>
@@ -77,6 +80,16 @@
         
           <button class="main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
           <div class="hidden-buttons" id="buttons-weaknesses"></div> 
+
+          <button class="main-filter main-filter-buddy-distance is-button-or-input" id="filter-by-buddy-distance-button">Km com Companheiro</button>
+          <div class="hidden-buttons" id="buttons-buddy-distance">
+            <button class="filter-button-buddy-distance is-button-or-input" id="1km-button" value="1"> 1 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="3km-button" value="3"> 3 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="5km-button" value="5"> 5 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="20km-button" value="20"> 20 km</button>
+
+
+          </div>
 
         </section> 
 

@@ -17,7 +17,7 @@ it('When filtering pokemon generation (II), it should return an object with {Lug
     {name:"Chikorita", generation:{"num":"II", "name":"Johto"}, type:["Grass"]}
   ]
   const pokemonFilterData = filterData(pokemonData, ["generation"], ["num"], "II");
-  expect(pokemonFilterData).toEqual([{name:"Lugia", generation:{"num":"II", "name":"Johto"}, type:["Psychic", "Flying"]},
+  expect(pokemonFilterData).toStrictEqual([{name:"Lugia", generation:{"num":"II", "name":"Johto"}, type:["Psychic", "Flying"]},
   {name:"Chikorita", generation:{"num":"II", "name":"Johto"}, type:["Grass"]}
 ]);
 });
@@ -31,7 +31,7 @@ it('When filtering pokemon type, it should return an object with {Lugia..., Pidg
     {name:"Chikorita", generation:{"num":"II", "name":"Johto"}, type:["Grass"]}
   ]
   const pokemonFilterData = filterData(pokemonData, ["type"], "", "Flying");
-  expect(pokemonFilterData).toEqual([{name:"Lugia", generation:{"num":"II", "name":"Johto"}, type:["Flying","Psychic"]},
+  expect(pokemonFilterData).toStrictEqual([{name:"Lugia", generation:{"num":"II", "name":"Johto"}, type:["Flying","Psychic"]},
   {name:"Pidgeot", generation:{"num":"I", "name":"Kanto"}, type:["Normal", "Flying"]}
 ]);
 });
@@ -48,50 +48,50 @@ describe('sortData', () => {
  it('When to sort in ascending order (names) Abra and Zubat, it should show Abra first', () => {
    const pokemonNames = [{name:"Abra"}, {name:"Zubat"}];
    const pokemonNamesSorted = sortData(pokemonNames, "", "name", "ascending");
-   expect(pokemonNamesSorted[0].name).toEqual("Abra");
+   expect(pokemonNamesSorted[0].name).toBe("Abra");
   });
 
   it('When to sort in descending order (names) Abra and Zubat, it should show Zubat first.', () => {
     const pokemonNames = [{name:"Abra"}, {name:"Zubat"}];
     const pokemonNamesSorted = sortData(pokemonNames, "","name", "descending");
-    expect(pokemonNamesSorted[0].name).toEqual("Zubat");
+    expect(pokemonNamesSorted[0].name).toBe("Zubat");
    });
 
    //Comparação entre L e N, N > L. Então ocorre a necessidade de "girar";
    it('When to sort in ascending order (rarity-order) First and Third, it should show First first.', () => {
     const pokemonRarity= [{pokemonR:"First"}, {pokemonR:"Third"}];
     const pokemonRaritySorted = sortData(pokemonRarity, "","rarity-order", "ascending");
-    expect(pokemonRaritySorted[0].pokemonR).toEqual("First");
+    expect(pokemonRaritySorted[0].pokemonR).toBe("First");
    });
  
    it('When to sort in descending order (rarity-order) First and Third, it should show Third first.', () => {
     const pokemonRarity= [{pokemonR:"First"}, {pokemonR:"Third"}];
     const pokemonRaritySorted = sortData(pokemonRarity, "","rarity-order", "descending");
-    expect(pokemonRaritySorted[0].pokemonR).toEqual("Third");
+    expect(pokemonRaritySorted[0].pokemonR).toBe("Third");
    });
   
    it('When to sort in ascending order (eggs distance) 02 Km and 05 Km, it should show 02 Km first.', () => {
     const pokemonEggsDistance = [{eggD:"02 Km"}, {eggD:"05 Km"}];
     const pokemonEggsDistanceSorted = sortData(pokemonEggsDistance, "","egg", "ascending");
-    expect(pokemonEggsDistanceSorted[0].eggD).toEqual("02 Km");
+    expect(pokemonEggsDistanceSorted[0].eggD).toBe("02 Km");
    });
  
    it('When to sort in descending order (eggs distance) 02 Km and 05 Km, it should show 05 Km first.', () => {
     const pokemonEggsDistance = [{eggD:"02 Km"}, {eggD:"05 Km"}];
     const pokemonEggsDistanceSorted = sortData(pokemonEggsDistance, "","egg", "descending");
-    expect(pokemonEggsDistanceSorted[0].eggD).toEqual("05 Km");
+    expect(pokemonEggsDistanceSorted[0].eggD).toBe("05 Km");
    });
 
   it('When to sort in ascending order (spawn-chance) 0% and 0.1%, it should show 0% first.', () => {
     const pokemonSpawnChance = [{name:"Pikachu", pokemonSC:0}, {name:"Charmander", pokemonSC:0.1}, {name:"Chikorita", pokemonSC:0.5}];
     const pokemonSpawnChanceSorted = sortData(pokemonSpawnChance, "","spawn-chance", "ascending");
-    expect(pokemonSpawnChanceSorted[0].pokemonSC).toEqual(0);
+    expect(pokemonSpawnChanceSorted[0].pokemonSC).toBe(0);
    });
 
   it('When to sort in descending order (spawn-chance) 0% and 0.1%, it should show 0.1% first.', () => {
     const pokemonSpawnChance = [{name:"Pikachu", pokemonSC:0}, {name:"Charmander", pokemonSC:0.1}, {name:"Chikorita", pokemonSC:0.5}];
     const pokemonSpawnChanceSorted = sortData(pokemonSpawnChance, "","spawn-chance", "descending");
-    expect(pokemonSpawnChanceSorted[0].pokemonSC).toEqual(0.5);
+    expect(pokemonSpawnChanceSorted[0].pokemonSC).toBe(0.5);
    });
  
   it('When to sort in ascending order (stats, base-attack) it should show Charmander first.',() => {
@@ -102,7 +102,7 @@ describe('sortData', () => {
       {name:"Lugia", stats:{"base-attack":193, "base-defense":310}}
     ]
     const pokemonAttackSorted = sortData(pokemonAttack, ["stats"],["base-attack"], "ascending");
-    expect(pokemonAttackSorted[0].name).toEqual("Charmander");
+    expect(pokemonAttackSorted[0].name).toBe("Charmander");
   })
 
   it('When to sort in descending order (stats, base-attack) it should show Lugia first.',() => {
@@ -113,7 +113,7 @@ describe('sortData', () => {
       {name:"Lugia", stats:{"base-attack":193, "base-defense":310}}
     ]
     const pokemonAttackSorted = sortData(pokemonAttack, ["stats"],["base-attack"], "descending");
-    expect(pokemonAttackSorted[0].name).toEqual("Lugia");
+    expect(pokemonAttackSorted[0].name).toBe("Lugia");
   })
 
   it('When to sort in ascending order (defense) it should show Charmander first.',() => {
@@ -124,7 +124,7 @@ describe('sortData', () => {
       {name:"Lugia", defense:310}
     ]
     const pokemonAttackSorted = sortData(pokemonAttack, "","defense", "ascending");
-    expect(pokemonAttackSorted[0].name).toEqual("Charmander");
+    expect(pokemonAttackSorted[0].name).toBe("Charmander");
   })
 
   it('When to sort in descending order (defense) it should show Lugia first.',() => {
@@ -135,7 +135,7 @@ describe('sortData', () => {
       {name:"Lugia", defense:310}
     ]
     const pokemonAttackSorted = sortData(pokemonAttack, "","defense", "descending");
-    expect(pokemonAttackSorted[0].name).toEqual("Lugia");
+    expect(pokemonAttackSorted[0].name).toBe("Lugia");
   })
 
   it('When to sort in ascending order (type[first]) it should show Charmander first.',() => {
@@ -146,7 +146,7 @@ describe('sortData', () => {
       {name:"Lugia", type:{"first":"ground", "second":"glass"}}
     ]
     const pokemonTypeSorted = sortData(pokemonType, ["type"],["first"], "ascending");
-    expect(pokemonTypeSorted[0].name).toEqual("Charmander");
+    expect(pokemonTypeSorted[0].name).toBe("Charmander");
   })
 
   it('When to sort in descending order (type[second]) it should show Charmander fisrt.',() => {
@@ -156,11 +156,13 @@ describe('sortData', () => {
       {name:"Pupitar", type:{"first":"grass", "second":"ground"}},
       {name:"Lugia", type:{"first":"ground", "second":"glass"}}
     ]
-    const pokemonTypeSorted = sortData(pokemonType, ["type"],["second"], "descending");
-    expect(pokemonTypeSorted[0].name).toEqual("Charmander");
+    const pokemonTypeSorted = sortData(pokemonType, ["type"],["first"], "descending");
+    expect(pokemonTypeSorted[0].name).toBe("Pikachu");
   })
 
 
+
+ 
 });
 
 describe('computeAverage', () => {
@@ -176,7 +178,7 @@ describe('computeAverage', () => {
     {name:"Lugia", stats:{"base-attack":193, "base-defense":310}}
   ]
   const pokemonStatsAverage = computeAverage(pokemonStats, ["stats"], ["base-attack"]);
-  expect(pokemonStatsAverage).toEqual(146.5);
+  expect(pokemonStatsAverage).toBe(146.5);
 });
 
 it('When computing average (base-defense), it should return (96+93+133+310)/4 = 158', () => {
@@ -187,7 +189,7 @@ it('When computing average (base-defense), it should return (96+93+133+310)/4 = 
     {name:"Lugia", stats:{"base-attack":193, "base-defense":310}}
   ]
   const pokemonStatsAverage = computeAverage(pokemonStats, ["stats"], ["base-defense"]);
-  expect(pokemonStatsAverage).toEqual(158);
+  expect(pokemonStatsAverage).toBe(158);
 });
 
 it('When computing average (base-defense), it should return (0.21+0.253+0+0)/4 = 0.11574999999999999', () => {
@@ -198,7 +200,7 @@ it('When computing average (base-defense), it should return (0.21+0.253+0+0)/4 =
     {name:"Lugia", spawnChance:0}
   ]
   const pokeSpawnChanceAverage = computeAverage(pokemonSpawnChance, ["spawnChance"], "");
-  expect(pokeSpawnChanceAverage).toEqual(0.11574999999999999);
+  expect(pokeSpawnChanceAverage).toBe(0.11574999999999999);
 });
 });
 

@@ -75,8 +75,35 @@ for (const individual of pokemon) {
   individual["size"]["height"] = parseFloat(individual["size"]["height"])
 
   individual["size"]["weight"] = individual["size"]["weight"].replace(" kg", "")
-  individual["size"]["weight"] = parseFloat(individual["size"]["weight"])
-  
+  individual["size"]["weight"] = parseFloat(individual["size"]["weight"]) 
+}
+//Encounter base-flee-rate e capture em numérico ou não capturável:
+for (const individual of pokemon) {
+  if (individual.encounter["base-flee-rate"] === "not in capture") {
+      individual.encounter["base-flee-rate"] = 999999999
+      individual.encounter["base-flee-rate-String"] = "Não Capturável"
+   } else {
+     if(individual.encounter["base-flee-rate"] <= 1){
+      individual.encounter["base-flee-rate"] = individual.encounter["base-flee-rate"]*100.0000001
+      individual.encounter["base-flee-rate"] = individual.encounter["base-flee-rate"].toFixed(1)
+      individual.encounter["base-flee-rate"] = parseFloat(individual.encounter["base-flee-rate"])
+      individual.encounter["base-flee-rate-String"] = individual.encounter["base-flee-rate"] + "%"
+    }
+   }
+  if (individual.encounter["base-capture-rate"] === "not in capture") {
+    individual.encounter["base-capture-rate"] = 999999999
+    individual.encounter["base-capture-rate-String"] = "Não Capturável"
+ } else {
+   if(individual.encounter["base-capture-rate"] <= 1){
+    individual.encounter["base-capture-rate"] = individual.encounter["base-capture-rate"]*100.0000001
+    individual.encounter["base-capture-rate"] = individual.encounter["base-capture-rate"].toFixed(1)
+    individual.encounter["base-capture-rate"] = parseFloat(individual.encounter["base-capture-rate"])
+    individual.encounter["base-capture-rate-String"] = individual.encounter["base-capture-rate"] + "%"
+  } else {
+    individual.encounter["base-capture-rate"] = parseFloat(individual.encounter["base-capture-rate"])
+    individual.encounter["base-capture-rate-String"] = individual.encounter["base-capture-rate"] + "%"
+  }
+ }
 }
 
 //4) Identificando quantidade máximas de tipo de um pokemon e substituindo-as (length dos arrays):
@@ -420,6 +447,15 @@ function decideWhatToAdd (dataset, attribute) {
       <span class="tooltiptext">${dataset["weaknessesInPortugues"][6]}</span>
     </div>`;
     break;
+    case "buddy-distance-km":
+      attributeToBeAdded = `<p class="front-buddy-distance" value= ${dataset["buddy-distance-km"]}> Distância: ${dataset["buddy-distance-km"]} km</p>`;
+    break;
+    case "base-flee-rate":
+      attributeToBeAdded = `<p class="front-encounter" value= ${dataset["encounter"]["base-flee-rate"]}> Chance de Escape: ${dataset["encounter"]["base-flee-rate-String"]}</p>`;
+    break;
+    case "base-capture-rate":
+      attributeToBeAdded = `<p class="front-encounter" value= ${dataset["encounter"]["base-capture-rate"]}> Chance de Captura: ${dataset["encounter"]["base-capture-rate-String"]}</p>`;
+    break;
     default:
       attributeToBeAdded = ``
     break;
@@ -433,7 +469,6 @@ listPokemons(pokemon, "");
 //11) Fltro por key-up:
 const filterInput = document.getElementById("pokemon-search");
 filterInput.addEventListener("keyup", filterNames);
-
 function filterNames() {
   const filterValue = document.getElementById("pokemon-search").value.toUpperCase();
   const pokemonPrintedList = document.getElementById("lista-impressa");
@@ -486,18 +521,24 @@ orderButton.addEventListener("click", (event) => {
     case "max-hp":
       listPokemons(sortData (pokemon, ["stats"], order.value, option.value), order.value);
       break;
+    case "base-flee-rate":
+      listPokemons(sortData (pokemon, ["encounter"], order.value, option.value), order.value);
+    break;
+    case "base-capture-rate":
+      listPokemons(sortData (pokemon, ["encounter"], order.value, option.value), order.value);
+    break;
     default:
       listPokemons(sortData (pokemon, "", order.value, option.value), "");
       break
     } 
 })
 
-
 // 13) Main Filtros por botão:
 function showFilters (section) {
   const divSection = document.getElementById(section) 
   divSection.classList.toggle("show")
 }
+
 function hideFiltersDivs (...ids) {
   const elements = ids.map(id => document.getElementById(id))
   elements.forEach(el => {
@@ -514,26 +555,32 @@ document.getElementById("filters-button").addEventListener("click", function (ev
 document.getElementById("filter-by-generation-button").addEventListener("click", function (event) {
   event.preventDefault()
   showFilters("buttons-generation")
-  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-weaknesses")
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-weaknesses", "buttons-buddy-distance")
 
 })
 //Type Filter
 document.getElementById("filter-by-type-button").addEventListener("click", function (event) {
   event.preventDefault()
   showFilters("buttons-type")
-  hideFiltersDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses")
+  hideFiltersDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses", "buttons-buddy-distance")
 })
 //Resistence Filter
 document.getElementById("filter-by-resistant-button").addEventListener("click", function (event) {
   event.preventDefault()
   showFilters("buttons-resistant")
-  hideFiltersDivs("buttons-type", "buttons-generation", "buttons-weaknesses")
+  hideFiltersDivs("buttons-type", "buttons-generation", "buttons-weaknesses", "buttons-buddy-distance")
 })
 //Weaknesses Filter
 document.getElementById("filter-by-weaknesses-button").addEventListener("click", function (event) {
   event.preventDefault();
   showFilters("buttons-weaknesses");
-  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation")
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation","buttons-buddy-distance")
+})
+//Buddy distance Filter
+document.getElementById("filter-by-buddy-distance-button").addEventListener("click", function (event) {
+  event.preventDefault();
+  showFilters("buttons-buddy-distance");
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation", "buttons-weaknesses")
 })
 
 
@@ -624,16 +671,43 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction);
 //14.d.II Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
 
+
+//14.e) Buddy Distance
+let buddyDistanceResult = {};
+let buddyDistanceButton = "";
+
+const pokemonBuddyDistance = ["1km-button","3km-button", "5km-button", "20km-button"] ;
+
+function BuddyDistanceButtonsFunction (budyDistanceInput) {
+  document.getElementById(budyDistanceInput).addEventListener("click", function (event) {
+  event.preventDefault();
+  buddyDistanceButton = event.target.value;
+  buddyDistanceResult = filterData(pokemon, ["buddy-distance-km"], "", buddyDistanceButton);
+  listPokemons(buddyDistanceResult, "buddy-distance-km");
+  filterNames();
+  });
+}
+
+pokemonBuddyDistance.map(BuddyDistanceButtonsFunction);
+
 // 15. Glossário)
+function showDiv (section) {
+  const divSection = document.getElementById(section) 
+  if (divSection.style.display === "none") {
+    divSection.style.display="block"
+  } else {
+    divSection.style.display="none"
+  }
+}
 //15.a) Abrir glossário:
 document.getElementById("open-glossary").addEventListener("click", function (event) {
   event.preventDefault()
-  showFilters("glossary")
+  showDiv("glossary")
 })
 //15.b) Fechar glossário:
 document.getElementById("close-glossary").addEventListener("click", function (event) {
   event.preventDefault()
-  showFilters("glossary")
+  showDiv("glossary")
 })
 
 

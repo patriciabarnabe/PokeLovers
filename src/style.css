@@ -189,6 +189,10 @@ visibility:visible;
     background-color: #f1cf9b;
     border-color: #ffcc80;
 }
+
+.main-filter-buddy-distance {
+    width:15%;
+}
    
 .main-filter:hover {
     background-color: #ffcc80;
@@ -201,7 +205,17 @@ visibility:visible;
 }
 
 .filter-button-generation:hover {
-    background-color: #a3c2c2;
+    background-color: #669999;
+}
+
+.filter-button-buddy-distance {
+    border-color: #ff6666;
+    background-color: #ffb3b3;
+    color: #262626;
+}
+
+.filter-button-buddy-distance:hover {
+    background-color: #ff6666;
 }
 
 .filter-button-type, 
@@ -532,6 +546,8 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistant-butto
 .front-spawn-chance,
 .front-size,
 .front-stats,
+.front-buddy-distance,
+.front-encounter,
 .front-pokemon-generation,
 .back-pokemon-generation {
     position: relative;
@@ -562,7 +578,6 @@ p[value="Mítico"] {
 
 front-pokemon-rarity { 
     margin-top: 15%;
-
 }
 
 .front-spawn-chance {
@@ -570,12 +585,19 @@ front-pokemon-rarity {
 }
 
 .front-size {
-    background-color: DarkSeaGreen;
-    
+    background-color: DarkSeaGreen;   
 }
 
 .front-stats {
     background-color: #ffb3b3;;
+}
+
+.front-buddy-distance {
+    background-color: #ffff99;
+}
+
+.front-encounter {
+    background-color: #dab3ff;
 }
 
 .front-pokemon-generation, .back-pokemon-generation {
@@ -709,7 +731,7 @@ ul {
             width: 15%;
         }
 
-        .filter-button-generation {
+        .filter-button-generation{
             width: 20%;
         }
 

@@ -9,16 +9,18 @@ export const filterData = (dataset, firstAttribute, secondAttribute, value) => {
 };
 
 
-export const sortData = (data,firstAttribute, sortBy, sortOrder) => {
+export const sortData = (data,firstAttribute, secondAttribute, sortOrder) => {
   if (firstAttribute === "") {
     const compare = (a, b) => {
-      if(typeof a[sortBy] !== "number") {
-        if(a[sortBy] > b[sortBy]) return 1;
-        if(a[sortBy] < b[sortBy]) return -1;
-        return 0;
+      if(typeof a[secondAttribute] !== "number") {
+        if(a[secondAttribute] < b[secondAttribute]) { 
+          return -1
         } else {
-          return a[sortBy] - b[sortBy];
+          return 0;
         }
+      } else {
+        return a[secondAttribute] - b[secondAttribute];
+      }
     }
     if(sortOrder === "ascending"){
       data.sort(compare);
@@ -31,13 +33,15 @@ export const sortData = (data,firstAttribute, sortBy, sortOrder) => {
     } 
   } else {
     const compare = (a, b) => {
-      if(typeof a[firstAttribute][sortBy] !== "number") {
-          if(a[firstAttribute][sortBy] > b[firstAttribute][sortBy]) return 1;
-          if(a[firstAttribute][sortBy] < b[firstAttribute][sortBy]) return -1;
-          return 0;
+      if(typeof a[firstAttribute][secondAttribute] !== "number") {
+          if(a[firstAttribute][secondAttribute] > b[firstAttribute][secondAttribute]) {
+            return 1;
           } else {
-            return a[firstAttribute][sortBy]- b[firstAttribute][sortBy];
+            return 0
           }
+      } else {
+          return a[firstAttribute][secondAttribute]- b[firstAttribute][secondAttribute];
+        }
       }
     if(sortOrder === "ascending"){
       data.sort(compare);
