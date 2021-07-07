@@ -225,9 +225,9 @@ createButtons(namesCorrespondence, "resistant");
 createButtons(namesCorrespondence, "weaknesses");
 
 //10) Criação das listas:
-function listPokemons (dataset, additionalFunction) {
+function listPokemons (dataset, attribute) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
-    const printAdditionalHere = additionalFunction(dataset)
+    const printAdditionalHere = decideWhatToAdd(dataset, attribute)
     accumulator += `
     <div class="card">
       <div class="front-card"> 
@@ -346,114 +346,89 @@ function listPokemons (dataset, additionalFunction) {
 }
 
 //Criação dos atributos adicionais na visualização dos cards:
-function addPokemonRarity(dataset){
-  const attributeToBeAdded = `<p class="front-pokemon-rarity" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>`;
-  return attributeToBeAdded;
-}
-
-function addEggsDistance(dataset){
-  const attributeToBeAdded = `<p class="front-eggs-distance"  value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>`;
+function decideWhatToAdd (dataset, attribute) {
+  let attributeToBeAdded = "";
+  switch (attribute) {
+    case "rarity-order":
+      attributeToBeAdded = `<p class="front-pokemon-rarity" value= ${dataset["pokemon-rarity"]}>Nível de Raridade: ${dataset["pokemon-rarity"]}</p>`;  
+    break;
+    case "egg":
+      attributeToBeAdded = `<p class="front-eggs-distance"  value= ${dataset["egg"]}> Distância dos Ovos: ${dataset["egg"]}</p>`;
+    break;
+    case "spawn-chance":
+      attributeToBeAdded = `<p class="front-spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>`;
+    break;
+    case "weight":
+      attributeToBeAdded = `<p class="front-size" value= ${dataset["size"]["weight"]}> Peso: ${dataset["size"]["weight"]} kg</p>`;
+    break;
+    case "height":
+      attributeToBeAdded = `<p class="front-size" value= ${dataset["size"]["height"]}> Altura: ${dataset["size"]["height"]}m</p>`;
+    break;
+    case "base-attack":
+      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-attack"]}> Ataque: ${dataset["stats"]["base-attack"]}</p>`;
+    break;
+    case "base-defense":
+      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-defense"]}> Defesa: ${dataset["stats"]["base-defense"]}</p>`;
+    break;
+    case "base-stamina":
+      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-stamina"]}> Stamina: ${dataset["stats"]["base-stamina"]}</p>`;
+    break;
+    case "max-cp":
+      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-cp"]}> Força de Combate: ${dataset["stats"]["max-cp"]}</p>`;
+    break;
+    case "max-hp":
+      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-hp"]}> Pontos de Vida: ${dataset["stats"]["max-hp"]}</p>`;
+    break;
+    case "generation":
+      attributeToBeAdded =`<p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>`;
+    break;
+    case "resistant":
+      attributeToBeAdded =` <p id="resistant-to"> Resistente à </p>
+      <div class="front-pokemon-resistant">
+        <p class="pokemon-resistant" value= R${dataset["resistant"][0]}>${dataset["resistantPTabreviation"][0]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][0]}</span>
+        <p class="pokemon-resistant" value= R${dataset["resistant"][1]}>${dataset["resistantPTabreviation"][1]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][1]}</span>
+        <p class="pokemon-resistant" value= R${dataset["resistant"][2]}>${dataset["resistantPTabreviation"][2]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][2]}</span>
+        <p class="pokemon-resistant" value= R${dataset["resistant"][3]}>${dataset["resistantPTabreviation"][3]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][3]}</span>
+        <p class="pokemon-resistant" value= R${dataset["resistant"][4]}>${dataset["resistantPTabreviation"][4]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][4]}</span>
+        <p class="pokemon-resistant" value= R${dataset["resistant"][5]}>${dataset["resistantPTabreviation"][5]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][5]}</span>
+        <p class="pokemon-resistant" value= R${dataset["resistant"][6]}>${dataset["resistantPTabreviation"][6]} </p> 
+        <span class="tooltiptext">${dataset["resistantInPortugues"][6]}</span>
+      </div>`;
+    break;
+    case "weaknesses":
+      attributeToBeAdded =`<div class="front-pokemon-weaknesses">
+      <p id="weak-to"> Fraco contra</p>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["weaknessesPTabreviation"][0]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][0]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["weaknessesPTabreviation"][1]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][1]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["weaknessesPTabreviation"][2]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][2]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["weaknessesPTabreviation"][3]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][3]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["weaknessesPTabreviation"][4]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][4]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["weaknessesPTabreviation"][5]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][5]}</span>
+      <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["weaknessesPTabreviation"][6]} </p> 
+      <span class="tooltiptext">${dataset["weaknessesInPortugues"][6]}</span>
+    </div>`;
+    break;
+    default:
+      attributeToBeAdded = ``
+    break;
+  } 
   return attributeToBeAdded
 }
 
-function addSpawnChance(dataset){
-  const attributeToBeAdded = `<p class="front-spawn-chance" value= ${dataset["spawn-chance"]}> Probabilidade de Aparição: ${dataset["spawn-chance"]}%</p>`;
-  return attributeToBeAdded
-}
-
-function addWeight(dataset){
-  const attributeToBeAdded = `<p class="front-size" value= ${dataset["size"]["weight"]}> Peso: ${dataset["size"]["weight"]} kg</p>`;
-  return attributeToBeAdded
-}
-
-function addHeight(dataset){
-  const attributeToBeAdded = `<p class="front-size" value= ${dataset["size"]["height"]}> Altura: ${dataset["size"]["height"]}m</p>`;
-  return attributeToBeAdded
-}
-
-function addAttack(dataset){
-  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-attack"]}> Ataque: ${dataset["stats"]["base-attack"]}</p>`;
-  return attributeToBeAdded
-}
-
-
-function addDefense(dataset){
-  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-defense"]}> Defesa: ${dataset["stats"]["base-defense"]}</p>`;
-  return attributeToBeAdded
-}
-
-function addStamina(dataset){
-  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["base-stamina"]}> Stamina: ${dataset["stats"]["base-stamina"]}</p>`;
-  return attributeToBeAdded
-}
-
-function addCp(dataset){
-  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-cp"]}> Força de Combate: ${dataset["stats"]["max-cp"]}</p>`;
-  return attributeToBeAdded
-}
-
-function addHp(dataset){
-  const attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-hp"]}> Pontos de Vida: ${dataset["stats"]["max-hp"]}</p>`;
-  return attributeToBeAdded
-}
-
-
-
-
-
-function addGeneration(dataset){
-  const attributeToBeAdded = `<p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>`;
-  return attributeToBeAdded
-}
-
-function addResistant(dataset){
-  const attributeToBeAdded = ` <p id="resistant-to"> Resistente à </p>
-  <div class="front-pokemon-resistant">
-    <p class="pokemon-resistant" value= R${dataset["resistant"][0]}>${dataset["resistantPTabreviation"][0]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][0]}</span>
-    <p class="pokemon-resistant" value= R${dataset["resistant"][1]}>${dataset["resistantPTabreviation"][1]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][1]}</span>
-    <p class="pokemon-resistant" value= R${dataset["resistant"][2]}>${dataset["resistantPTabreviation"][2]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][2]}</span>
-    <p class="pokemon-resistant" value= R${dataset["resistant"][3]}>${dataset["resistantPTabreviation"][3]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][3]}</span>
-    <p class="pokemon-resistant" value= R${dataset["resistant"][4]}>${dataset["resistantPTabreviation"][4]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][4]}</span>
-    <p class="pokemon-resistant" value= R${dataset["resistant"][5]}>${dataset["resistantPTabreviation"][5]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][5]}</span>
-    <p class="pokemon-resistant" value= R${dataset["resistant"][6]}>${dataset["resistantPTabreviation"][6]} </p> 
-    <span class="tooltiptext">${dataset["resistantInPortugues"][6]}</span>
-  </div>`
-  return attributeToBeAdded;
-}
-
-function addWeaknesses(dataset){
-  const attributeToBeAdded = `<div class="front-pokemon-weaknesses">
-  <p id="weak-to"> Fraco contra</p>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][0]}>${dataset["weaknessesPTabreviation"][0]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][0]}</span>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][1]}>${dataset["weaknessesPTabreviation"][1]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][1]}</span>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][2]}>${dataset["weaknessesPTabreviation"][2]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][2]}</span>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][3]}>${dataset["weaknessesPTabreviation"][3]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][3]}</span>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][4]}>${dataset["weaknessesPTabreviation"][4]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][4]}</span>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][5]}>${dataset["weaknessesPTabreviation"][5]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][5]}</span>
-  <p class="pokemon-weaknesses" value= R${dataset["weaknesses"][6]}>${dataset["weaknessesPTabreviation"][6]} </p> 
-  <span class="tooltiptext">${dataset["weaknessesInPortugues"][6]}</span>
-</div>`
-  return attributeToBeAdded;
-}
-
-function addNothing(){
-  const attributeToBeAdded = ``;
-  return attributeToBeAdded;
-}
 //Print lista geral na tela:
-listPokemons(pokemon, addNothing);
+listPokemons(pokemon, "");
 
 //11) Fltro por key-up:
 const filterInput = document.getElementById("pokemon-search");
@@ -480,46 +455,43 @@ function filterNames() {
 //12) Ordenação das listas - SortData:
 orderButton.addEventListener("click", (event) => {
   event.preventDefault();
-  
   switch (order.value) {
     case "egg":
-      listPokemons(sortData (pokemon, "", order.value, option.value), addEggsDistance);
+      listPokemons(sortData (pokemon, "", order.value, option.value), order.value);
       break;
     case "rarity-order":
-      listPokemons(sortData (pokemon, "", order.value, option.value),addPokemonRarity );
+      listPokemons(sortData (pokemon, "", order.value, option.value), order.value);
       break;
     case "spawn-chance":
-      listPokemons(sortData (pokemon, "", order.value, option.value), addSpawnChance);
+      listPokemons(sortData (pokemon, "", order.value, option.value), order.value);
       break;
     case "weight":
-      listPokemons(sortData (pokemon, ["size"], order.value, option.value), addWeight);
+      listPokemons(sortData (pokemon, ["size"], order.value, option.value), order.value);
       break;
     case "height":
-      listPokemons(sortData (pokemon, ["size"], order.value, option.value), addHeight);
+      listPokemons(sortData (pokemon, ["size"], order.value, option.value), order.value);
       break;
     case "base-attack":
-      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addAttack);
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), order.value);
       break;
     case "base-defense":
-      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addDefense);
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), order.value);
       break;
     case "base-stamina":
-      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addStamina);
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), order.value);
       break;
     case "max-cp":
-      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addCp);
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), order.value);
       break;
     case "max-hp":
-      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), addHp);
+      listPokemons(sortData (pokemon, ["stats"], order.value, option.value), order.value);
       break;
     default:
-      listPokemons(sortData (pokemon, "", order.value, option.value), addNothing);
+      listPokemons(sortData (pokemon, "", order.value, option.value), "");
       break
-    }
-
-  
+    } 
 })
-console.log(pokemon)
+
 
 // 13) Main Filtros por botão:
 function showFilters (section) {
@@ -576,19 +548,19 @@ document.getElementById(generationInput).addEventListener("click", function (eve
     event.preventDefault();
     generationButton = event.target.value;
     generationResult = filterData(pokemon, ["generation"],["num"], generationButton);
-    listPokemons(generationResult, addGeneration);
+    listPokemons(generationResult, "generation");
     filterNames();
   })
 }
-//14.b) Criação de um array com o nome dos botões:
+//14.a.I.A) Criação de um array com o nome dos botões:
 const pokemonGenerations = ["first-generation-button","second-generation-button"] ;
-//14.c) Aplicação da função geral do botão para cada elemento da array(cada nome de botão).
-//A função generationButtonsFunction irá ser aplicada para cada geração do
+//14.a.I.B) Aplicação da função geral do botão para cada elemento da array(cada nome de botão).
+//14.a.I.C) A função generationButtonsFunction irá ser aplicada para cada geração do
 pokemonGenerations.map(generationButtonsFunction);
-//14.d) Printar primeira E Segunda gerações;
+//14.II) Printar primeira E Segunda gerações;
 document.getElementById("all-generations-button").addEventListener("click", function (event) {
     event.preventDefault();
-    listPokemons(pokemon, addGeneration);
+    listPokemons(pokemon, "generation");
     filterNames();
 })
 
@@ -601,7 +573,7 @@ function typeButtonsFunction (typeInput) {
     event.preventDefault();
     typeButton = event.target.value;
     typeResult = filterData(pokemon, ["type"], "", typeButton);
-    listPokemons(typeResult, addNothing);
+    listPokemons(typeResult, "");
     filterNames();
   })
 }
@@ -628,7 +600,7 @@ function resistantButtonsFunction (resistantInput) {
     event.preventDefault();
     resistantButton = event.target.value;
     resistantResult = filterData(pokemon, ["resistant"], "", resistantButton);
-    listPokemons(resistantResult, addResistant);
+    listPokemons(resistantResult, "resistant");
     filterNames();
   })
 }
@@ -645,14 +617,12 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction);
     event.preventDefault();
     weaknessesButton = event.target.value;
     weaknessesResult = filterData(pokemon, ["weaknesses"], "", weaknessesButton);
-    listPokemons(weaknessesResult, addWeaknesses);
+    listPokemons(weaknessesResult, "weaknesses");
     filterNames();
     });
   }
 //14.d.II Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
-
-
 
 // 15. Glossário)
 //15.a) Abrir glossário:
