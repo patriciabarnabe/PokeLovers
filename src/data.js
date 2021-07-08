@@ -8,6 +8,45 @@ export const filterData = (dataset, firstAttribute, secondAttribute, value) => {
  return filteredData;
 };
 
+//Este filtro funciona para filtrar até 4 arrays;
+export const advancedFilterData = (dataset, firstattribute, v1, secondattribute, v2, thirdattribute, v3, forthattribute, v4) => {
+  let filteredData = "";
+  if (v1 === "All" && v2 === "All" && v3 === "All" & v4 === "All"){
+    filteredData = dataset;
+  } else if(v1 === "All" && v2 === "All" & v3 === "All" && v4 !== "All"){
+    filteredData = dataset.filter(data => data[forthattribute].includes(v4));
+  } else if(v1 === "All" && v2 === "All" & v3 !== "All" && v4 === "All"){
+    filteredData = dataset.filter(data => data[thirdattribute].includes(v3));
+  } else if(v1 === "All" && v2 === "All" & v3 !== "All" && v4 !== "All"){
+    filteredData = dataset.filter(data => data[thirdattribute].includes(v3) && data[forthattribute].includes(v4));
+  } else if(v1 === "All" && v2 !== "All" & v3 === "All" && v4 === "All"){
+    filteredData = dataset.filter(data => data[secondattribute].includes(v2));
+  } else if(v1 === "All" && v2 !== "All" & v3 === "All" && v4 !== "All"){
+    filteredData = dataset.filter(data => data[secondattribute].includes(v2) && data[forthattribute].includes(v4));
+  } else if(v1 === "All" && v2 !== "All" & v3 !== "All" && v4 === "All"){
+    filteredData = dataset.filter(data => data[secondattribute].includes(v2) && data[thirdattribute].includes(v3));
+  } else if(v1 === "All" && v2 !== "All" & v3 !== "All" && v4 !== "All"){
+    filteredData = dataset.filter(data => data[secondattribute].includes(v2) && data[thirdattribute].includes(v3) && data[forthattribute].includes(v4))
+  } else if(v1 !== "All" && v2 === "All" & v3 === "All" && v4 === "All"){
+    filteredData = dataset.filter(data => data[firstattribute].includes(v1));
+  } else if(v1 !== "All" && v2 === "All" & v3 === "All" && v4 !== "All"){
+    filteredData = dataset.filter(data => data[firstattribute].includes(v1) && data[forthattribute].includes(v4)); 
+  } else if(v1 !== "All" && v2 === "All" & v3 !== "All" && v4 === "All"){
+    filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[thirdattribute].includes(v3));
+  } else if(v1 !== "All" && v2 === "All" & v3 !== "All" && v4 !== "All"){
+    filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[thirdattribute].includes(v3) && data[forthattribute].includes(v4));
+  } else if(v1 !== "All" && v2 !== "All" & v3 === "All" && v4 === "All"){
+    filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[secondattribute].includes(v2));
+  } else if(v1 !== "All" && v2 !== "All" & v3 === "All" && v4 !== "All"){
+    filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[secondattribute].includes(v2) && data[forthattribute].includes(v4));
+  } else if(v1 !== "All" && v2 !== "All" & v3 !== "All" && v4 === "All"){
+    filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[secondattribute].includes(v2) && data[thirdattribute].includes(v3))
+  } else {
+    filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[secondattribute].includes(v2) && data[thirdattribute].includes(v3) && data[forthattribute].includes(v4) )
+  }
+  return filteredData
+}
+
 
 export const sortData = (data,firstAttribute, secondAttribute, sortOrder) => {
   if (firstAttribute === "") {

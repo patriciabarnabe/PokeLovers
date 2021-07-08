@@ -81,15 +81,29 @@
           <button class="main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
           <div class="hidden-buttons" id="buttons-weaknesses"></div> 
 
-          <button class="main-filter main-filter-buddy-distance is-button-or-input" id="filter-by-buddy-distance-button">Km com Companheiro</button>
+          <button class="main-filter main-filter-buddy-distance is-button-or-input" id="filter-by-buddy-distance-button">Distância do Candy</button>
           <div class="hidden-buttons" id="buttons-buddy-distance">
             <button class="filter-button-buddy-distance is-button-or-input" id="1km-button" value="1"> 1 km </button>
             <button class="filter-button-buddy-distance is-button-or-input" id="3km-button" value="3"> 3 km </button>
             <button class="filter-button-buddy-distance is-button-or-input" id="5km-button" value="5"> 5 km </button>
             <button class="filter-button-buddy-distance is-button-or-input" id="20km-button" value="20"> 20 km</button>
-
-
           </div>
+
+          <button class="main-filter main-filter-advanced-search is-button-or-input" id="filter-by-advanced-search">Busca Avançada</button>
+          <div class="hidden-buttons" id="buttons-advanced-search">
+            <select name="generation" class="is-button-or-input advanced-search-selection" id="advanced-search-generation-select">
+              <option value ="All" selected disable class="disabled-order">Geração</option>  
+              <option value="I" class="order-selection">Geração: Primeira - Kanto</option>
+              <option value="II" class="order-selection">Geração: Segunda  - Johto</option>
+              <option value="All" class="order-selection">Todas as Gerações</option>
+            </select> 
+            <select name="type" class="is-button-or-input advanced-search-selection" id="advanced-search-type-select"></select> 
+            <select name="resistant" class="is-button-or-input advanced-search-selection" id="advanced-search-resistant-select"></select>
+            <select name="weaknesses" class="is-button-or-input advanced-search-selection" id="advanced-search-weaknesses-select"> </select>
+            <button class="is-button-or-input advanced-search-selection" id="filter-advanced-search">Filtrar</button>
+            <p id="advanced-search-is-empty"> Nenhum Pokemon corresponde à pesquisa.</p>
+          </div>
+
 
         </section> 
 

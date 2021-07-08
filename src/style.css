@@ -140,10 +140,23 @@ visibility:visible;
     color:gray;
 }
 
-#order-button {
+#order-button{
     background-color: #b3e6cc;
     border-color: #2d8658;
     width: 8%;
+}
+
+.advanced-search-selection, #filter-advanced-search{
+    background-color: #ffff99;
+    border-color: #ffcc00;
+}
+
+.advanced-search-selection:hover {
+    animation:none;
+}
+
+#advanced-search-is-empty{
+    display:none;
 }
 
 #order-button:hover {
@@ -190,7 +203,7 @@ visibility:visible;
     border-color: #ffcc80;
 }
 
-.main-filter-buddy-distance {
+.main-filter-buddy-distance, .main-filter-advanced-search {
     width:15%;
 }
    
@@ -731,6 +744,10 @@ ul {
             width: 15%;
         }
 
+        .main-filter-buddy-distance, .main-filter-advanced-search {
+        width:22%;
+        }
+
         .filter-button-generation{
             width: 20%;
         }
@@ -836,6 +853,10 @@ ul {
             width: 30%;
             padding:2%;
         }
+
+        .main-filter-buddy-distance, .main-filter-advanced-search {
+            width:48%;
+            }
 
         .filter-button-generation {
             width: 50%;

@@ -1,5 +1,6 @@
 ///SEÇÃO 1: IMPORTAÇÃO DAS FUNÇÕES
 import { filterData } from './data.js'
+import { advancedFilterData } from './data.js'
 import { sortData } from './data.js';
 import { computeAverage } from './data.js';
 
@@ -242,8 +243,6 @@ function createButtons (dataset, attribute) {
         `
    return(accumulator);
   },[])
-  
-
     const printList= document.getElementById("buttons-" + attribute);
     printList.innerHTML = listButttons;
 }
@@ -251,7 +250,26 @@ createButtons(namesCorrespondence, "type");
 createButtons(namesCorrespondence, "resistant");
 createButtons(namesCorrespondence, "weaknesses");
 
+// Pesquisa Avançada
+function createSelection (dataset, firstAttribute, attributeInPortuguese) {
+  const listButttons = dataset.reduce((accumulator, dataset) => {
+    accumulator += `
+    <option value=${dataset["englishName"]} class="order-selection">${attributeInPortuguese}: ${dataset["portugueseName"]}</option>
+        `
+   return(accumulator);
+  },[])
+    const printList= document.getElementById("advanced-search-" + firstAttribute + "-select");
+    printList.innerHTML = `<option selected disable class="disabled-order" value ="All">${attributeInPortuguese}</option>` + `<option value="All" class="order-selection">${attributeInPortuguese}: Todos</option>`+listButttons 
+   ;
+}
+createSelection(namesCorrespondence, "type", "Tipo")
+createSelection(namesCorrespondence, "resistant", "Resistência")
+createSelection(namesCorrespondence, "weaknesses", "Fraqueza")
+
 //10) Criação das listas:
+//Quando API de Imagens functionar:
+//<img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.idWithoutLeftZeros}.png">
+//<img class="front-pokemon-image" alt="${dataset.name}" src="${dataset.img}">
 function listPokemons (dataset, attribute) {
   const listOfPokemons = dataset.reduce((accumulator, dataset) => {
     const printAdditionalHere = decideWhatToAdd(dataset, attribute)
@@ -259,7 +277,7 @@ function listPokemons (dataset, attribute) {
     <div class="card">
       <div class="front-card"> 
         <li class="front-list"> 
-          <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.idWithoutLeftZeros}.png">
+        <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.idWithoutLeftZeros}.png">
           <p class="front-pokemon-id">#${dataset["num"]} </p> 
           <p class="front-pokemon-name"> ${dataset["name"]} </p> 
           <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["typeInPortugues"][0]} </p> 
@@ -555,34 +573,39 @@ document.getElementById("filters-button").addEventListener("click", function (ev
 document.getElementById("filter-by-generation-button").addEventListener("click", function (event) {
   event.preventDefault()
   showFilters("buttons-generation")
-  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-weaknesses", "buttons-buddy-distance")
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-weaknesses", "buttons-buddy-distance","buttons-advanced-search")
 
 })
 //Type Filter
 document.getElementById("filter-by-type-button").addEventListener("click", function (event) {
   event.preventDefault()
   showFilters("buttons-type")
-  hideFiltersDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses", "buttons-buddy-distance")
+  hideFiltersDivs("buttons-generation", "buttons-resistant", "buttons-weaknesses", "buttons-buddy-distance","buttons-advanced-search")
 })
 //Resistence Filter
 document.getElementById("filter-by-resistant-button").addEventListener("click", function (event) {
   event.preventDefault()
   showFilters("buttons-resistant")
-  hideFiltersDivs("buttons-type", "buttons-generation", "buttons-weaknesses", "buttons-buddy-distance")
+  hideFiltersDivs("buttons-type", "buttons-generation", "buttons-weaknesses", "buttons-buddy-distance","buttons-advanced-search")
 })
 //Weaknesses Filter
 document.getElementById("filter-by-weaknesses-button").addEventListener("click", function (event) {
   event.preventDefault();
   showFilters("buttons-weaknesses");
-  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation","buttons-buddy-distance")
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation","buttons-buddy-distance","buttons-advanced-search")
 })
 //Buddy distance Filter
 document.getElementById("filter-by-buddy-distance-button").addEventListener("click", function (event) {
   event.preventDefault();
   showFilters("buttons-buddy-distance");
-  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation", "buttons-weaknesses")
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation", "buttons-weaknesses","buttons-advanced-search")
 })
-
+//Advanced Search
+document.getElementById("filter-by-advanced-search").addEventListener("click", function (event) {
+  event.preventDefault();
+  showFilters("buttons-advanced-search");
+  hideFiltersDivs("buttons-type", "buttons-resistant", "buttons-generation", "buttons-weaknesses","buttons-buddy-distance")
+})
 
 //14) SubFiltros por botão:
 //14.a) Geraçao
@@ -637,7 +660,6 @@ let newButton = [];
 //14.b.III) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("type").map(typeButtonsFunction);
 
-
 //14.c) Resistência
 let resistantResult = {};
 let resistantButton = "";
@@ -653,7 +675,6 @@ function resistantButtonsFunction (resistantInput) {
 }
 //14.c.II) Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("resistant").map(resistantButtonsFunction);
-
 
 //14.d) Fraqueza
   let weaknessesResult = {};
@@ -671,13 +692,10 @@ addingButtonSuffix("resistant").map(resistantButtonsFunction);
 //14.d.II Aplicação da função geral do botão para cada elemento da array(cada nome de botão)
 addingButtonSuffix("weaknesses").map(WeaknessesButtonsFunction);
 
-
 //14.e) Buddy Distance
 let buddyDistanceResult = {};
 let buddyDistanceButton = "";
-
 const pokemonBuddyDistance = ["1km-button","3km-button", "5km-button", "20km-button"] ;
-
 function BuddyDistanceButtonsFunction (budyDistanceInput) {
   document.getElementById(budyDistanceInput).addEventListener("click", function (event) {
   event.preventDefault();
@@ -687,7 +705,6 @@ function BuddyDistanceButtonsFunction (budyDistanceInput) {
   filterNames();
   });
 }
-
 pokemonBuddyDistance.map(BuddyDistanceButtonsFunction);
 
 // 15. Glossário)
@@ -708,6 +725,33 @@ document.getElementById("open-glossary").addEventListener("click", function (eve
 document.getElementById("close-glossary").addEventListener("click", function (event) {
   event.preventDefault()
   showDiv("glossary")
+})
+
+// 16. Pesquisa Avançada:
+const advancedGeneration = document.getElementById("advanced-search-generation-select");
+const advancedType = document.getElementById("advanced-search-type-select");
+const advancedResistant = document.getElementById("advanced-search-resistant-select");
+const advancedWeaknesses = document.getElementById("advanced-search-weaknesses-select");
+const advancedFilterButton = document.getElementById("filter-advanced-search");
+
+
+//Aqui, ao invés criar uma condição para atributos vazios (seriam muitos if e elses, criamos um array de gerações já com o valor do numero da geração)
+for (const individual of pokemon){
+  individual["generatioNum"] = [];
+  individual["generatioNum"] = individual.generation.num
+}
+
+advancedFilterButton.addEventListener("click", (event) => {
+  let advancedDataResult = {};
+  const emptySearch = document.getElementById("advanced-search-is-empty");
+  event.preventDefault();
+  advancedDataResult = advancedFilterData(pokemon, ["generatioNum"], advancedGeneration.value, ["type"], advancedType.value, ["resistant"], advancedResistant.value, ["weaknesses"], advancedWeaknesses.value)
+  if(advancedDataResult.length === 0){
+      emptySearch.style.display="block"
+  } else {
+    emptySearch.style.display="none"
+  }
+  listPokemons(advancedDataResult, "")
 })
 
 
