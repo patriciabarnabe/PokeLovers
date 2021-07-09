@@ -14,7 +14,7 @@
 * [7. Tecnologias utilizadas](#robot-tecnologias-utilizadas)
 * [8. Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
 * [9. Resultados](#%EF%B8%8F-resultados)
-* [9. Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
+* [10. Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
 
 ---
 ## :dart: Definição do Produto
@@ -41,13 +41,13 @@ Por fim, desejamos que nosso produto proporcione uma incrível experiência dent
 ![img](./src/images/prototipo_baixa_pokedex.png)
 
 ### Alta Fidelidade
-#### - Mobile (375px)
+* ####  Mobile (375px)
 ![img](./src/images/prototipo_alta_mobile.png)
 
-#### - Tablet (768px)
+* #### Tablet (768px)
 ![img](./src/images/prototipo_alta_tablet.png)
 
-#### - Desktop (1440px)
+* #### Desktop (1440px)
 ![img](./src/images/prototipo_alta_desktop_index.png)
 ![img](./src/images/prototipo_alta_desktop_pokedex.png)
 
