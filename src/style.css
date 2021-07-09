@@ -140,10 +140,23 @@ visibility:visible;
     color:gray;
 }
 
-#order-button {
+#order-button{
     background-color: #b3e6cc;
     border-color: #2d8658;
     width: 8%;
+}
+
+.advanced-search-selection, #filter-advanced-search{
+    background-color: #ffff99;
+    border-color: #ffcc00;
+}
+
+.advanced-search-selection:hover {
+    animation:none;
+}
+
+#advanced-search-is-empty{
+    display:none;
 }
 
 #order-button:hover {
@@ -189,6 +202,10 @@ visibility:visible;
     background-color: #f1cf9b;
     border-color: #ffcc80;
 }
+
+.main-filter-buddy-distance, .main-filter-advanced-search {
+    width:15%;
+}
    
 .main-filter:hover {
     background-color: #ffcc80;
@@ -201,7 +218,17 @@ visibility:visible;
 }
 
 .filter-button-generation:hover {
-    background-color: #a3c2c2;
+    background-color: #669999;
+}
+
+.filter-button-buddy-distance {
+    border-color: #ff6666;
+    background-color: #ffb3b3;
+    color: #262626;
+}
+
+.filter-button-buddy-distance:hover {
+    background-color: #ff6666;
 }
 
 .filter-button-type, 
@@ -530,6 +557,10 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistant-butto
 .front-pokemon-rarity, 
 .front-eggs-distance, 
 .front-spawn-chance,
+.front-size,
+.front-stats,
+.front-buddy-distance,
+.front-encounter,
 .front-pokemon-generation,
 .back-pokemon-generation {
     position: relative;
@@ -560,11 +591,26 @@ p[value="Mítico"] {
 
 front-pokemon-rarity { 
     margin-top: 15%;
-
 }
 
 .front-spawn-chance {
     background-color: #b3b3b3;
+}
+
+.front-size {
+    background-color: DarkSeaGreen;   
+}
+
+.front-stats {
+    background-color: #ffb3b3;;
+}
+
+.front-buddy-distance {
+    background-color: #ffff99;
+}
+
+.front-encounter {
+    background-color: #dab3ff;
 }
 
 .front-pokemon-generation, .back-pokemon-generation {
@@ -698,7 +744,11 @@ ul {
             width: 15%;
         }
 
-        .filter-button-generation {
+        .main-filter-buddy-distance, .main-filter-advanced-search {
+        width:22%;
+        }
+
+        .filter-button-generation{
             width: 20%;
         }
 
@@ -804,6 +854,10 @@ ul {
             padding:2%;
         }
 
+        .main-filter-buddy-distance, .main-filter-advanced-search {
+            width:48%;
+            }
+
         .filter-button-generation {
             width: 50%;
             padding: 2%;
@@ -828,3 +882,7 @@ ul {
         }
     }
     
+
+.show {
+    display:block;
+}

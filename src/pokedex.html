@@ -28,11 +28,25 @@
           <input type = "text" id="pokemon-search" class= "is-button-or-input" placeholder="Busque por um Pokémon">
       
           <select name="order" class="is-button-or-input" id="order">
-            <option selected disable class="disabled-order">Atributo</option>
+            <option selected disable class="disabled-order">Nome</option>
             <option value="name" class="order-selection">Alfabética</option>
+            <option selected disable class="disabled-order">Chance de Aparição</option>
             <option value="rarity-order">Raridade</option>
             <option value="egg">Distância dos Ovos</option>
             <option value="spawn-chance">Probabilidade de Aparição</option>
+            <option selected disable class="disabled-order">Encontro</option>
+            <option value="base-flee-rate">Chance de Escape</option>
+            <option value="base-capture-rate">Chance de Captura</option>
+            <option selected disable class="disabled-order">Tamanho</option>
+            <option value="weight">Peso</option>
+            <option value="height">Altura</option>
+            <option selected disable class="disabled-order">Estatísticas</option>
+            <option value="base-attack">Ataque</option>
+            <option value="base-defense">Defesa</option>
+            <option value="base-stamina">Stamina</option>
+            <option value="max-cp">Força de Combate</option>
+            <option value="max-hp">Pontos de Vida</option>
+            <option selected disable class="disabled-order">Selecione o Atributo</option>
           </select>
 
           <select name="option" class="is-button-or-input" id="option">
@@ -66,6 +80,30 @@
         
           <button class="main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
           <div class="hidden-buttons" id="buttons-weaknesses"></div> 
+
+          <button class="main-filter main-filter-buddy-distance is-button-or-input" id="filter-by-buddy-distance-button">Distância do Candy</button>
+          <div class="hidden-buttons" id="buttons-buddy-distance">
+            <button class="filter-button-buddy-distance is-button-or-input" id="1km-button" value="1"> 1 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="3km-button" value="3"> 3 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="5km-button" value="5"> 5 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="20km-button" value="20"> 20 km</button>
+          </div>
+
+          <button class="main-filter main-filter-advanced-search is-button-or-input" id="filter-by-advanced-search">Busca Avançada</button>
+          <div class="hidden-buttons" id="buttons-advanced-search">
+            <select name="generation" class="is-button-or-input advanced-search-selection" id="advanced-search-generation-select">
+              <option value ="All" selected disable class="disabled-order">Geração</option>  
+              <option value="Kanto" class="order-selection">Geração: Primeira - Kanto</option>
+              <option value="Johto" class="order-selection">Geração: Segunda  - Johto</option>
+              <option value="All" class="order-selection">Todas as Gerações</option>
+            </select> 
+            <select name="type" class="is-button-or-input advanced-search-selection" id="advanced-search-type-select"></select> 
+            <select name="resistant" class="is-button-or-input advanced-search-selection" id="advanced-search-resistant-select"></select>
+            <select name="weaknesses" class="is-button-or-input advanced-search-selection" id="advanced-search-weaknesses-select"> </select>
+            <button class="is-button-or-input advanced-search-selection" id="filter-advanced-search">Filtrar</button>
+            <p id="advanced-search-is-empty"> Nenhum Pokemon corresponde à pesquisa.</p>
+          </div>
+
 
         </section> 
 
