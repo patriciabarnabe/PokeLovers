@@ -5,19 +5,21 @@
 
 ## Índice
 
-* [1. Sobre o produto](#dart-sobre-o-produto)
-* [2. Tipos de Violência contra Mulher](#woman-tipos-de-violência-contra-mulher)
-* [3. Nosso Propósito](#heart-nosso-propósito)
+* [1. Definição do Produto](#dart-definição-do-produto)
+* [2. Histórias de Usuários](#pencil2-histórias-de-usuários)
+* [3. Protótipos](#art-protótipos)
 * [4. Como usar?](#gear-como-usar)
-* [5. Links para Redes de Apoio à Mulher](#link-links-para-redes-de-apoio-à-mulher)
-* [6. Tecnologias](#robot-tecnologias)
-* [7. Resultados](#%EF%B8%8F-resultados)
-* [8. Sobre a autora](#woman_technologist-sobre-a-autora)
+* [5. Links para saber mais sobre Pokémons](#link-links-para-saber-mais-sobre-pokémons)
+* [6. Testes de Usabilidade](#busts_in_silhouette-testes-de-usabilidade)
+* [7. Tecnologias utilizadas](#robot-tecnologias-utilizadas)
+* [8. Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
+* [9. Resultados](#%EF%B8%8F-resultados)
+* [9. Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
 
 ---
 ## :dart: Definição do Produto
 
-O [PokeLovers](..) foi desenvolvido com o objetivo de auxiliar os jogadores de PokémonGo a terem uma melhor experiência no dentro do jogo. Para isso, esta aplicação tem a missão de prover informações aos usuários de forma dinâmica e divertida para que estas sejam utilizadas estrategicamente na jogabilidade.
+O [PokeLovers](...) foi desenvolvido com o objetivo de auxiliar os jogadores de PokémonGo a terem uma melhor experiência no dentro do jogo. Para isso, esta aplicação tem a missão de prover informações aos usuários de forma dinâmica e divertida para que estas sejam utilizadas estrategicamente na jogabilidade.
 
 O layout do site representa a interação com uma verdadeira Pokédex (também conhecida como Poké-Agenda no Brasil) que é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registrar todas as espécies diferentes que são encontradas durante as suas aventuras. 
 
@@ -27,10 +29,10 @@ Por fim, desejamos que nosso produto proporcione uma incrível experiência dent
 
 ---
 ## :pencil2: Histórias de Usuários
-![img](.src/images/historias-usuario-1.png)
-![img](.src/images/historias-usuario-2.png)
-![img](.src/images/historias-usuario-3.png)
-![img](.src/images/historias-usuario-4.png)
+![img](./src/images/historias-usuario-1.png)
+![img](./src/images/historias-usuario-2.png)
+![img](./src/images/historias-usuario-3.png)
+![img](./src/images/historias-usuario-4.png)
 
 ---
 ## :art: Protótipos
@@ -62,6 +64,11 @@ Por fim, desejamos que nosso produto proporcione uma incrível experiência dent
 - À esquerda da tela, existe um botão de "Informações" para acessar detalhes das informações exibidas na tela. 
 
 ---
+## :link: Links para saber mais sobre Pokémons
+- [PokemonGo](https://pokemongolive.com/pt_br/)
+- [PokeDéx Completa (todas as gerações)](https://www.pokemon.com/br/pokedex/)
+
+---
 ## :busts_in_silhouette: Testes de Usabilidade
 Durante o desenvolvimento do produto, foram realizados testes de usabilidade com diferentes usuários diferentes com o intuito analisa a experiência do usuário com a interface do site. Com base nos resultados desses testes, foram detectados os seguintes pontos de ajustes:
 
@@ -69,11 +76,6 @@ Durante o desenvolvimento do produto, foram realizados testes de usabilidade com
 - Filtros múltiplos que integrem informações 
 
 Para a resolução dessas questões, foram implementados os campos de "Informações" e de "Busca Avançada" descritos anteriormente.
-
----
-## :link: Links para saber mais sobre Pokémons
-- [PokemonGo](https://pokemongolive.com/pt_br/)
-- [PokeDéx Completa (todas as gerações)](https://www.pokemon.com/br/pokedex/)
 
 ---
 ## :robot: Tecnologias utilizadas
@@ -92,22 +94,22 @@ Para a resolução dessas questões, foram implementados os campos de "Informaç
 ## :file_folder: Estrutura dos Principais Arquivos
 ```
 .
-├── :file_folder: src
-|  ├── :file_folder: data 
-|  |  ├── :file_folder: pokemon
-|  |      ├── :page_facing_up: pokemon.js
-|  |      ├── :page_facing_up: pokemon.json
-|  |      └── :page_facing_up: README.md   
-|  ├── :file_folder: images
-|  ├── :page_facing_up: data.js
-|  ├── :page_facing_up: index.html
-|  ├── :page_facing_up: main.js
-|  ├── :page_facing_up: pokedex.html
-|  └── :page_facing_up: style.css
-├── :file_folder: test
-|      └── :page_facing_up: data.spec.js
-├── :page_facing_up: README.md
-├── :page_facing_up: package.json
+├── 📁 src
+|  ├── 📁 data 
+|  |  ├── 📁 pokemon
+|  |      ├── 📄 pokemon.js
+|  |      ├── 📄 pokemon.json
+|  |      └── 📄 README.md   
+|  ├── 📁 images
+|  ├── 📄 data.js
+|  ├── 📄 index.html
+|  ├── 📄 main.js
+|  ├── 📄 pokedex.html
+|  └── 📄 style.css
+├── 📁 test
+|      └── 📄 data.spec.js
+├── 📄 README.md
+├── 📄 package.json
 
 ```
 
