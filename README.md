@@ -56,7 +56,7 @@ Por fim, desejamos que nosso produto proporcione uma incrível experiência dent
 - Primeiramente o usuário acessará a página inicial, na qual, o acesso para a Pokedéx ocorre ao clicar na Pokébola;
 
 ### Na Pokedéx:
-- O usuário é capaz de filtrar um Pokémon pelo seu respectivo nome no campo "Busque por um Pokémon"; 
+- O usuário é capaz de buscar um Pokémon pelo seu respectivo nome no campo "Busque por um Pokémon"; 
 - É possível ordenar os cards em ordem crescente ou decrescente para os atributos de **Nome**, **Raridade**, **Distância dos Ovos**, **Probabilidade de Aparição**, **Chance de Captura**, **Chance de Fuga**,  **Tamanho e Estatísticas**; 
 - A filtragem dos cards é independente da ordenação e os Pokemons podem ser selecionados de acordo com o seus **tipos**, **fraquezas**, **resistências** e **distância do candy**. É importante ressaltar que esses filtros são independentes entre si.
 - No campo de "Busca Avançada", é possível fazer a filtragem de forma integrada e dinâmica das gerações, tipos, resistências e fraquezas.
