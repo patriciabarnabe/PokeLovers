@@ -33,6 +33,140 @@ describe('filterData', () => {
 
 });
 
+describe('advancedFilterData', () => {
+  it('advancedFilterData should be a function', () => {
+  expect(typeof advancedFilterData).toBe('function');
+  });
+  const pokemonAdvancedFiltered = [
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Charmander", generation:["Kanto"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
+  {name:"Chikorita", generation:["Johto"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]},
+  {name:"Sentret", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
+  {name:"Blastoise", generation:["Johto"], type:["water", "ice"], resistant:["water", "ice", "fairy"], weaknesses:["fire", "dragon"]},
+  {name:"Lugia", generation:["Kanto"], type:["poison", "grass"], resistant:["ground", "water", "poison"], weaknesses:["fire", "pshychic"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]},
+  {name:"Pichu", generation:["Johto"], type:["electric"], resistant:["electric", "steel", "grass"], weaknesses:["Flying"]},
+  {name:"Togepi", generation:["Kanto"], type:["fairy"], resistant:["fairy", "psychic", "grass"], weaknesses:["ground", "dark"]},
+  {name:"Natu", generation:["Johto"], type:["fairy", "psychic"], resistant:["poison", "psychic", "fairy"], weaknesses:["grass", "normal"]},
+  ];
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 1.SSSS, it should return pokemonAttributes.', () => {
+  const pokemonAdvancedFilteredSSSS = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "All", ["weaknesses"], "All");
+  expect(pokemonAdvancedFilteredSSSS).toEqual(pokemonAdvancedFiltered)
+  });
+  it('When advanced filtering pokemonAdvancedSorted on the condition 2.SSSN (only weaknesses value:ice"), it should return Pikachu, Charmander and Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "All", ["weaknesses"], "ice");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Charmander", generation:["Kanto"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]} ]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 3.SSNS (only resistant value:dragon), it should return Pikachu and Charmander.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "dragon", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Charmander", generation:["Kanto"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]} ]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 4.SSNN (only resistant value:fire and weaknesses:water), it should return Pikachu, Charmander and Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "fire", ["weaknesses"], "water");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Charmander", generation:["Kanto"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 5.SNSS (only type value:fairy), it should return Togepi and Natu.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "fairy", ["resistant"], "All", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Togepi", generation:["Kanto"], type:["fairy"], resistant:["fairy", "psychic", "grass"], weaknesses:["ground", "dark"]},
+  {name:"Natu", generation:["Johto"], type:["fairy", "psychic"], resistant:["poison", "psychic", "fairy"], weaknesses:["grass", "normal"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 6.SNSN (only type value:electric and weaknesses value:water), it should return Pikachu, Sentret and Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "electric", ["resistant"], "All", ["weaknesses"], "water");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Sentret", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]} ]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 7.SNNS (only type value:psychic and resistant value:poison), it should return Natu.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "psychic", ["resistant"], "poison", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Natu", generation:["Johto"], type:["fairy", "psychic"], resistant:["poison", "psychic", "fairy"], weaknesses:["grass", "normal"]} ]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 8.SNNN (only type value:grass, resistant value:poison and weaknesses value:fire), it should return Chikorita and Lugia.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "grass", ["resistant"], "poison", ["weaknesses"], "fire");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Chikorita", generation:["Johto"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]},
+  {name:"Lugia", generation:["Kanto"], type:["poison", "grass"], resistant:["ground", "water", "poison"], weaknesses:["fire", "pshychic"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 9.NSSS (only generation value:Kanto), it should return Pikachu, Charmander, Sentret, Lugia, Crobat, Togepi.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Kanto", ["type"], "All", ["resistant"], "All", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Charmander", generation:["Kanto"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
+  {name:"Sentret", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
+  {name:"Lugia", generation:["Kanto"], type:["poison", "grass"], resistant:["ground", "water", "poison"], weaknesses:["fire", "pshychic"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]},
+  {name:"Togepi", generation:["Kanto"], type:["fairy"], resistant:["fairy", "psychic", "grass"], weaknesses:["ground", "dark"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 10.NSSN (only generation value:Kanto and weaknesses:ice), it should return Pikachu, Charmander and Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Kanto", ["type"], "All", ["resistant"], "All", ["weaknesses"], "ice");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Charmander", generation:["Kanto"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 11.NSNS (only generation value:Johto and resistant:grass), it should return Chikorita and Pichu.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Johto", ["type"], "All", ["resistant"], "grass", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Chikorita", generation:["Johto"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]},
+  {name:"Pichu", generation:["Johto"], type:["electric"], resistant:["electric", "steel", "grass"], weaknesses:["Flying"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 12.NSNN (only generation value:Johto, resistant:grass and weaknesses value:fire), it should return Chikorita.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Johto", ["type"], "All", ["resistant"], "grass", ["weaknesses"], "fire");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Chikorita", generation:["Johto"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 13.NNSS (only generation value:Kanto and type:electric), it should return Pikachu, Sentret, Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Kanto", ["type"], "electric", ["resistant"], "All", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Sentret", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 14.NNSN (only generation value:Kanto, type:electric and weaknesses:ice), it should return Pikachu and Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Kanto", ["type"], "electric", ["resistant"], "All", ["weaknesses"], "ice");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 15.NNNS (only generation value:Kanto, type:electric and resistant:fire), it should return Pikachu and Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Kanto", ["type"], "electric", ["resistant"], "fire", ["weaknesses"], "All");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Pikachu", generation:["Kanto"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
+  });
+  
+  it('When advanced filtering pokemonAdvancedSorted on the condition 16.NNNN (only generation value:Kanto, type:ground, resistant:fire, weaknesses value:ice), it should return only Crobat.', () => {
+  const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "Kanto", ["type"], "ground", ["resistant"], "fire", ["weaknesses"], "ice");
+  expect(pokemonAdvancedSortedSSSN).toEqual([
+  {name:"Crobat", generation:["Kanto"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
+  });
+  })
+  
+  
 describe('sortData', () => {
   it('sortData should be a function', () => {
     expect(typeof sortData).toBe('function');
@@ -190,139 +324,6 @@ describe('computeAverage', () => {
 
 });
 
-describe('advancedFilterData', () => {
-  it('advancedFilterData should be a function', () => {
-    expect(typeof advancedFilterData).toBe('function');
-  });
-  const pokemonAdvancedFiltered = [
-  {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-  {name:"Charmander", generation:["I"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
-  {name:"Chikorita", generation:["II"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]},
-  {name:"Sentret", generation:["I"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
-  {name:"Blastoise", generation:["II"], type:["water", "ice"], resistant:["water", "ice", "fairy"], weaknesses:["fire", "dragon"]},
-  {name:"Lugia", generation:["I"], type:["poison", "grass"], resistant:["ground", "water", "poison"], weaknesses:["fire", "pshychic"]},
-  {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]},
-  {name:"Pichu", generation:["II"], type:["electric"], resistant:["electric", "steel", "grass"], weaknesses:["Flying"]},
-  {name:"Togepi", generation:["I"], type:["fairy"], resistant:["fairy", "psychic", "grass"], weaknesses:["ground", "dark"]},
-  {name:"Natu", generation:["II"], type:["fairy", "psychic"], resistant:["poison", "psychic", "fairy"], weaknesses:["grass", "normal"]},
-  ];
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 1.SSSS, it should return pokemonAttributes.', () => {
-    const pokemonAdvancedFilteredSSSS = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "All", ["weaknesses"], "All");
-    expect(pokemonAdvancedFilteredSSSS).toEqual(pokemonAdvancedFiltered)
-  });
-  
-  it('When advanced filtering pokemonAdvancedSorted on the condition 2.SSSN (only weaknesses value:ice"), it should return Pikachu, Charmander and Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "All", ["weaknesses"], "ice");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-    {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-    {name:"Charmander", generation:["I"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
-    {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]} ]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 3.SSNS (only resistant value:dragon), it should return Pikachu and Charmander.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "dragon", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-    {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-    {name:"Charmander", generation:["I"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]} ]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 4.SSNN (only resistant value:fire and weaknesses:water), it should return Pikachu, Charmander and Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "All", ["resistant"], "fire", ["weaknesses"], "water");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-    {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-    {name:"Charmander", generation:["I"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
-    {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 5.SNSS (only type value:fairy), it should return Togepi and Natu.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "fairy", ["resistant"], "All", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Togepi", generation:["I"], type:["fairy"], resistant:["fairy", "psychic", "grass"], weaknesses:["ground", "dark"]},
-      {name:"Natu", generation:["II"], type:["fairy", "psychic"], resistant:["poison", "psychic", "fairy"], weaknesses:["grass", "normal"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 6.SNSN (only type value:electric and weaknesses value:water), it should return Pikachu, Sentret and Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "electric", ["resistant"], "All", ["weaknesses"], "water");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-      {name:"Sentret", generation:["I"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]} ]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 7.SNNS (only type value:psychic and resistant value:poison), it should return Natu.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "psychic", ["resistant"], "poison", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Natu", generation:["II"], type:["fairy", "psychic"], resistant:["poison", "psychic", "fairy"], weaknesses:["grass", "normal"]} ]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 8.SNNN (only type value:grass, resistant value:poison and weaknesses value:fire), it should return Chikorita and Lugia.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "All", ["type"], "grass", ["resistant"], "poison", ["weaknesses"], "fire");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Chikorita", generation:["II"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]},
-      {name:"Lugia", generation:["I"], type:["poison", "grass"], resistant:["ground", "water", "poison"], weaknesses:["fire", "pshychic"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 9.NSSS (only generation value:I), it should return Pikachu, Charmander, Sentret, Lugia, Crobat, Togepi.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "I", ["type"], "All", ["resistant"], "All", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-      {name:"Charmander", generation:["I"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
-      {name:"Sentret", generation:["I"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
-      {name:"Lugia", generation:["I"], type:["poison", "grass"], resistant:["ground", "water", "poison"], weaknesses:["fire", "pshychic"]},
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]},
-      {name:"Togepi", generation:["I"], type:["fairy"], resistant:["fairy", "psychic", "grass"], weaknesses:["ground", "dark"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 10.NSSN (only generation value:I and weaknesses:ice), it should return Pikachu, Charmander and Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "I", ["type"], "All", ["resistant"], "All", ["weaknesses"], "ice");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-      {name:"Charmander", generation:["I"], type:["fire", "dragon"], resistant:["fire", "dragon", "grass"], weaknesses:["water", "ice"]},
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 11.NSNS (only generation value:II and resistant:grass), it should return Chikorita and Pichu.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "II", ["type"], "All", ["resistant"], "grass", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Chikorita", generation:["II"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]},
-      {name:"Pichu", generation:["II"], type:["electric"], resistant:["electric", "steel", "grass"], weaknesses:["Flying"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 12.NSNN (only generation value:II, resistant:grass and weaknesses value:fire), it should return Chikorita.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "II", ["type"], "All", ["resistant"], "grass", ["weaknesses"], "fire");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Chikorita", generation:["II"], type:["ground", "grass"], resistant:["grass", "poison", "ground"], weaknesses:["electric", "fire"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 13.NNSS (only generation value:I and type:electric), it should return Pikachu, Sentret, Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "I", ["type"], "electric", ["resistant"], "All", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-      {name:"Sentret", generation:["I"], type:["ground", "electric"], resistant:["steel", "ground", "electric"], weaknesses:["water", "fairy"]},
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 14.NNSN (only generation value:I, type:electric and weaknesses:ice), it should return Pikachu and Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "I", ["type"], "electric", ["resistant"], "All", ["weaknesses"], "ice");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 15.NNNS (only generation value:I, type:electric and resistant:fire), it should return Pikachu and Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "I", ["type"], "electric", ["resistant"], "fire", ["weaknesses"], "All");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Pikachu", generation:["I"], type:["steel", "electric"], resistant:["fire", "dragon", "electric"], weaknesses:["water", "ice"]},
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
-  });
-
-  it('When advanced filtering pokemonAdvancedSorted on the condition 16.NNNN (only generation value:I, type:ground, resistant:fire, weaknesses value:ice), it should return only Crobat.', () => {
-    const pokemonAdvancedSortedSSSN = advancedFilterData(pokemonAdvancedFiltered, ["generation"], "I", ["type"], "ground", ["resistant"], "fire", ["weaknesses"], "ice");
-    expect(pokemonAdvancedSortedSSSN).toEqual([
-      {name:"Crobat", generation:["I"], type:["ground", "electric"], resistant:["steel", "fire", "grass"], weaknesses:["water", "ice"]}]) 
-  });
-})
 
 /*Conditions for the advancedFilterData: Os filtros são capazes de filtrar de acordo com outras caracteríticas e também, apenas algumas caracteriticas.
 Nestas condições, nos casos em que o valor selecinado para filtro de algum atributo é todos, a função filter não irá passar por este atributo.

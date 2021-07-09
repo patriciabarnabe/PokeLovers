@@ -737,15 +737,17 @@ const advancedFilterButton = document.getElementById("filter-advanced-search");
 
 //Aqui, ao invés criar uma condição para atributos vazios (seriam muitos if e elses, criamos um array de gerações já com o valor do numero da geração)
 for (const individual of pokemon){
-  individual["generatioNum"] = [];
-  individual["generatioNum"] = individual.generation.num
+  individual["generationName"] = [];
+  individual["generationName"] = individual.generation.name
 }
 
 advancedFilterButton.addEventListener("click", (event) => {
   let advancedDataResult = {};
   const emptySearch = document.getElementById("advanced-search-is-empty");
   event.preventDefault();
-  advancedDataResult = advancedFilterData(pokemon, ["generatioNum"], advancedGeneration.value, ["type"], advancedType.value, ["resistant"], advancedResistant.value, ["weaknesses"], advancedWeaknesses.value)
+  advancedDataResult = advancedFilterData(pokemon, ["generationName"], advancedGeneration.value, ["type"], advancedType.value, ["resistant"], advancedResistant.value, ["weaknesses"], advancedWeaknesses.value)
+
+  
   if(advancedDataResult.length === 0){
       emptySearch.style.display="block"
   } else {
@@ -753,6 +755,10 @@ advancedFilterButton.addEventListener("click", (event) => {
   }
   listPokemons(advancedDataResult, "")
 })
+
+
+
+
 
 
 }

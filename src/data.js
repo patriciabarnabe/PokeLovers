@@ -44,9 +44,9 @@ export const advancedFilterData = (dataset, firstattribute, v1, secondattribute,
   } else {
     filteredData = dataset.filter(data =>  data[firstattribute].includes(v1) && data[secondattribute].includes(v2) && data[thirdattribute].includes(v3) && data[forthattribute].includes(v4) )
   }
+  
   return filteredData
 }
-
 
 export const sortData = (data,firstAttribute, secondAttribute, sortOrder) => {
   if (firstAttribute === "") {
@@ -104,4 +104,3 @@ export const computeAverage = (data, firstAttribute, secondAttribute) => {
   }
 return result;
 }
-
