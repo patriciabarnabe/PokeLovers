@@ -5,16 +5,16 @@
 
 ## Índice
 
-* [1. Definição do Produto](#dart-definição-do-produto)
-* [2. Histórias de Usuários](#pencil2-histórias-de-usuários)
-* [3. Protótipos](#art-protótipos)
-* [4. Como usar?](#gear-como-usar)
-* [5. Links para saber mais sobre Pokémons](#link-links-para-saber-mais-sobre-pokémons)
-* [6. Testes de Usabilidade](#busts_in_silhouette-testes-de-usabilidade)
-* [7. Tecnologias utilizadas](#robot-tecnologias-utilizadas)
-* [8. Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
-* [9. Resultados](#%EF%B8%8F-resultados)
-* [10. Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
+1. [Definição do Produto](#dart-definição-do-produto)
+2. [Histórias de Usuários](#pencil2-histórias-de-usuários)
+3. [Protótipos](#art-protótipos)
+4. [Como usar?](#gear-como-usar)
+5. [Links para saber mais sobre Pokémons](#link-links-para-saber-mais-sobre-pokémons)
+6. [Testes de Usabilidade](#busts_in_silhouette-testes-de-usabilidade)
+7. [Tecnologias utilizadas](#robot-tecnologias-utilizadas)
+8. [Estrutura dos Principais Arquivos](#file_folder-estrutura-dos-principais-arquivos)
+9. [Resultados](#%EF%B8%8F-resultados)
+10. [Sobre as desenvolvedoras](#woman_technologist-sobre-as-desenvolvedoras)
 
 ---
 ## :dart: Definição do Produto
