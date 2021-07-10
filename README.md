@@ -95,19 +95,19 @@ Para a resolução dessas questões, foram implementados os campos de "Informaç
 ```
 .
 ├── 📁 src
-|  ├── 📁 data 
-|  |  ├── 📁 pokemon
-|  |      ├── 📄 pokemon.js
-|  |      ├── 📄 pokemon.json
-|  |      └── 📄 README.md   
-|  ├── 📁 images
-|  ├── 📄 data.js
-|  ├── 📄 index.html
-|  ├── 📄 main.js
-|  ├── 📄 pokedex.html
-|  └── 📄 style.css
+|   ├── 📁 data 
+|   |   └── 📁 pokemon
+|   |       ├── 📄 pokemon.js
+|   |       ├── 📄 pokemon.json
+|   |       └── 📄 README.md   
+|   └── 📁 images
+|       ├── 📄 data.js
+|       ├── 📄 index.html
+|       ├── 📄 main.js
+|       ├── 📄 pokedex.html
+|       └── 📄 style.css
 ├── 📁 test
-|      └── 📄 data.spec.js
+|   └── 📄 data.spec.js
 ├── 📄 README.md
 ├── 📄 package.json
 
