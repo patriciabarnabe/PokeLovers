@@ -100,12 +100,12 @@ Para a resolução dessas questões, foram implementados os campos de "Informaç
 |   |       ├── 📄 pokemon.js
 |   |       ├── 📄 pokemon.json
 |   |       └── 📄 README.md   
-|   └── 📁 images
-|       ├── 📄 data.js
-|       ├── 📄 index.html
-|       ├── 📄 main.js
-|       ├── 📄 pokedex.html
-|       └── 📄 style.css
+|   ├── 📁 images
+|   ├── 📄 data.js
+|   ├── 📄 index.html
+|   ├── 📄 main.js
+|   ├── 📄 pokedex.html
+|   └── 📄 style.css
 ├── 📁 test
 |   └── 📄 data.spec.js
 ├── 📄 README.md
