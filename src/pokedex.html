@@ -28,11 +28,26 @@
           <input type = "text" id="pokemon-search" class= "is-button-or-input" placeholder="Busque por um Pokémon">
       
           <select name="order" class="is-button-or-input" id="order">
-            <option selected disable class="disabled-order">Atributo</option>
+            <option selected disable class="disabled-order">Nome</option>
             <option value="name" class="order-selection">Alfabética</option>
-            <option value="rarity-order">Raridade</option>
+            <option selected disable class="disabled-order">Probabilidade de Aparição</option>
             <option value="egg">Distância dos Ovos</option>
             <option value="spawn-chance">Probabilidade de Aparição</option>
+            <option value="rarity-order">Raridade</option>
+            <option selected disable class="disabled-order">Encontro</option>
+            <option value="base-capture-rate">Probabilidade de Captura</option>
+            <option value="base-flee-rate">Probabilidade de Fuga</option>
+            <option selected disable class="disabled-order">Estatísticas</option>
+            <option value="base-attack">Ataque</option>
+            <option value="base-defense">Defesa</option>
+            <option value="max-cp">Força de Combate</option>
+            <option value="max-hp">Pontos de Dano</option>
+            <option value="base-stamina">Stamina</option>
+            <option selected disable class="disabled-order">Tamanho</option>
+            <option value="height">Altura</option>
+            <option value="weight">Peso</option>
+          
+            <option selected disable class="disabled-order">Selecione o Atributo</option>
           </select>
 
           <select name="option" class="is-button-or-input" id="option">
@@ -67,6 +82,30 @@
           <button class="main-filter is-button-or-input" id="filter-by-weaknesses-button">Fraqueza</button>
           <div class="hidden-buttons" id="buttons-weaknesses"></div> 
 
+          <button class="main-filter main-filter-buddy-distance is-button-or-input" id="filter-by-buddy-distance-button">Distância do Candy</button>
+          <div class="hidden-buttons" id="buttons-buddy-distance">
+            <button class="filter-button-buddy-distance is-button-or-input" id="1km-button" value="1"> 1 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="3km-button" value="3"> 3 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="5km-button" value="5"> 5 km </button>
+            <button class="filter-button-buddy-distance is-button-or-input" id="20km-button" value="20"> 20 km</button>
+          </div>
+
+          <button class="main-filter main-filter-advanced-search is-button-or-input" id="filter-by-advanced-search">Busca Avançada</button>
+          <div class="hidden-buttons" id="buttons-advanced-search">
+            <select name="generation" class="is-button-or-input advanced-search-selection" id="advanced-search-generation-select">
+              <option value ="All" selected disable class="disabled-order">Geração</option>  
+              <option value="Kanto" class="order-selection">Geração: Primeira - Kanto</option>
+              <option value="Johto" class="order-selection">Geração: Segunda  - Johto</option>
+              <option value="All" class="order-selection">Todas as Gerações</option>
+            </select> 
+            <select name="type" class="is-button-or-input advanced-search-selection" id="advanced-search-type-select"></select> 
+            <select name="resistant" class="is-button-or-input advanced-search-selection" id="advanced-search-resistant-select"></select>
+            <select name="weaknesses" class="is-button-or-input advanced-search-selection" id="advanced-search-weaknesses-select"> </select>
+            <button class="is-button-or-input advanced-search-selection" id="filter-advanced-search">Filtrar</button>
+            <p id="advanced-search-is-empty"> Nenhum Pokemon corresponde à pesquisa.</p>
+          </div>
+
+
         </section> 
 
         <button class="is-button-or-input" id="open-glossary">?</button>
@@ -75,12 +114,64 @@
         <section id="glossary-section">
           <div id="glossary">
               <header> 
-                <button class="is-button-or-input" id="close-glossary">Fechar</button>
-                <h2>Informações</h2>
+                <button class="is-button-or-input" id="close-glossary">X</button>
               </header>
               <main>
-                
-                <p>Blablablá </p>
+                <div class="glossary-columns">
+                  <h1> Informações </h1>
+                  <p class="about-pokemon-go"> O <a href="https://pokemongolive.com/pt_br/" target="_blank">Pokémon GO </a>é um jogo que combina o mundo virtual com a realidade. 
+                    Lançado em 2016 sob o comando da <a href="https://nianticlabs.com/pt_br/" target="_blank">Niantic, Inc.</a>, <a href="https://www.nintendo.com/pt_BR/" target="_blank"> Nintendo</a> e A <i><a href="https://www.pokemon.co.jp/" target="_blank"> The Pokemon Compay</a></i>. </p>
+                  <p class="about-pokemon-go"> Através do GPS e da câmera dos smartphones, é possível mergulhar no mundo Pokémon. 
+                    De forma dinâmica, o usuário pode encontrar, capturar, colecionar, batalhar e treinar 
+                    suas criaturas. Atualmente, o jogo conta com mais de 700  Pokémons e pode ser acessado 
+                    em diversos lugares do mundo. Neste website você pode encontrar informações referentes 
+                    aos 251 Pokémons pertencentes à primeira e à segunda geração. </p>
+                  <h1> Glossário </h1>
+                  <p> <b>Candy (Doce):</b> O Candy é um elemento que ao ser consumido aumenta o poder do seu Pokémon 
+                    e também pode fazer com que o mesmo evolua. </p>
+                  <p><b>Distância dos Ovos: </b>Este valor corresponde a distância que você terá de percorrer para encubar 
+                    totalmente um ovo de Pokémon. Os ovos de Pokémon podem ser encontrados aleatoriamente em PokéStops
+                     ou recebidos como presentes. </p>
+                  <p><b>Força de Combate:</b> Esta variável indica o quão forte um Pokémon será em batalha. 
+                    Esta força é calculada com base nos valores individuais (ataque, defesa e stamina) de cada criatura. </p>
+                </div>
+                <div class="glossary-columns">
+                  <p><b>Distância do Candy:</b> O sistema “companheiro” do Pokémon GO permite que você escolha um Pokémon para andar ao seu lado e 
+                    em troca, você recebe candies para este Pokémon. Cada Pokémon companheiro possui uma distância específica, a qual deve 
+                    ser percorrida para adquirir o candy. </p>
+                  <p> <b>Geração: </b>A primeira geração de Pokémons (1996-1999) é composta por 151 criaturas da região de Kanto. 
+                    A segunda geração (1999-2002) possui dois novos tipos de Pokémons (aço e sombrio), 100 criaturas e abrange a região de  
+                    Johto.</p>
+                  <p> <b>Pontos de Ataque:</b> Esta estatística determina quanto dano um Pokémon causa durante 
+                    um ataque físico. </p>
+                    <p> <b>Pontos de Dano:</b> Estes valores correspondem a quantidade máxima de dano que um 
+                      Pokémon pode receber antes de desmaiar. </p>
+                  <p> <b>Pontos de Defesa: </b>Esta variável corresponde a quantidade de dano que um Pokémon pode 
+                    resistir a cada ataque.</p>
+                  <p><b>Probabilidade de Aparição:</b> Os Pokémons podem ser encontrados com mais facilidade em lugares específicos de 
+                    acordo com o seu respectivo tipo. Por exemplo, é mais propício encontrar Pokémons do tipo água 
+                    em locais próximos à rios, mares e canais.</p> 
+                  <p><b>Probabilidade de Captura:</b> A probabilidade de captura de um Pokémon varia de acordo com a sua 
+                    espécie e força de combate.</p>
+                </div>
+                <div class="glossary-columns">
+                  <p> <b>Probabilidade de Escape: </b>Esta variável indica a probabilidade de um Pokémon fugir após escapar 
+                    de uma Pokébola. </p>
+                  <p> <b>Stamina: </b>A Stamina pode ser associada ao fôlego de um Pokémon, ou seja, por quanto 
+                    tempo uma criatura pode resistir em batalha. </p>
+                  <p> <b>Raridade: </b>A raridade de um Pokémon está relacionada com a frequência em que estes
+                    são vistos. Em alguns casos, é mais fácil encontrar Pokémons raros em ovos do que 
+                    nos próprios ambientes.</p>
+                  <h1> Resumo</h1>
+                  <p> - Distância do Companheiro: 01km, 03km, 05km e 20km;</p>
+                  <p> - Distância dos Ovos: 02km, 05km, 07km e 10km;</p>
+                  <p> - Nível de Raridade: Normal, Mítico e Lendário;</p>
+                  <p> - Probabilidades: 0 - 100%;</p>
+                  <p> - Primeira Geração - 151 Pokémons - Região de Kanto;</p>
+                  <p> - Segunda Geração - 100 Pokémons - Região de Johto;</p>
+                  <p> - Tipos, Resistências e Fraquezas (18):</p>
+                  <div id="buttons-glossary"></div>
+                </div>
               </main>
           </div>
         </section>
