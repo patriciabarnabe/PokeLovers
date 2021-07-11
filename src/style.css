@@ -233,9 +233,25 @@ visibility:visible;
 
 .filter-button-type, 
 .filter-button-resistant, 
-.filter-button-weaknesses{
+.filter-button-weaknesses,
+.filter-button-glossary{
     width:7%;
     color:#262626;
+}
+
+.filter-button-glossary{
+    width: 14.9%;
+    font-size:75%;
+}
+
+.filter-button-glossary:hover {
+    animation: none;
+    cursor: default;
+}
+
+#buttons-glossary {
+    margin-top:-2%;
+    margin-left: 0.4%;
 }
 
 #open-glossary {
@@ -247,13 +263,15 @@ visibility:visible;
 }
 
 #close-glossary {
-    margin-left:93%;
+    margin-left:95%;
+    z-index: 100;
     background-color: #9ae59a;
     border-color: #2d8658;
 }
 
 #glossary {
     position:fixed;
+    display: flex;
     top: 17%;
     left:5%;
     z-index: 100;
@@ -267,6 +285,11 @@ visibility:visible;
     display:none;
 }
 
+a {
+    text-decoration: none;
+    color:green;
+    font-weight: 500;
+}
 
 .glossary-tooltiptext {
     visibility: hidden;
@@ -282,6 +305,24 @@ visibility:visible;
     background-color: gainsboro;
     border-radius: 25px;
 }
+.glossary-columns {
+    width: 28%;
+    margin-left: 2%;
+    margin-top:-1.5%;
+    height: 80%;
+    float: left;
+    padding:1%;
+
+
+    font-size: 74%;
+
+    text-align: justify;
+}
+
+.about-pokemon-go {
+    text-indent: 30px;
+}
+
 
 #open-glossary:hover, #close-glossary:hover {
     background-color:#66cc99;
@@ -295,92 +336,92 @@ visibility:visible;
 }
 
 /* CORES */
-p[value="Bug"], p[value="RBug"], #bug-type-button, #bug-resistant-button, #bug-weaknesses-button {
+p[value="Bug"], p[value="RBug"], #bug-type-button, #bug-resistant-button, #bug-weaknesses-button, #bug-glossary-button {
     background-color: #729F3F;
     border-color: #729F3F;
 }
 
-p[value="Dark"], [value="RDark"], #dark-type-button, #dark-resistant-button,#dark-weaknesses-button {
+p[value="Dark"], [value="RDark"], #dark-type-button, #dark-resistant-button,#dark-weaknesses-button, #dark-glossary-button {
     background-color: #707070;
     border-color: #707070;
 }
 
-p[value="Dragon"], p[value="RDragon"], #dragon-type-button, #dragon-resistant-button, #dragon-weaknesses-button  {
+p[value="Dragon"], p[value="RDragon"], #dragon-type-button, #dragon-resistant-button, #dragon-weaknesses-button, #dragon-glossary-button  {
     background-color: #F16E57;
     border-color: #F16E57;
 }
 
-p[value="Electric"], p[value="RElectric"], #electric-type-button, #electric-resistant-button, #electric-weaknesses-button {
+p[value="Electric"], p[value="RElectric"], #electric-type-button, #electric-resistant-button, #electric-weaknesses-button, #electric-glossary-button {
     background-color: #EED535;
     border-color: #EED535;
 }
 
-p[value="Fairy"], p[value="RFairy"], #fairy-type-button, #fairy-resistant-button, #fairy-weaknesses-button  {
+p[value="Fairy"], p[value="RFairy"], #fairy-type-button, #fairy-resistant-button, #fairy-weaknesses-button, #fairy-glossary-button  {
     background-color: #FDB9E9;
     border-color: #FDB9E9;
 }
 
-p[value="Fighting"], p[value="RFighting"],#fighting-type-button , #fighting-resistant-button, #fighting-weaknesses-button {
+p[value="Fighting"], p[value="RFighting"],#fighting-type-button , #fighting-resistant-button, #fighting-weaknesses-button, #fighting-glossary-button {
     background-color: #D56723;
     border-color: #D56723;
 }
 
-p[value="Fire"],p[value="RFire"], #fire-type-button, #fire-resistant-button , #fire-weaknesses-button {
+p[value="Fire"],p[value="RFire"], #fire-type-button, #fire-resistant-button , #fire-weaknesses-button, #fire-glossary-button {
     background-color: #FD7D24;
     border-color: #FD7D24;
 }
 
-p[value="Flying"], p[value="RFlying"], #flying-type-button , #flying-resistant-button, #flying-weaknesses-button {
+p[value="Flying"], p[value="RFlying"], #flying-type-button , #flying-resistant-button, #flying-weaknesses-button, #flying-glossary-button {
     background-color: #80aaff;
     border-color: #80aaff;
 }
 
-p[value="Ghost"],p[value="RGhost"],  #ghost-type-button, #ghost-resistant-button, #ghost-weaknesses-button {
+p[value="Ghost"],p[value="RGhost"],  #ghost-type-button, #ghost-resistant-button, #ghost-weaknesses-button, #ghost-glossary-button {
     background-color: #7B62A3;
     border-color: #7B62A3;
 }
 
-p[value="Grass"],p[value="RGrass"], #grass-type-button, #grass-resistant-button, #grass-weaknesses-button {
+p[value="Grass"],p[value="RGrass"], #grass-type-button, #grass-resistant-button, #grass-weaknesses-button, #grass-glossary-button {
     background-color: #9BCC50;
     border-color:#9BCC50;
 }
 
-p[value="Ground"], p[value="RGround"], #ground-type-button , #ground-resistant-button , #ground-weaknesses-button{
+p[value="Ground"], p[value="RGround"], #ground-type-button , #ground-resistant-button , #ground-weaknesses-button, #ground-glossary-button {
     background-color: #AB8C7A;
     border-color: #AB8C7A;
 }
 
-p[value="Ice"], p[value="RIce"], #ice-type-button , #ice-resistant-button , #ice-weaknesses-button {
+p[value="Ice"], p[value="RIce"], #ice-type-button , #ice-resistant-button , #ice-weaknesses-button, #ice-glossary-button {
     background-color: #4effff;
     border-color: #4effff;
 }
 
-p[value="Normal"], p[value="RNormal"], #normal-type-button  , #normal-resistant-button , #normal-weaknesses-button{
+p[value="Normal"], p[value="RNormal"], #normal-type-button  , #normal-resistant-button , #normal-weaknesses-button, #normal-glossary-button{
     background-color: #caa39e;
     border-color:#caa39e;
 }
 
-p[value="Poison"],p[value="RPoison"],  #poison-type-button  , #poison-resistant-button , #poison-weaknesses-button {
+p[value="Poison"],p[value="RPoison"],  #poison-type-button  , #poison-resistant-button , #poison-weaknesses-button, #poison-glossary-button {
     background-color: #B97FC9;
     border-color:#B97FC9;
 }
 
-p[value="Psychic"],p[value="RPsychic"],  #psychic-type-button , #psychic-resistant-button , #psychic-weaknesses-button {
+p[value="Psychic"],p[value="RPsychic"],  #psychic-type-button , #psychic-resistant-button , #psychic-weaknesses-button, #psychic-glossary-button {
     background-color: #F366B9;
     border-color:#F366B9;
 }
 
-p[value="Rock"], p[value="RRock"], #rock-type-button , #rock-resistant-button , #rock-weaknesses-button {
+p[value="Rock"], p[value="RRock"], #rock-type-button , #rock-resistant-button , #rock-weaknesses-button, #rock-glossary-button {
     background-color: #A38C21;
     border-color: #A38C21;
 }
 
-p[value="Steel"], p[value="RSteel"], #steel-type-button , #steel-resistant-button , #steel-weaknesses-button  {
+p[value="Steel"], p[value="RSteel"], #steel-type-button , #steel-resistant-button , #steel-weaknesses-button, #steel-glossary-button  {
     background-color: #9EB7B8;
     border-color: #9EB7B8;
 }
 
-p[value="Water"], p[value="RWater"], #water-type-button , #water-resistant-button , #water-weaknesses-button {
+p[value="Water"], p[value="RWater"], #water-type-button , #water-resistant-button , #water-weaknesses-button, #water-glossary-button {
     background-color: #4592C4;
     border-color: #4592C4;
 }
