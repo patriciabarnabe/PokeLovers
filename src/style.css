@@ -55,7 +55,7 @@ body {
 }
 
 #home-pokeball-button:hover + #home-pokeball-button-text-hoover  {
-visibility:visible;
+    visibility:visible;
 }
 
 
@@ -290,7 +290,6 @@ a {
     color:green;
     font-weight: 500;
 }
-
 .glossary-tooltiptext {
     visibility: hidden;
     position:fixed;
@@ -305,10 +304,22 @@ a {
     background-color: gainsboro;
     border-radius: 25px;
 }
+
+#open-glossary:hover, #close-glossary:hover {
+    background-color:#66cc99;
+    border-color: green;
+    animation: none;
+}
+
+#open-glossary:hover + .glossary-tooltiptext {
+    visibility: visible;
+    cursor: defaut;
+}
+
 .glossary-columns {
     width: 28%;
     margin-left: 2%;
-    margin-top:-1.5%;
+    margin-top:-3.6%;
     height: 80%;
     float: left;
     padding:1%;
@@ -323,17 +334,6 @@ a {
     text-indent: 30px;
 }
 
-
-#open-glossary:hover, #close-glossary:hover {
-    background-color:#66cc99;
-    border-color: green;
-    animation: none;
-}
-
-#open-glossary:hover + .glossary-tooltiptext {
-    visibility: visible;
-    cursor: defaut;
-}
 
 /* CORES */
 p[value="Bug"], p[value="RBug"], #bug-type-button, #bug-resistant-button, #bug-weaknesses-button, #bug-glossary-button {
@@ -727,202 +727,548 @@ ul {
     color: #1a1a1a;
 }
 
+/*RESPONSIVIDADE TABLET*/
+@media screen and (max-width: 900px) {
+     /*INDEX*/
+     #home-backgroung-logo-img {
+        margin-top:20%;
+    }
+
+    /* POKEDEX */
+
+    /* "SEARCH FOR POKEMON" and ORDER input */
+    #pokemon-search {
+        width: 50%;
+    }
+
+    #order-button,#filters-button, #search-reset {
+        width: 20%;
+    }
+
+    .card {
+        width: 30%;
+    }
+
+    #open-glossary {
+        position: fixed;
+        top: 20%;
+    }
+
+    .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+        width:15%;
+        padding:2%;
+        }
+
+    #filter-by-resistant-button, #filter-by-weaknesses-button, #filter-by-advanced-search {
+        width: 20%;
+    }
+}
 
 /*RESPONSIVIDADE TABLET*/
 @media screen and (max-width: 769px) {
     
-/*INDEX*/
+    /*INDEX*/
     #home-backgroung-logo-img {
-            margin-top:15%;
-            max-width:70%;
-        }
-    
-        #home-pokeball-button {
-            max-width:10%;
-        }
-    
-        #home-body {
-            background-position: 38% 35%;
-        }
+        margin-top:15%;
+        max-width:70%;
+    }
+        
+    #home-pokeball-button {
+        max-width:10%;
+    }
+        
+    #home-body {
+        background-position: 38% 35%;
+    }
 
-        .footer-title {
-            font-size: 11pt;
-        }
+    .footer-title {
+        font-size: 11pt;
+    }
 
-        .footer-index, .footer-pokedex{
-            height: 25px;
-        }
+    .footer-index, .footer-pokedex{
+        height: 25px;
+    }
 
-    
-/* POKEDEX */
-/*TOP (Image and pokedex logo)*/
-        #pokedex-logo-top {
-            width: 18%;  
-        }
+        
+    /* POKEDEX */
+    /*TOP (Image and pokedex logo)*/
+    #pokedex-logo-top {
+        width: 18%;  
+    }
 
-/* "SEARCH FOR POKEMON" and ORDER input */
-        #pokemon-search {
-            font-size: 12pt;
-            padding: 1%;
-        }
+    /* "SEARCH FOR POKEMON" and ORDER input */
+    #pokemon-search {
+        font-size: 12pt;
+        padding: 1%;
+    }
 
-        #search-reset{
-            width: 20%;
-            font-size:11pt;
-            background-color: gainsboro;
-            border-color: #737373;
-        }
+    #search-reset{
+        width: 20%;
+        font-size:11pt;
+        background-color: gainsboro;
+        border-color: #737373;
+    }
 
-        #order-button {
-            width:15%;
-        }
+    #order-button {
+        width:15%;
+    }
 
-        #filters-button {
-            width: 15%;
-        }
+    #filters-button {
+        width: 15%;
+    }
 
-        .main-filter {
-            width: 15%;
-        }
+    .main-filter {
+        width: 15%;
+    }
 
-        .main-filter-buddy-distance, .main-filter-advanced-search {
+    .main-filter-buddy-distance, .main-filter-advanced-search {
         width:22%;
-        }
-
-        .filter-button-generation{
-            width: 20%;
-        }
-
-        .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
-            width:12%;
-        }
-
-/* CARDS */
-        #lista-impressa {
-            padding:0;
-        }
+    }
 
 
-        .card {
-            width: 30%;
-        }
+    .filter-button-generation{
+        width: 20%;
+    }
 
-        .back-card, .front-card{
-            width: 90%;
-        }
-       
+    .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+        width:12%;
+    }
+
+    #open-glossary{
+        position:fixed;
+        top: 17%;
+    }
+
+    #glossary {
+        width: 85%;
+        height: 80%;
+        overflow-y: auto;
+    }
+
+    .glossary-tooltiptext{
+        top: 23%;
+    }
+
+    .filter-button-glossary{
+        width: 31%;
     }
     
+
+    /* CARDS */
+    #lista-impressa {
+        padding:0;
+    }
+
+    .card {
+        width: 30%;
+    }
+
+    .back-card, .front-card{
+        width: 90%;
+    }
+        
+}   
+
 /*RESPONSIVIDADE MOBILE*/
-       
+@media screen and (max-width: 620px) {
+    .card {
+        width: 40%;
+    }
+
+    .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+        width:15%;
+        padding:2%;
+        }
+
+    #filter-by-resistant-button, #filter-by-advanced-search {
+        width: 18%;
+    }
+
+    #pokemon-search {
+        width: 40%;
+    }
+   
+}
+
+/*RESPONSIVIDADE MOBILE*/
+@media screen and (max-width: 540px) {
+    
+    /*INDEX*/
+    #home-backgroung-logo-img {
+      margin-top:40%;
+      max-width:100%;
+      }
+    
+      #home-pokeball-button {
+      max-width:18%;   
+      margin-left:42%;
+      }
+    
+      #home-body {
+      background-position: 50% 35%;
+      }
+    
+      .home-background-logo-figure {
+      margin: 0;
+      }
+    
+      .footer-title {
+      font-size: 11pt;
+      }
+    
+    /* POKEDEX */
+    /*TOP (Image and pokedex logo)*/
+      #pokedex-div-top {
+      margin-top: 0;  
+      }
+    
+      #pokedex-img-top {
+      visibility: hidden;
+      }
+    
+      #pokedex-img-hidden {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-top: -10%;
+    
+      }
+      
+      #pokedex-logo-top {
+      width: 38%;
+      margin-left:-50%;   
+      margin-top: -35%;
+      }
+      
+      #goback-button {
+      position:absolute;
+      width: 7%;  
+      margin-left:-47%;  
+      margin-top: -12%; 
+      }
+    
+    /* "SEARCH FOR POKEMON" and ORDER input */
+      #pokemon-search {
+      font-size: 13pt;
+      padding: 2%;
+      width: 85%;
+      margin: 5%;
+      }
+    
+      #order , #option, #order-button, #filters-button, #search-reset {
+      width: 30%;
+      padding: 2%;
+      }
+    
+      #search-reset {
+      width: 35%;
+      }
+    
+      .main-filter {
+      margin-top: 5%;
+      width: 30%;
+      padding:2%;
+      }
+    
+      .main-filter-buddy-distance, .main-filter-advanced-search {
+      width:48%;
+      }
+      .advanced-search-selection {
+      margin-top: 3%;
+      width: 40%;
+      }
+    
+      .filter-button-generation {
+      width: 50%;
+      padding: 2%;
+      }
+    
+      .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+      width:25%;
+      padding:2%;
+      }
+
+      #open-glossary{
+        position:fixed;
+        top: 40%;
+    }
+
+    #glossary {
+        top:3%;
+        width:90%;
+        height: 95%;
+        overflow-y: auto;
+    }
+
+    .glossary-tooltiptext{
+        top: 46%;
+    }
+
+    .filter-button-glossary{
+        width: 60%;
+    }
+    
+    /* CARDS */
+      #lista-impressa {
+      padding:0;
+      }
+    
+      .card {
+      width: 70%;
+      }
+    
+      .back-card, .front-card{
+      width: 80%;
+      }
+    }
+
+@media screen and (max-width: 411px) {
+    
+    /*INDEX*/
+      #home-backgroung-logo-img {
+      margin-top:40%;
+      max-width:100%;
+      }
+    
+      #home-pokeball-button {
+      max-width:18%;   
+      margin-left:42%;
+      }
+    
+      #home-body {
+      background-position: 50% 35%;
+      }
+    
+      .home-background-logo-figure {
+      margin: 0;
+      }
+    
+      .footer-title {
+      font-size: 11pt;
+      }
+    
+    /* POKEDEX */
+    /*TOP (Image and pokedex logo)*/
+      #pokedex-div-top {
+      margin-top: 0;  
+      }
+    
+      #pokedex-img-top {
+      visibility: hidden;
+      }
+    
+      #pokedex-img-hidden {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-top: -10%;
+    
+      }
+      
+      #pokedex-logo-top {
+      width: 38%;
+      margin-left:-50%;   
+      margin-top: -35%;
+      }
+      
+      #goback-button {
+      position:absolute;
+      width: 7%;  
+      margin-left:-47%;  
+      margin-top: -12%; 
+      }
+    
+    /* "SEARCH FOR POKEMON" and ORDER input */
+      #pokemon-search {
+      font-size: 13pt;
+      padding: 2%;
+      width: 85%;
+      margin: 5%;
+      }
+    
+      #order , #option, #order-button, #filters-button, #search-reset {
+      width: 30%;
+      padding: 2%;
+      }
+    
+      #search-reset {
+      width: 35%;
+      }
+    
+      .main-filter {
+      margin-top: 5%;
+      width: 30%;
+      padding:2%;
+      }
+    
+      .main-filter-buddy-distance, .main-filter-advanced-search {
+      width:48%;
+      }
+      .advanced-search-selection {
+      margin-top: 3%;
+      width: 60%;
+      }
+    
+      .filter-button-generation {
+      width: 50%;
+      padding: 2%;
+      }
+    
+      .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+      width:25%;
+      padding:2%;
+      }
+
+      .filter-button-glossary{
+        width: 80%;
+    }
+
+    #open-glossary{
+        position:fixed;
+        top: 70%;
+    }
+
+    .glossary-tooltiptext{
+        top: 76%;
+    }
+    
+    /* CARDS */
+      #lista-impressa {
+      padding:0;
+      }
+    
+      .card {
+      width: 70%;
+      }
+    
+      .back-card, .front-card{
+      width: 90%;
+      }
+    }
+
 @media screen and (max-width: 376px) {
     
 /*INDEX*/
-        #home-backgroung-logo-img {
-            margin-top:40%;
-            max-width:100%;
-        }
+    #home-backgroung-logo-img {
+      margin-top:40%;
+      max-width:100%;
+    }
     
-        #home-pokeball-button {
-            max-width:18%;   
-            margin-left:42%;
-        }
+    #home-pokeball-button {
+      max-width:18%;   
+      margin-left:42%;
+    }
     
-        #home-body {
-            background-position: 50% 35%;
-        }
+    #home-body {
+      background-position: 50% 35%;
+    }
     
-        .home-background-logo-figure {
-            margin: 0;
-        }
+    .home-background-logo-figure {
+      margin: 0;
+    }
 
-        .footer-title {
-            font-size: 11pt;
-        }
+    .footer-title {
+      font-size: 11pt;
+    }
     
 /* POKEDEX */
 /*TOP (Image and pokedex logo)*/
-        #pokedex-div-top {
-            margin-top: 0;  
-        }
-    
-        #pokedex-img-top {
-            visibility: hidden;
-        }
-    
-        #pokedex-img-hidden {
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            margin-top: -10%;
-    
-        }
-        
-        #pokedex-logo-top {
-            width: 38%;
-            margin-left:-50%;   
-            margin-top: -35%;
-        }
-        
-        #goback-button {
-            position:absolute;
-            width: 7%;  
-            margin-left:-47%;  
-            margin-top: -12%; 
-        }
-
-/* "SEARCH FOR POKEMON" and ORDER input */
-        #pokemon-search {
-            font-size: 13pt;
-            padding: 2%;
-            width: 85%;
-            margin: 5%;
-        }
-
-        #order , #option, #order-button, #filters-button, #search-reset {
-            width: 30%;
-            padding: 2%;
-        }
-
-        #search-reset {
-            width: 35%;
-        }
-
-        .main-filter {
-            margin-top: 5%;
-            width: 30%;
-            padding:2%;
-        }
-
-        .main-filter-buddy-distance, .main-filter-advanced-search {
-            width:48%;
-            }
-
-        .filter-button-generation {
-            width: 50%;
-            padding: 2%;
-        }
-
-        .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
-            width:25%;
-            padding:2%;
-        }
-
-/* CARDS */
-        #lista-impressa {
-            padding:0;
-        }
-
-        .card {
-            width: 70%;
-        }
-
-        .back-card, .front-card{
-            width: 90%;
-        }
+    #pokedex-div-top {
+      margin-top: 0;  
     }
     
+    #pokedex-img-top {
+      visibility: hidden;
+    }
+    
+    #pokedex-img-hidden {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-top: -10%;
+    
+    }
+    
+    #pokedex-logo-top {
+      width: 38%;
+      margin-left:-50%;   
+      margin-top: -35%;
+    }
+    
+    #goback-button {
+      position:absolute;
+      width: 7%;  
+      margin-left:-47%;  
+      margin-top: -12%; 
+    }
+
+/* "SEARCH FOR POKEMON" and ORDER input */
+    #pokemon-search {
+      font-size: 13pt;
+      padding: 2%;
+      width: 85%;
+      margin: 5%;
+    }
+
+    #option, #order-button, #filters-button, #search-reset {
+      width: 30%;
+      padding: 2%;
+    }
+
+    #order {
+        width: 50%;
+    }
+
+    #search-reset {
+      width: 35%;
+    }
+
+    .main-filter {
+      margin-top: 5%;
+      width: 30%;
+      padding:2%;
+    }
+
+    .main-filter-buddy-distance, .main-filter-advanced-search {
+      width:48%;
+      }
+
+    .advanced-search-selection {
+      margin-top: 3%;
+      width: 60%;
+    }
+
+    .filter-button-generation {
+      width: 50%;
+      padding: 2%;
+    }
+
+    .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+      width:25%;
+      padding:2%;
+    }
+
+    .glossary-columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+/* CARDS */
+    #lista-impressa {
+      padding:0;
+    }
+
+    .card {
+      width: 70%;
+    }
+
+    .back-card, .front-card{
+      width: 90%;
+    }
+}
 
 .show {
     display:block;
