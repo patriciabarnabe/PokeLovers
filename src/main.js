@@ -249,6 +249,7 @@ function createButtons (dataset, attribute) {
 createButtons(namesCorrespondence, "type");
 createButtons(namesCorrespondence, "resistant");
 createButtons(namesCorrespondence, "weaknesses");
+createButtons(namesCorrespondence, "glossary");
 
 // Pesquisa Avançada
 function createSelection (dataset, firstAttribute, attributeInPortuguese) {
@@ -336,7 +337,7 @@ function listPokemons (dataset, attribute) {
             <span class="back-tooltiptext">Abaixo da Média (Todos Pokemons)</span> 
           
             <img class="back-stats-figures" alt="Vida" src="images/heart.jpg">
-            <span class="back-tooltiptext">Pontos de Vida</span>
+            <span class="back-tooltiptext">Pontos de Dano</span>
             <span>${dataset["stats"]["max-hp"]}</span> 
             <span class="back-greater-than-average-arrow"> ${dataset["statusMaxHpGreater"]} </span> 
             <span class="back-tooltiptext">Acima da Média (Todos Pokemons)</span>
@@ -422,7 +423,7 @@ function decideWhatToAdd (dataset, attribute) {
       attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-cp"]}> Força de Combate: ${dataset["stats"]["max-cp"]}</p>`;
     break;
     case "max-hp":
-      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-hp"]}> Pontos de Vida: ${dataset["stats"]["max-hp"]}</p>`;
+      attributeToBeAdded = `<p class="front-stats" value= ${dataset["stats"]["max-hp"]}> Pontos de Dano: ${dataset["stats"]["max-hp"]}</p>`;
     break;
     case "generation":
       attributeToBeAdded =`<p class="front-pokemon-generation"> Geração ${dataset["generation"]["num"]}  </p>`;
@@ -759,7 +760,7 @@ advancedFilterButton.addEventListener("click", (event) => {
 
 
 
-
+console.log(pokemon)
 
 }
 getData();
