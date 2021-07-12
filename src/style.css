@@ -892,6 +892,10 @@ ul {
     #order {
         width: 40%;
     }
+  
+   .disabled-order {
+      visibility:hidden;
+    }
 
     #search-reset, #order-button, #filters-button {
         width: 23%;
@@ -977,6 +981,10 @@ ul {
     
       #search-reset {
       width: 35%;
+    }
+  
+    .disabled-order {
+      visibility:hidden;
     }
     
     .main-filter {
@@ -1120,6 +1128,10 @@ ul {
         width: 50%;
       }
 
+      .disabled-order {
+      visibility:hidden;
+      }
+  
       #filter-by-resistant-button, #filter-by-weaknesses-button, #filter-by-advanced-search {
         width: 30%;
     }
@@ -1253,6 +1265,10 @@ ul {
         width: 50%;
     }
 
+    .disabled-order {
+      visibility:hidden;
+    }
+  
     #search-reset {
       width: 35%;
     }
