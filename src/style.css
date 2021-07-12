@@ -585,8 +585,8 @@ p[value="Water"], p[value="RWater"], #water-type-button , #water-resistant-butto
 
 .back-size-figures:hover + .back-tooltiptext, 
 .back-stats-figures:hover + .back-tooltiptext, 
-.greater-than-average-arrow:hover +.back-tooltiptext, 
-.lower-than-average-arrow:hover +.back-tooltiptext {
+.back-greater-than-average-arrow:hover +.back-tooltiptext, 
+.back-lower-than-average-arrow:hover +.back-tooltiptext {
     visibility: visible;
     cursor: defaut;
 }
