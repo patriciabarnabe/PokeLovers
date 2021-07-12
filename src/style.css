@@ -225,6 +225,7 @@ body {
     border-color: #ff6666;
     background-color: #ffb3b3;
     color: #262626;
+    padding: 2.5%;
 }
 
 .filter-button-buddy-distance:hover {
@@ -876,7 +877,7 @@ ul {
     }
 
     .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
-        width:15%;
+        width:18%;
         padding:2%;
         }
 
@@ -885,9 +886,22 @@ ul {
     }
 
     #pokemon-search {
+        width: 50%;
+    }
+
+    #order {
         width: 40%;
     }
-   
+
+    #search-reset, #order-button, #filters-button {
+        width: 23%;
+    }
+
+    #open-glossary{
+        position:fixed;
+        top: 25%;
+    }
+
 }
 
 /*RESPONSIVIDADE MOBILE*/
@@ -899,99 +913,108 @@ ul {
       max-width:100%;
       }
     
-      #home-pokeball-button {
+    #home-pokeball-button {
       max-width:18%;   
       margin-left:42%;
-      }
+    }
     
-      #home-body {
+    #home-body {
       background-position: 50% 35%;
-      }
+    }
     
-      .home-background-logo-figure {
+    .home-background-logo-figure {
       margin: 0;
-      }
+    }
     
-      .footer-title {
+    .footer-title {
       font-size: 11pt;
-      }
+    }
     
     /* POKEDEX */
     /*TOP (Image and pokedex logo)*/
-      #pokedex-div-top {
+    #pokedex-div-top {
       margin-top: 0;  
-      }
+    }
     
-      #pokedex-img-top {
+    #pokedex-img-top {
       visibility: hidden;
-      }
+    }
     
-      #pokedex-img-hidden {
+    #pokedex-img-hidden {
       display: block;
       width: 100%;
       max-width: 100%;
       height: auto;
       margin-top: -10%;
     
-      }
+    }
       
-      #pokedex-logo-top {
+    #pokedex-logo-top {
       width: 38%;
       margin-left:-50%;   
       margin-top: -35%;
-      }
+    }
       
-      #goback-button {
+    #goback-button {
       position:absolute;
       width: 7%;  
       margin-left:-47%;  
       margin-top: -12%; 
-      }
+    }
     
     /* "SEARCH FOR POKEMON" and ORDER input */
-      #pokemon-search {
+    #pokemon-search {
       font-size: 13pt;
       padding: 2%;
       width: 85%;
       margin: 5%;
-      }
+    }
     
-      #order , #option, #order-button, #filters-button, #search-reset {
+    #order , #option, #order-button, #filters-button, #search-reset {
       width: 30%;
       padding: 2%;
-      }
+    }
     
       #search-reset {
       width: 35%;
-      }
+    }
     
-      .main-filter {
+    .main-filter {
       margin-top: 5%;
       width: 30%;
       padding:2%;
-      }
+    }
     
-      .main-filter-buddy-distance, .main-filter-advanced-search {
+    .main-filter-buddy-distance, .main-filter-advanced-search {
       width:48%;
-      }
-      .advanced-search-selection {
+    }
+    
+    .advanced-search-selection {
       margin-top: 3%;
       width: 40%;
-      }
+    }
     
-      .filter-button-generation {
+    .filter-button-generation {
       width: 50%;
       padding: 2%;
-      }
+    }
+
+    #order {
+        width: 50%;
+    }
+
+    #filter-by-resistant-button, #filter-by-weaknesses-button, #filter-by-advanced-search {
+        width: 30%;
+    }
     
-      .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
+    .filter-button-type, .filter-button-resistant, .filter-button-weaknesses{
       width:25%;
       padding:2%;
-      }
+    }
 
-      #open-glossary{
+    #open-glossary{
         position:fixed;
-        top: 40%;
+        top: 60%;
     }
 
     #glossary {
@@ -1092,6 +1115,14 @@ ul {
       width: 30%;
       padding: 2%;
       }
+
+      #order {
+        width: 50%;
+      }
+
+      #filter-by-resistant-button, #filter-by-weaknesses-button, #filter-by-advanced-search {
+        width: 30%;
+    }
     
       #search-reset {
       width: 35%;
