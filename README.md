@@ -19,7 +19,7 @@
 ---
 ## :dart: Definição do Produto
 
-O [PokeLovers](...) foi desenvolvido com o objetivo de auxiliar os jogadores de PokémonGo a terem uma melhor experiência dentro do jogo. Para isso, esta aplicação tem a missão de prover informações aos usuários de forma dinâmica e divertida para que estas sejam utilizadas estrategicamente na jogabilidade.
+O [PokeLovers](https://laismune.github.io/sap006-data-lovers) foi desenvolvido com o objetivo de auxiliar os jogadores de PokémonGo a terem uma melhor experiência dentro do jogo. Para isso, esta aplicação tem a missão de prover informações aos usuários de forma dinâmica e divertida para que estas sejam utilizadas estrategicamente na jogabilidade.
 
 O layout do site representa a interação com uma verdadeira Pokédex (também conhecida como Poké-Agenda no Brasil) que é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registrar todas as espécies diferentes que são encontradas durante as suas aventuras. 
 
@@ -115,7 +115,31 @@ Para a resolução dessas questões, foram implementados os campos de "Informaç
 
 ## ✔️ Resultados
 
-![img](./src/img/tela1.png)
+* ####  Mobile (375px)
+![img](./src/images/resultado-mobile-index.png)
+![img](./src/images/resultado-mobile-pokedex1.png)
+![img](./src/images/resultado-mobile-pokedex2.png)
+![img](./src/images/resultado-mobile-pokedex3.png)
+![img](./src/images/resultado-mobile-pokedex4.png)
+![img](./src/images/resultado-mobile-pokedex5.png)
+
+* #### Tablet (768px)
+![img](./src/images/resultado-tablet-index.png)
+![img](./src/images/resultado-tablet-pokedex1.png)
+![img](./src/images/resultado-tablet-pokedex2.png)
+![img](./src/images/resultado-tablet-pokedex3.png)
+![img](./src/images/resultado-tablet-pokedex4.png)
+![img](./src/images/resultado-tablet-pokedex5.png)
+
+* #### Desktop (1440px)
+![img](./src/images/resultado-desktop-index.png)
+![img](./src/images/resultado-desktop-pokedex1.png)
+![img](./src/images/resultado-desktop-pokedex2.png)
+![img](./src/images/resultado-desktop-pokedex3.png)
+![img](./src/images/resultado-desktop-pokedex4.png)
+![img](./src/imagesresultado-desktop-pokedex5.png)
+![img](./src/images/resultado-desktop-pokedex6.png)
+
 
 ---
 ## :woman_technologist: Sobre as desenvolvedoras
