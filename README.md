@@ -116,8 +116,8 @@ Para a resolução dessas questões, foram implementados os campos de "Informaç
 ## ✔️ Resultados
 
 * ####  Mobile (375px)
-![img](./src\images\resultado-mobile-index.png)
-![img](./src\images\resultado-mobile-pokedex1.png)
+![img](.\src\images\resultado-mobile-index.png)
+![img](.\src\images\resultado-mobile-pokedex1.png)
 ![img](./src\images\resultado-mobile-pokedex2.png)
 ![img](./src\images\resultado-mobile-pokedex3.png)
 ![img](./src\images\resultado-mobile-pokedex4.png)
