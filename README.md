@@ -115,7 +115,33 @@ Para a resolução dessas questões, foram implementados os campos de "Informaç
 
 ## ✔️ Resultados
 
-![img](./src/img/tela1.png)
+* ####  Mobile (375px)
+![img](./src\images\resultado-mobile-index.png)
+![img](./src\images\resultado-mobile-pokedex1.png)
+![img](./src\images\resultado-mobile-pokedex2.png)
+![img](./src\images\resultado-mobile-pokedex3.png)
+![img](./src\images\resultado-mobile-pokedex4.png)
+![img](./src\images\resultado-mobile-pokedex5.png)
+
+* #### Tablet (768px)
+![img](./src\images\resultado-tablet-index.png)
+![img](./src\images\resultado-tablet-pokedex1.png)
+![img](./src\images\resultado-tablet-pokedex2.png)
+![img](./src\images\resultado-tablet-pokedex3.png)
+![img](./src\images\resultado-tablet-pokedex4.png)
+![img](./src\images\resultado-tablet-pokedex5.png)
+
+* #### Desktop (1440px)
+
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+![img](./src\images\resultado-desktop-index.png)
+
 
 ---
 ## :woman_technologist: Sobre as desenvolvedoras
