@@ -19,7 +19,7 @@
 ---
 ## :dart: Definição do Produto
 
-O [PokeLovers](https://laismune.github.io/SAP006-data-lovers/) foi desenvolvido com o objetivo de auxiliar os jogadores de PokémonGo a terem uma melhor experiência dentro do jogo. Para isso, esta aplicação tem a missão de prover informações aos usuários de forma dinâmica e divertida para que estas sejam utilizadas estrategicamente na jogabilidade.
+O [PokeLovers](https://romantic-torvalds-9e61b2.netlify.app/src/) foi desenvolvido com o objetivo de auxiliar os jogadores de PokémonGo a terem uma melhor experiência dentro do jogo. Para isso, esta aplicação tem a missão de prover informações aos usuários de forma dinâmica e divertida para que estas sejam utilizadas estrategicamente na jogabilidade.
 
 O layout do site representa a interação com uma verdadeira Pokédex (também conhecida como Poké-Agenda no Brasil) que é uma enciclopédia virtual portátil de alta tecnologia que os treinadores Pokémon transportam para registrar todas as espécies diferentes que são encontradas durante as suas aventuras. 
 
