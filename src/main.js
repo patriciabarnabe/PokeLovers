@@ -757,10 +757,5 @@ advancedFilterButton.addEventListener("click", (event) => {
   listPokemons(advancedDataResult, "")
 })
 
-
-
-
-console.log(pokemon)
-
 }
 getData();
