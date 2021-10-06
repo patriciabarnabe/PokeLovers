@@ -1,5 +1,4 @@
-
-# PokeLovers :green_heart:
+<h1 align="center">PokeLovers :green_heart:</p>
 
 ## Projeto 2 - Data Lovers desenvolvido no bootcamp de Front-End da SAP006 Laboratória :yellow_heart:
 
