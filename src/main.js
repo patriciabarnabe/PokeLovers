@@ -278,7 +278,7 @@ function listPokemons (dataset, attribute) {
     <div class="card">
       <div class="front-card"> 
         <li class="front-list"> 
-        <img class="front-pokemon-image" alt="${dataset.name}" src="https://pokeres.bastionbot.org/images/pokemon/${dataset.idWithoutLeftZeros}.png">
+        <img class="front-pokemon-image" alt="${dataset.img}" src="${dataset.img}">
           <p class="front-pokemon-id">#${dataset["num"]} </p> 
           <p class="front-pokemon-name"> ${dataset["name"]} </p> 
           <p class="front-pokemon-type" value= ${dataset["type"][0]}> ${dataset["typeInPortugues"][0]} </p> 
@@ -756,6 +756,11 @@ advancedFilterButton.addEventListener("click", (event) => {
   }
   listPokemons(advancedDataResult, "")
 })
+
+
+
+
+console.log(pokemon)
 
 }
 getData();
